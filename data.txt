@@ -1,0 +1,99 @@
+// it("Haz click en checkbox",async () => {
+//      const CHECK = "~Ingrese PIN"
+//      $(CHECK).click()
+//      browser.pause(3000)
+// });
+
+// Verificar si hay alerta
+// const isAlert = await driver.isAlertOpen();
+// if (isAlert) {
+//   const mensaje = await driver.getAlertText(); // captura mensaje
+//   console.log('Alerta detectada:', mensaje);
+//
+//   await driver.acceptAlert(); // Aceptar
+//   // O await driver.dismissAlert(); // Cancelar
+// }
+//
+    //
+    //
+    //// Esperar a que aparezca el dialog
+// const dialog = await $('//android.widget.FrameLayout[@resource-id="android:id/content"]');
+// await dialog.waitForExist({ timeout: 5000 });
+//
+// // Extraer mensaje del dialog
+// const mensaje = await $('//android.widget.TextView[@resource-id="android:id/message"]');
+// const textoMensaje = await mensaje.getText();
+// console.log('Mensaje del dialog:', textoMensaje);
+//
+// // Extraer título
+// const titulo = await $('//android.widget.TextView[@resource-id="android:id/alertTitle"]');
+// console.log('Título:', await titulo.getText());
+//
+// // Cerrar dialog (botón OK/CANCEL)
+// await $('//android.widget.Button[@text="OK"]').click();
+//
+    
+// Esperar a que aparezca el toast
+// const toast = await $('//android.widget.Toast[1]');
+// await toast.waitForExist({ timeout: 5000 });
+//
+// // Obtener texto
+// const textoToast = await toast.getText();
+// console.log('Toast capturado:', textoToast);
+//
+// // O si usas XPath con contains
+// const toast2 = await $('//*[contains(@text, "mensaje esperado")]');
+// if (await toast2.isExisting()) {
+//   console.log('Toast con texto específico encontrado');
+// }
+//const bottomSheet = await $('//android.widget.FrameLayout[@resource-id="com.juvomos.pos:id/bottom_sheet"]');
+// await bottomSheet.waitForDisplayed();
+//
+// // Extraer mensaje
+// const mensaje = await bottomSheet.$('//android.widget.TextView').getText();
+// console.log('Mensaje:', mensaje);
+//
+// // Cerrar tocando fuera o con botón X
+// await driver.touchAction({ action: 'tap', x: 100, y: 200 }); // coordenada fuera
+// O await $('~Cerrar').click();/
+    //
+    //
+    //
+    //
+    //
+//     /it('debería limpiar input y capturar alerta', async () => {
+//   // Limpiar input
+//   const input = await $('id:com.juvomos.pos:id/campoCodigo');
+//   await input.waitForDisplayed();
+//   await input.clearValue();
+//   await input.setValue('12345');
+//
+//   // Capturar dialog de confirmación
+//   const botonEnviar = await $('id:com.juvomos.pos:id/btnEnviar');
+//   await botonEnviar.click();
+//
+//   // Esperar dialog
+//   const dialogMensaje = await $('//android.widget.TextView[@resource-id="android:id/message"]');
+//   await dialogMensaje.waitForExist({ timeout: 5000 });
+//
+//   const mensaje = await dialogMensaje.getText();
+//   console.log('✅ Mensaje capturado:', mensaje); // "Código enviado con éxito"
+//
+//   // Cerrar dialog
+//   await $('//android.widget.Button[@text="Aceptar"]').click();
+// });/
+    //
+    //
+    //
+    //
+    //
+    //
+    //const PASSWORD_TEST = 'TestPass123';
+
+// it('debería verificar password', async () => {
+//   const passwordInput = await $('id:com.juvomos.pos:id/txtPassword');
+//   await passwordInput.setValue(PASSWORD_TEST);
+//
+//   // En lugar de leer, comparar con variable conocida
+//   expect(PASSWORD_TEST).toBe('TestPass123'); // Siempre true
+// });
