@@ -1,21 +1,22 @@
 describe("Close app with meatballs menu'",()=>{
  
-    it("Upper right menu is clicked" ,async ( ) =>{
-        //Select meatballs menu
-        const selector = await $('//android.widget.ImageView[@content-desc="Más opciones"]')
-        await selector.click()
+    beforeEach('Check you are in welcome licence view',_ =>{
+        $('id:com.juvomos.pos:id/txtWelcomeLicenseId').click();
+    })
+
+    it("Upper right menu is clicked" ,_ =>{
+        $('//android.widget.ImageView[@content-desc="Más opciones"]').click();
     });
 
     it("Close apk is clicked" ,async ( ) =>{
         // Click in "Cerrar aplicacion" to close app
-        const OPT_CLOSE = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/content"])[2]')
-        await OPT_CLOSE.click()
-
-        //Espero 5 seg para que cierre la aplicacion
+        const app = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/content"])[2]')
+        await app.click()
+        // Wait 5 seg till apk is closed
         await browser.pause(5000) 
     });
 
-    it("Check if app is still open" ,async ( ) =>{
+    it("Apk was closed" ,async ( ) =>{
         //Check if app close correctlye(pending better solution)
         const ELEMENT_ID = await $('(//android.widget.FrameLayout[@resource-id="com.juvomos.pos:id/containerFragmentHome"])[2]/android.view.ViewGroup').elementId
         const ENDS_CORRECTLY = !ELEMENT_ID.endsWith('0012');

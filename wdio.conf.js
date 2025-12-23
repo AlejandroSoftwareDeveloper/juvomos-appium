@@ -22,8 +22,8 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/CloseAppWithMeatBallsMenu.js',
-        './test/specs/PinRegistration.js',
+        // './test/specs/CloseAppWithMeatBallsMenu.js',
+        './test/specs/LicenseInstalationProcess.js',
         // './test/specs/**/*.js'
     ],
     // Patterns to exclude.
