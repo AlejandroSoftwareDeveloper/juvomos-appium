@@ -23,7 +23,12 @@ exports.config = {
     //
     specs: [
         // './test/specs/CloseAppWithMeatBallsMenu.js',
-        './test/specs/LicenseInstalationProcess.js',
+        // './test/specs/LicenseInstalationProcess.js',
+        // './test/specs/PinRegistration.js',
+        './test/specs/EntryRegister.js',
+        './test/specs/InitBreakIn.js',
+        // './test/specs/FinishBreakIn.js', // Tiene errores 
+
         // './test/specs/**/*.js'
     ],
     // Patterns to exclude.

@@ -1,6 +1,6 @@
 describe("Validate instalation process", () => {
     let input_password = 'id:com.juvomos.pos:id/txt_pin_user';
-    let accept_button = 'id:com.juvomos.pos:id/checkBigImage';
+    let accept_button  = 'id:com.juvomos.pos:id/checkBigImage';
 
     // Helper fucntion
     async function insert_code_and_accept(code){
@@ -17,7 +17,7 @@ describe("Validate instalation process", () => {
     });
 
       // 2. Check if validate empty field
-    it("Show pin message 'Ingrese PIN' if input field is empty",async () => {
+    it("TC0001: Show pin message 'Ingrese PIN' if input field is empty",async () => {
        await $(accept_button).click();
 
        // 2.1 Wait till snackbar appears
@@ -31,7 +31,7 @@ describe("Validate instalation process", () => {
     });
 
     // 3. Check if password field accept specialchar
-    it("Password field do support number", async () => {
+    it("TC0002: Password field do support number", async () => {
          // 3.1 Insert custom value
         const VALID_PASS = '1234567890';
         const input = await $(input_password);
@@ -43,7 +43,7 @@ describe("Validate instalation process", () => {
     });
     //
     // 4. Check if password field accept specialchar
-    it("Password field do not support specialchars", async () => {
+    it("TC0003: Password field do not support specialchars", async () => {
          // 4.1 Insert custom value
         const INVALID_PASS = '!@#$%^&*';
         const input = await $(input_password);
@@ -55,7 +55,7 @@ describe("Validate instalation process", () => {
     });
 
         // 5. Check if insertion accept specialchars
-    it("Submit register action with specialchars show message 'Licencia no encontrada'", async () => {
+    it("TC0004: Submit register action with specialchars show message 'Licencia no encontrada'", async () => {
         // 5.1 Insert custom value
         const INVALID_PASS = '!@#$%^&*';
         await insert_code_and_accept(INVALID_PASS)
@@ -69,8 +69,8 @@ describe("Validate instalation process", () => {
     });
 
 
-     // 6.. Check if password field accept char
-    it("Password field do not support chars", async () => {
+     // 6. Check if password field accept char
+    it("TC0005: Password field do not support chars", async () => {
          // 6..1 Insert custom value
          const INVALID_PASS = 'Admin123';
          const input = await $(input_password)
@@ -85,7 +85,7 @@ describe("Validate instalation process", () => {
 
 
     // 7. Check if insertion accept chars
-    it("Submit register action with chars show message 'Licencia no encontrada'", async () => {
+    it("TC0006: Submit register action with chars show message 'Licencia no encontrada'", async () => {
 
         // 7.1 Insert custom value
         const INVALID_PASS = 'Admin123';
@@ -102,10 +102,10 @@ describe("Validate instalation process", () => {
     });
 
     // 8. Insert valid instalation password
-    it("Valid instalation password inserted", async () => {
+    it("TC0007: Valid instalation password inserted", async () => {
 
         // 8.1 Insert custom value
-        const VALID_PASS = '647125';
+        const VALID_PASS = 647125;
         await insert_code_and_accept(VALID_PASS)
 
          // 8.2 Get visual dots 
@@ -121,8 +121,7 @@ describe("Validate instalation process", () => {
     });
 
     // 9. Insert valid instalation password
-    it("Check pin view is currently active", async () => {
-        
+    it("TC0008: Check pin view is currently active", async () => {
         // 9.1 Get pin view
         const ELEMENT_ID = await $('//android.widget.FrameLayout[@resource-id="com.juvomos.pos:id/containerFragmentAuthentication"])[2]/android.view.ViewGroup').elementId
         const ENDS_CORRECTLY = !ELEMENT_ID.endsWith('0050');

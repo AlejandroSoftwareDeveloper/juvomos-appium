@@ -15,7 +15,9 @@
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
     "@babel/register": "^7.28.3",
+    "@wdio/allure-reporter": "^9.22.0",
     "appium-uiautomator2-driver": "^6.7.3",
+    "chai": "^6.2.2",
     "webdriverio": "^9.21.0"
   },
   "dependencies": {

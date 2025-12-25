@@ -1,116 +1,106 @@
 describe("Validate pin registration ", () => {
 
-    // const pin_view = '//android.widget.FrameLayout[@resource-id="com.juvomos.pos:id/containerFragmentAuthentication"])[2]/android.view.ViewGroup'
-    // Clean input 
-    // let input_password = 'id:com.juvomos.pos:id/txt_pin_user';
-    // let accept_button = 'id:com.juvomos.pos:id/checkBigImage';
-    //
-    //
-    // async function insert_code_and_accept(code){
-    //     await $(input_password).setValue(code);
-    //     await $(accept_button).click();
-    // }
-    //
-    // // 1. Clean field before each test
-    // beforeEach("Clean input field",async () => {
-    //     // 1.1 Press accept button to activate validation event
-    //     await $(input_password).clearValue();
-    //     await browser.pause(250)
-    // });
-    //
-    //   // 2. Check if validate empty field
-    // it("Show pin message if input field is empty",async () => {
-    //    await $(accept_button).click();
-    //    // 2.1 Wait till snackbar appears
-    //    await browser.pause(1000);
-    //
-    //    // 2.2 Capture snackbar text
-    //    const snackbar_text = await $('id:com.juvomos.pos:id/snackbar_text').getText();
-    //
-    //    // 2.3 Show message
-    //    expect(snackbar_text).toBe('Ingrese PIN')
-    //    await browser.pause(5000);
-    // });
-    //
-    // // 3. Check if password field accept specialchar
-    // it("Password field do not support specialchars", async () => {
-    //      // 3.1 Insert custom value
-    //     const INVALID_PASS = '!@#$%^&*';
-    //     const input = await $(input_password);
-    //     await input.setValue(INVALID_PASS);
-    //     const PASS_FIELD_DATA = await input.getText();
-    //
-    //      // 3.2 Get visual dots
-    //      expect(PASS_FIELD_DATA.length !== INVALID_PASS.length).toBe(true);
-    // });
-    //
-    //     // 4. Check if insertion accept specialchars
-    // it("Submit register action with specialchars show message 'Licencia no encontrada'", async () => {
-    //     // 4.1 Insert custom value
-    //     const INVALID_PASS = '!@#$%^&*';
-    //     await insert_code_and_accept(INVALID_PASS)
-    //
-    //     await browser.pause(5000)
-    //     // 4.2 Capture snackbar text
-    //     const snackbar_text = await $('id:com.juvomos.pos:id/snackbar_text').getText();
-    //
-    //     // 4.3 Show text with warning
-    //     expect(snackbar_text === 'Licencia no encontrada').toBe(true)
-    //     await browser.pause(5000);
-    // });
-    //
-    //
-    //  // 5. Check if password field accept char
-    // it("Password field do not support chars", async () => {
-    //      // 5.1 Insert custom value
-    //      const INVALID_PASS = 'Admin123';
-    //      const input = await $(input_password)
-    //      await input.setValue(INVALID_PASS);
-    //
-    //      // 5.2 Get visual dots 
-    //      const PASS_FIELD_DATA = await input.getText();
-    //
-    //      // 5.2 Indirect validation of characters
-    //      expect(PASS_FIELD_DATA.length !== INVALID_PASS.length).toBe(true);
-    // });
-    //
-    //
-    // // 6. Check if insertion accept chars
-    // it("Submit register action with chars show message 'Licencia no encontrada'", async () => {
-    //     // 6.1 Insert custom value
-    //     const INVALID_PASS = 'Admin123';
-    //     await $(input_password).setValue(INVALID_PASS);
-    //     await $(accept_button).click();
-    //
-    //     // 6.2 Wait for apk to validate and load
-    //     await browser.pause(5000)
-    //
-    //     // 6.3 Capture snackbar text
-    //     const snackbar_text = await $('id:com.juvomos.pos:id/snackbar_text').getText();
-    //
-    //     // 6.4 Show text with warning
-    //     expect(snackbar_text === 'Licencia no encontrada').toBe(true)
-    // });
-    //
-    // // 7. Insert valid instalation password
-    // it("Valid instalation password inserted", async () => {
-    //     // 7.1 Insert custom value
-    //     const VALID_PASS = '647145';
-    //     await $(input_password).setValue(VALID_PASS);
-    //     await $(accept_button).click();
-    //
-    //     // 6.2 Wait for apk to validate and load
-    //     await browser.pause(5000)
-    // });
-    //
+    const pin_text = 'id:com.juvomos.pos:id/enterPinText'
+    const back_pin = 'id:com.juvomos.pos:id/backToPin'
+    const error_message = 'id:com.juvomos.pos:id/alertMessageText'
+    const login_label = 'id:com.juvomos.pos:id/loginErrorNotification'
+
+    const input_password = 'id:com.juvomos.pos:id/txt_pin_user';
+    const accept_button = 'id:com.juvomos.pos:id/checkBigImage';
+
+    // Helper functions
+    async function insert_code_and_accept(code){
+        await $(input_password).setValue(code);
+        await $(accept_button).click();
+    }
+  
+
+      async function clean_input_field(){
+            await $(input_password).clearValue();
+            await browser.pause(250)
+      }
+
+
+      // 2. Check if validate empty field
+    it("TC0001: Show pin error message 'Ingrese un PIN válido' if input field is empty",async () => {
+       await $(accept_button).click();
+
+       // 2.1 Wait till snackbar appears
+       await browser.pause(1000);
+
+       // 2.2 Capture popup message
+       const notification = await $(error_message);
+       const error = await notification.getText();
+       await notification.click();
+
+       // 2.3 Show message
+       await expect( error === 'Ingrese un PIN válido' ).toBe(true)
+
+        clean_input_field()
+    });
+
+    // 3. Check if password field accept specialchar
+    it("TC0002: Password field do support number", async () => {
+         // 3.1 Insert custom value
+        const VALID_PASS = '1234567890';
+        const input = await $(input_password);
+        await input.setValue(VALID_PASS);
+        const PASS_FIELD_DATA = await input.getText();
+
+         // 3.2 Get visual dots
+         expect(PASS_FIELD_DATA.length === VALID_PASS.length).toBe(true);
+         clean_input_field()
+
+    });
+
+    // 4. Check if password field accept specialchar
+    it("TC0003: Password field do not support specialchars", async () => {
+         // 4.1 Insert custom value
+        const INVALID_PASS = '!@#$%^&*';
+        const input = await $(input_password);
+        await input.setValue(INVALID_PASS);
+        const PASS_FIELD_DATA = await input.getText();
+
+         // 4.2 Get visual dots
+         expect(PASS_FIELD_DATA.length !== INVALID_PASS.length).toBe(true);
+         clean_input_field()
+
+    });
+
+
+    // 5. Check if user insert correct pin
+    it("TC0005: Authenticate with correct pin", async () => {
+         // 5.1 Insert custom value
+        const VALID_PASS = '040404';
+        await insert_code_and_accept(VALID_PASS)
+
+        // 5.2 Wait till load next view
+        await browser.pause(5000);
+
+         // 5.3 Get back pin button
+        const ELEMENT = await $(back_pin);
+        const selector = ELEMENT.selector
+
+        expect(selector === 'id:com.juvomos.pos:id/backToPin').toBe(true)
+        clean_input_field()
+
+    });
+
+    // 6. Return to pin registration view
+    it("TC0006: Back to pin registration", async () => {
+        // 6.1 Click in back pin to return to registration
+        const BACK_PIN = await $(back_pin);
+        await BACK_PIN.click();
+
+        // 6.2 Wait till load next view
+        await browser.pause(5000);
+
+         // 6.3 confirm pin registration view
+        const ELEMENT = await $(pin_text)
+        const selector = ELEMENT.selector;
         
-    // Check pin view
-    // it("Apk was closed" ,async ( ) =>{
-    //     //Check if app close correctlye(pending better solution)
-    //     const ELEMENT_ID = await $(pin_view).elementId
-    //     const ENDS_CORRECTLY = !ELEMENT_ID.endsWith('0050');
-    //     await expect(ENDS_CORRECTLY).toBe(true)
-    // });
+        expect(selector === pin_text).toBe(true);
+    });
 
 });
 

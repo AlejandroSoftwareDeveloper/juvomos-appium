@@ -1,23 +1,27 @@
 describe("Close app with meatballs menu'",()=>{
  
+    // 1. Check we are in registration window 
     beforeEach('Check you are in welcome licence view',_ =>{
         $('id:com.juvomos.pos:id/txtWelcomeLicenseId').click();
     })
 
-    it("Upper right menu is clicked" ,_ =>{
+    // 2. Click on meatballs menu
+    it("TC0001: Upper right menu is clicked" ,_ =>{
         $('//android.widget.ImageView[@content-desc="Más opciones"]').click();
     });
 
-    it("Close apk is clicked" ,async ( ) =>{
-        // Click in "Cerrar aplicacion" to close app
+    // 3. Click on "Cerrar aplicacion" to close apk
+    it("TC0002: Close apk is clicked" ,async ( ) =>{
+        // 3.1 Click in "Cerrar aplicacion" to close app
         const app = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/content"])[2]')
         await app.click()
-        // Wait 5 seg till apk is closed
+        // 3.2 Wait 5 seg till apk is closed
         await browser.pause(5000) 
     });
 
-    it("Apk was closed" ,async ( ) =>{
-        //Check if app close correctlye(pending better solution)
+    // 4. Check apk in close 
+    it("TC0003: Apk was closed" ,async ( ) =>{
+        // 4.1 Check if app close correctlye(pending better solution)
         const ELEMENT_ID = await $('(//android.widget.FrameLayout[@resource-id="com.juvomos.pos:id/containerFragmentHome"])[2]/android.view.ViewGroup').elementId
         const ENDS_CORRECTLY = !ELEMENT_ID.endsWith('0012');
         await expect(ENDS_CORRECTLY).toBe(true)
