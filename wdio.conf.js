@@ -1,3 +1,6 @@
+let chai = require('chai')
+const allure = require('allure-commandline')
+
 exports.config = {
     //
     // ====================
@@ -25,9 +28,14 @@ exports.config = {
         // './test/specs/CloseAppWithMeatBallsMenu.js',
         // './test/specs/LicenseInstalationProcess.js',
         // './test/specs/PinRegistration.js',
-        './test/specs/EntryRegister.js',
-        './test/specs/InitBreakIn.js',
+        // './test/specs/EntryRegister.js',
+        // './test/specs/OutRegister.js',
+         './test/specs/CashTipsRegister.js',
+
+        // './test/specs/InitBreakIn.js',
+        // './test/specs/CheckAccess.js',
         // './test/specs/FinishBreakIn.js', // Tiene errores 
+        // './test/specs/CheckAccess.js',   // Proxima prueba 
 
         // './test/specs/**/*.js'
     ],
@@ -135,6 +143,12 @@ exports.config = {
         }
     ]],
     
+    before: function(){
+        global.chaiExpect = chai.expect
+
+    },
+
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -155,8 +169,23 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
+ 
     reporters: ['spec'],
-        // ,['allure', {outputDir: 'allure-results'}]],
+    // [
+        // ['allure', {
+        // outputDir: 'allure-results',
+        // disableWebdriverStepsReporting: true,
+        // disableWebdriverScreenshotsReporting: true,
+        // disableMochaHooks:true,
+        // addConsoleLogs: true, // Attach console logs to reports
+        // reportedEnvironmentVars: {
+        //     'NODE_VERSION': process.version,
+        //     'BROWSER': 'chrome'
+        // }
+    // }]
+    // ],
+
+
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -305,8 +334,26 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+    onComplete: function() {
+        // const reportError = new Error('Could not generate Allure report')
+        // const generation = allure(['generate', 'allure-results', '--clean'])
+        // return new Promise((resolve, reject) => {
+        //     const generationTimeout = setTimeout(
+        //         () => reject(reportError),
+        //         5000)
+        //     generation.on('exit', function(exitCode) {
+        //         clearTimeout(generationTimeout)
+        //
+        //         if (exitCode !== 0) {
+        //             return reject(reportError)
+        //         }
+        //         console.log('Allure report successfully generated')
+        //         resolve()
+        //     })
+        // })
+    },
+
+
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session
@@ -314,4 +361,19 @@ exports.config = {
     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
+    //
+    // appium capabilities
+    // {
+    //   "platformName": "Android",
+    //   "appium:platformVersion": "13",
+    //   "appium:deviceName": "R58RB0RJC8W",
+    //   "appium:udid": "R58RB0RJC8W",
+    //   "appium:automationName": "UiAutomator2",
+    //   "appium:appPackage": "com.juvomos.pos",
+    //   "appium:appActivity": "com.juvomos.pos.features.home.HomeActivity",
+    //   "appium:noReset": true,
+    //   "appium:newCommandTimeout": 300
+    // }
+    //
+    //
 }

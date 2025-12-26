@@ -1,7 +1,6 @@
 describe("Validate registration process ", () => {
     
     const clock_in = 'id:com.juvomos.pos:id/clockInButton'
-    
     const back_pin = 'id:com.juvomos.pos:id/backToPin'
     // const error_message = 'id:com.juvomos.pos:id/alertMessageText'
     // const login_label = 'id:com.juvomos.pos:id/loginErrorNotification'

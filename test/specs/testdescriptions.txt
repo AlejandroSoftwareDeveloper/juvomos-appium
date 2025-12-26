@@ -1,50 +1,71 @@
-3	Time Clock	Registro de Entrada	
-    1.Colocar pin de Empleado  
-    2.Clic en Time Clock  
-    3.Clic en Clock In 
-    4.Clic en POS	
-El empleado debe de estar registrado previamente en el BackOffice		
-
-4	Time Clock	Iniciar descanso	
-     1.Clic Log out en Pos  
-     2.Colocar pin de empleado  
-     3. Clic en Time Clock  
-     4. Clic Iniciar descanso  
-     5.Clic Volver al PIN	
-     El flujo debe de comenzar desde dentro del pos	
-     Se muestra un mensaje de descando comenzado exitosamente, el boton de iniciar descanso desaparece
-
-5	Time Clock	Terminar descanso
-1.Colocar pin de empleado  
-2. Clic en Time Clock o Boton Check  
-3. Clic Fin Descanso
+5	Time Clock	Terminar descanso   (Rota)
+    1.Colocar pin de empleado  
+    2. Clic en Time Clock o Boton Check  
+    3. Clic Fin Descanso
 El flujo comienza colocando el pin de empleado, 
 el empleado debe de haber realizado un inicio de descanso		
 Se muestra un mensaje de descanso termiando exitosamente, 
 el boton de fin de descanso desaparece
 
-6	Time Clock	Registrar Salida
-1.Clic Log out en Pos 
-2.Colocar pin de empleado  
-3. Clic en Time Clock  
-4. Clic Registrar Salida	
+6	Time Clock	Registrar Salida  ()
+    1.Clic Log out en Pos 
+    2.Colocar pin de empleado  
+    3. Clic en Time Clock  
+    4. Clic Registrar Salida	
 El empleado tiene que haber regsitrado una entrada		
 Se muestra un mensaje de registro de salida exitosamente, 
 el boton de registrar salida desaparece
 
 7	Time Clock	
 Declaracion de Propinas	
-1.Clic Log out en Pos 
-2.Colocar pin de empleado 
-3. Clic en Time Clock  
-4. Clic Cash tips  
-5. Colocar Propina deseada	
+    1.Clic Log out en Pos 
+    2.Colocar pin de empleado 
+    3. Clic en Time Clock  
+    4. Clic Cash tips  
+    5. Colocar Propina deseada	
 El empleado tiene que haber regsitrado una entrada		
 Se muesta un mesaje de propina guardada exitosametne, 
 se puede comprobar el dato, entrando al modulo de horas trabajadas
 
-8	Order	Busqueda de Productos	1.Clic Lupa  2.Escribir nombre del producto deseado  3.Añadir a la cuenta			Se muestran los productos que van cumpliedo con el criteriioo que se va entrando
-9	Order	Enviar Productos a Cocina	1. Añadir varios productos  2.Clic Enviar			Se reinicia el modal de la izq , se imprime el recibo y se recibe una notifiacion de creacion de la cuenta
-10	Order	Enviar Productos a Cocina Version 2	1. Añadir varios productos  2.Clic Cuenta  3. Clic Enviar a cocina  4.Enviar de inmediato o Aplicar  5. Clic Enviar			Los prodcutos actuales se envian a cocina, dando la posibilidad de seguir editando la cuenta, se imprime el recibo en cocina solo con los nombres de los productos sin precios
-11	Order	Enviar cuenta con descuento	1. Añadir varios productos  2.Clic Cuenta  3. Clic Descuentos  4.Clic en cualquiera	Se deben tener configuradas los descuentos previamente en Office		Se aplica el descuento a cada uno de los productos presentes en la orden, y se muestra la informacion en los detalles de la cuenta
+8	Order	Busqueda de Productos(Falta lupa)
+    1.Clic Lupa  
+    2.Escribir nombre del producto deseado  
+    3.Añadir a la cuenta			
+Se muestran los productos que van cumpliedo con el criterio que se va entrando
+
+9	Order	Enviar Productos a Cocina	
+    1. Añadir varios productos 
+    2.Clic Enviar		
+Se reinicia el modal de la izq, se imprime el recibo y se recibe una notifiacion de creacion de la cuenta
+
+10	Order Enviar Productos a Cocina Version 	
+    1. Añadir varios productos  
+    2.Clic Cuenta  
+    3. Clic Enviar a cocina  
+    4.Enviar de inmediato o Aplicar 
+    5. Clic Enviar			
+Los prodcutos actuales se envian a cocina, 
+dando la posibilidad de seguir editando la cuenta, se imprime el recibo en cocina 
+solo con los nombres de los productos sin precios
+
+11	Orde Enviar cuenta con descuento	
+    1. Añadir varios productos  
+    2.Clic Cuenta  
+    3. Clic Descuentos  
+    4.Clic en cualquiera	
+Se deben tener configuradas los descuentos previamente en Office	
+Se aplica el descuento a cada uno de los productos presentes en la orden, y se muestra la informacion en los detalles de la cuenta
 12	Trasnfer	Transferir Producto a otra cuenta	1.Clic abrir 2.Abir cuenta 3.Seleccionar un producto 4.Trasnferir 5.Seleccionar otra cuenta	Los productos deben estar en estaodo de enviado cocina		Se transfiere el producto a la cuenta seleccionada y se ajusta los detalles de la cuenta
+13	Trasnfer	Transferir de Cuenta a Cuenta	1.Clic abrir 2.Abir cuenta 3.Clic en numero de cuenta 4.Trasnferir 5.Seleccionar otra cuenta			Se transfiere a cuenta seleccionada en forma de Split 
+14	Trasnfer	Transferir Cuenta a Empleado	1.Clic abrir 2.Abir cuenta 3.Clic en numero de cuenta 4.Trasnferir 5.Empleado 5.Seleccionar empleado			Se transfiere a cuenta seleccionada al empleado seleccioando
+15	Void	Cancelar cuenta	1.Clic abrir 2.Abir cuenta 3.Clic en numero de cuenta 4.Void-Anular 5.Seleccionar una opcion 5.Void and Closed	La cuenta o producto tienen que estar en estado de enviado a cocina		Se confima y se cierra y anula la orden, debe desaparecer del Recall|Abrir y  aparece en la seccion de cuentas con  el estado de cerrada
+16	Void	Cancelar producto	1.Clic abrir 2.Abir cuenta 3.Clic en cualquier producto 4.Void-Anular 5.Seleccionar una opcion 	La cuenta o producto tienen que estar en estado de enviado a cocina		Se marca el producto como cancelado, se ajusta la cuenta, no se puede realizar mas ninguna accion sobre ese producto
+17	Floor Layout	Asignar cuenta a una Mesa	1.Selecciionar tipo de orden Dine In 2.Seleccionar una mesa y cantidad de clientes 3,Añadir varios productos 4.Clic enviar 5.Repetir paso 1			Se marca la mesa como ocupada, se visualiza el resumen de la cuenta en la seccion de la izquierda
+18	Floor Layout	Transfefir cuenta de una mesa a otra mesa	1.Selecciionar tipo de orden Dine In 2. Seleccionar una mesa con cuanta asociada 3.Clic en la opcion Mesa 4. Sleleccionar otra mesa  con cantidad de clientes 5.Enviar	Debe de existir una cuenta ya asociada a una mesa		Se debe desocupar la mesa inicial y ocuparse a la que se transfirio , se debe observar el cambio del numero de mesa en la seciona de cuentas en la izquierda
+19	Floor Layout	Creacion y orden de mesas	1. Crear una nueva seccion en Office correspondiente. 2. Clic en Sync 3. Actualizar en POS 4. Seleccionar tipo de orden Dine In			Se debe mantener la misma distribucion creado desde el BackOffice
+20	Floor Layout	Seleccion de mesas desde varios dispositivos	Dispositivo 1 1.Seleccionar tipo de orden Dine In 2. Seleccionar una Mesa  Dispositivo 2  1.Seleccionar tipo de orden Dine In 2. Seleccionar la misma mesa del Dispositovo 1			No debe permitir seleccionar la mesa y mostrar un mensaje de mesa ocupada
+21	Floor Layout
+
+
+
+JPOS-46

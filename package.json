@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ar":  "allure open ./allure-report --port 8080" ,
+    "rc": "rm -rf allure-results allure-report && mkdir allure-results"
   },
   "keywords": [],
   "author": "",
