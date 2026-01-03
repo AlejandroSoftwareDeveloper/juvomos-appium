@@ -1,99 +1,441 @@
-// it("Haz click en checkbox",async () => {
-//      const CHECK = "~Ingrese PIN"
-//      $(CHECK).click()
-//      browser.pause(3000)
-// });
+Nombre completo: `TS0001LicenseInstalationProcess.js`
 
-// Verificar si hay alerta
-// const isAlert = await driver.isAlertOpen();
-// if (isAlert) {
-//   const mensaje = await driver.getAlertText(); // captura mensaje
-//   console.log('Alerta detectada:', mensaje);
-//
-//   await driver.acceptAlert(); // Aceptar
-//   // O await driver.dismissAlert(); // Cancelar
-// }
-//
-    //
-    //
-    //// Esperar a que aparezca el dialog
-// const dialog = await $('//android.widget.FrameLayout[@resource-id="android:id/content"]');
-// await dialog.waitForExist({ timeout: 5000 });
-//
-// // Extraer mensaje del dialog
-// const mensaje = await $('//android.widget.TextView[@resource-id="android:id/message"]');
-// const textoMensaje = await mensaje.getText();
-// console.log('Mensaje del dialog:', textoMensaje);
-//
-// // Extraer título
-// const titulo = await $('//android.widget.TextView[@resource-id="android:id/alertTitle"]');
-// console.log('Título:', await titulo.getText());
-//
-// // Cerrar dialog (botón OK/CANCEL)
-// await $('//android.widget.Button[@text="OK"]').click();
-//
-    
-// Esperar a que aparezca el toast
-// const toast = await $('//android.widget.Toast[1]');
-// await toast.waitForExist({ timeout: 5000 });
-//
-// // Obtener texto
-// const textoToast = await toast.getText();
-// console.log('Toast capturado:', textoToast);
-//
-// // O si usas XPath con contains
-// const toast2 = await $('//*[contains(@text, "mensaje esperado")]');
-// if (await toast2.isExisting()) {
-//   console.log('Toast con texto específico encontrado');
-// }
-//const bottomSheet = await $('//android.widget.FrameLayout[@resource-id="com.juvomos.pos:id/bottom_sheet"]');
-// await bottomSheet.waitForDisplayed();
-//
-// // Extraer mensaje
-// const mensaje = await bottomSheet.$('//android.widget.TextView').getText();
-// console.log('Mensaje:', mensaje);
-//
-// // Cerrar tocando fuera o con botón X
-// await driver.touchAction({ action: 'tap', x: 100, y: 200 }); // coordenada fuera
-// O await $('~Cerrar').click();/
-    //
-    //
-    //
-    //
-    //
-//     /it('debería limpiar input y capturar alerta', async () => {
-//   // Limpiar input
-//   const input = await $('id:com.juvomos.pos:id/campoCodigo');
-//   await input.waitForDisplayed();
-//   await input.clearValue();
-//   await input.setValue('12345');
-//
-//   // Capturar dialog de confirmación
-//   const botonEnviar = await $('id:com.juvomos.pos:id/btnEnviar');
-//   await botonEnviar.click();
-//
-//   // Esperar dialog
-//   const dialogMensaje = await $('//android.widget.TextView[@resource-id="android:id/message"]');
-//   await dialogMensaje.waitForExist({ timeout: 5000 });
-//
-//   const mensaje = await dialogMensaje.getText();
-//   console.log('✅ Mensaje capturado:', mensaje); // "Código enviado con éxito"
-//
-//   // Cerrar dialog
-//   await $('//android.widget.Button[@text="Aceptar"]').click();
-// });/
-    //
-    //
-    //
-    //
-    //
-    //
-    //const PASSWORD_TEST = 'TestPass123';
+---
 
-// it('debería verificar password', async () => {
-//   const passwordInput = await $('id:com.juvomos.pos:id/txtPassword');
-//   await passwordInput.setValue(PASSWORD_TEST);
-//
-//   // En lugar de leer, comparar con variable conocida
-//   expect(PASSWORD_TEST).toBe('TestPass123'); // Siempre true
-// });
+Descripción general de la suite:
+Esta suite de pruebas automatiza el proceso completo de instalación y 
+activación inicial de licencia de la aplicación POS de Juvomos.
+Su objetivo principal es validar que el sistema de activación 
+por licencia funcione correctamente, aceptando únicamente códigos numéricos 
+válidos de 6 dígitos y rechazando cualquier otro tipo de entrada. 
+Cubre casos positivos, negativos y de validación de formatos.
+
+Tests detallados:
+
+1. TC0001: Show pin message 'Ingrese PIN' if input field is empty
+   - Propósito: Validar la gestión de errores cuando el usuario intenta activar la licencia sin ingresar ningún código.
+   - Flujo: Hace clic directamente en el botón de aceptar sin ingresar datos → Espera 1 segundo a que aparezca el snackbar → Captura el texto del snackbar → Valida que el mensaje sea exactamente "Ingrese PIN".
+   - Elementos UI: `accept_button` (botón de aceptar), `snackbar_text` (mensaje de error).
+   - Resultado esperado: Mensaje de error claro en español indicando que se debe ingresar un PIN.
+
+2. TC0002: Password field do support number
+   - Propósito: Verificar que el campo de entrada acepta correctamente caracteres numéricos y los visualiza como puntos de seguridad.
+   - Flujo: Inserta la cadena numérica '1234567890' → Obtiene el texto visual del campo (que debería ser puntos) → Compara que la longitud de los puntos coincida con la longitud de la entrada → Limpia el campo.
+   - Elementos UI: `input_password` (campo de entrada).
+   - Validación: Compara `PASS_FIELD_DATA.length === VALID_PASS.length` para confirmar que todos los caracteres fueron aceptados.
+   - Resultado esperado: El campo debe aceptar únicamente números y mostrarlos como puntos de seguridad.
+
+3. TC0003: Password field do not support specialchars
+   - Propósito: Confirmar que el campo de entrada filtra o rechaza caracteres especiales (!@#$%^&).
+   - Flujo: Inserta caracteres especiales → Obtiene el texto visual → Valida que la longitud NO coincida (indicando que los caracteres fueron ignorados o filtrados).
+   - Elementos UI: `input_password`.
+   - Validación: Compara `PASS_FIELD_DATA.length !== INVALID_PASS.length`.
+   - Resultado esperado: Los caracteres especiales no deben ser aceptados ni contados en la longitud del campo.
+
+4. TC0004: Submit register action with specialchars show message 'Licencia no encontrada'
+   - Propósito: Probar el comportamiento del sistema cuando se intenta activar una licencia con caracteres especiales en el código.
+   - Flujo: Usa `insert_code_and_accept()` con caracteres especiales → Espera 3 segundos → Captura el texto del snackbar → Valida que muestra "Licencia no encontrada".
+   - Elementos UI: `snackbar_text`.
+   - Resultado esperado: Mensaje de error específico indicando que la licencia no existe en el sistema.
+
+5. TC0005: Password field do not support chars
+   - Propósito: Validar que el campo rechaza letras alfabéticas (mayúsculas y minúsculas).
+   - Flujo: Inserta 'Admin123' (mezcla de letras y números) → Obtiene el texto visual → Valida que la longitud no coincide con la entrada completa (indicando que las letras fueron ignoradas).
+   - Elementos UI: `input_password`.
+   - Validación: `PASS_FIELD_DATA.length !== INVALID_PASS.length`.
+   - Resultado esperado: Solo los números deben ser contados; las letras deben ser ignoradas.
+
+6. TC0006: Submit register action with chars show message 'Licencia no encontrada'
+   - Propósito: Probar la activación de licencia con código que contiene letras.
+   - Flujo: Usa `insert_code_and_accept()` con 'Admin123' → Espera 3 segundos → Captura snackbar → Valida mensaje "Licencia no encontrada".
+   - Elementos UI: `snackbar_text`.
+   - Resultado esperado: Error de licencia no encontrada cuando el formato es inválido.
+
+7. TC0007: Valid instalation password inserted
+   - Propósito: Probar el flujo completo de instalación con un código de licencia válido.
+   - Flujo: Inserta el código válido '647125' → Verifica que se muestren 6 puntos → Hace clic en aceptar → Espera 20 segundos a que la aplicación valide y cargue (comentario indica que actualmente tarda más de 10 segundos).
+   - Elementos UI: `input_password`, `accept_button`.
+   - Resultado esperado: Activación exitosa y transición a la siguiente vista (PIN de usuario).
+
+8. TC0008: Check pin view is currently active
+   - Propósito: Verificar que tras la instalación exitosa, la aplicación muestra correctamente la vista de autenticación de PIN de usuario.
+   - Flujo: Llama a `LoginFlow.check_if_pin_window_is_displayed()` para validar que la ventana de PIN está visible.
+   - Elementos UI: Ventana de autenticación PIN.
+   - Resultado esperado: La ventana de ingreso de PIN debe estar activa y lista para recibir credenciales de usuario.
+
+---
+
+Nombre completo: `TS0002PinRegistration.js`
+
+---
+
+Descripción general de la suite:
+Esta suite automatiza el proceso de registro y autenticación de PIN de usuario después de la instalación. Prueba la validación de formatos, mensajes de error, autenticación exitosa y navegación entre vistas. Dependiendo fuertemente de `LoginFlow` para reutilizar lógica común.
+
+Tests detallados:
+
+1. TC0001: Show pin error message 'Ingrese un PIN válido' if input field is empty
+   - Propósito: Validar mensaje de error para PIN vacío durante registro.
+   - Flujo: Usa `LoginFlow.insert_value_and_submit()` sin valor → Valida error con `LoginFlow.validate_error_message()` → Limpia campo.
+   - Funciones LoginFlow: `insert_value_and_submit()`, `validate_error_message()`, `clear_password_input_field()`.
+   - Resultado esperado: Mensaje de error en snackbar: "Ingrese un PIN válido".
+
+2. TC0002: Password error must appear if input field do not support specialchars
+   - Propósito: Verificar rechazo de caracteres especiales en PIN de usuario.
+   - Flujo: Inserta '!@#$%^&' usando `LoginFlow.set_input_login_with_value()` → Valida que la contraseña actual y la esperada son diferentes → Limpia campo.
+   - Funciones LoginFlow: `set_input_login_with_value()`, `current_password_and_give_it_password_are_diferent()`, `clear_password_input_field()`.
+   - Resultado esperado: El sistema debe detectar la diferencia y mostrar error.
+
+3. TC0003: Insert correct pin and authenticate
+   - Propósito: Probar autenticación exitosa con PIN válido.
+   - Flujo: Inserta '040404' y envía → Espera a que cargue la siguiente vista.
+   - Funciones LoginFlow: `insert_value_and_submit('040404')`, `wait_till_next_view_load()`.
+   - Resultado esperado: Acceso exitoso al menú principal de la aplicación.
+
+4. TC0005: Return to main window when click in pin button
+   - Propósito: Validar navegación de retorno desde la ventana de PIN.
+   - Flujo: Hace clic en botón de retroceso → Valida que el texto de la ventana PIN sea "Ingrese PIN".
+   - Elementos UI: `enter_pin_text`.
+   - Resultado esperado: Debe regresar a la ventana de ingreso de PIN principal.
+
+---
+
+Nombre completo: `TS0003StartWorkTime.js`
+
+---
+
+Descripción general de la suite:
+Suite de pruebas específica para el inicio de jornada laboral (Clock-In). Automatiza el flujo completo desde la autenticación del empleado hasta la entrada al menú POS. Asegura que los empleados puedan registrar su hora de inicio de forma correcta y acceder a las funcionalidades de ventas.
+
+Tests detallados:
+
+1. TC0001: Enter employer seccion
+   - Propósito: Validar acceso a la sección de registro de tiempo con credenciales válidas.
+   - Flujo: Setea PIN '040404' en `txt_pin_user` → Hace clic en `buttonTimeClock` → Espera 5 segundos → Valida que aparece el botón `backToPin`.
+   - Elementos UI: `txt_pin_user`, `buttonTimeClock`, `backToPin`.
+   - Resultado esperado: Acceso exitoso a la interfaz de registro de tiempo con botón de retroceso visible.
+
+2. TC0002: Select Time clock option
+   - Propósito: Verificar que al hacer Clock-In se muestra la opción correcta de inicio de sesión POS.
+   - Flujo: Hace clic en `clockInButton` → Espera 5 segundos → Valida que existe el botón `btnPos` con el selector XPath específico.
+   - Elementos UI: `clockInButton`, `btnPos`.
+   - Resultado esperado: Transición correcta a la vista de selección de módulo POS.
+
+3. TC0003: Press pos to init seccion
+   - Propósito: Validar que al seleccionar POS, se carga el menú principal con la lista de clientes.
+   - Flujo: Hace clic en `btnPos` → Espera 5 segundos → Valida que aparece el RecyclerView `customersListRecycler`.
+   - Elementos UI: `btnPos`, `customersListRecycler`.
+   - Resultado esperado: Vista principal del módulo POS cargada correctamente, lista para operaciones de venta.
+
+4. TC0004: Return to main window when click in close option
+   - Propósito: Verificar que el usuario puede cerrar sesión y regresar a la ventana de PIN.
+   - Flujo: Hace clic en `imgCloseButton` → Cierra app con `LoginFlow.close_app_with_meatball_menu_close_option()` → Espera carga → Valida que aparece ventana PIN.
+   - Funciones LoginFlow: `close_app_with_meatball_menu_close_option()`, `wait_till_next_view_load()`, `check_if_pin_window_is_displayed()`.
+   - Elementos UI: `imgCloseButton`.
+   - Resultado esperado: Cierre de sesión exitoso y retorno a la ventana de autenticación inicial.
+
+---
+
+Nombre completo: `TS0004InitBreakIn.js`
+
+---
+
+Descripción general de la suite:
+Suite dedicada al inicio de descanso laboral (Break-In). Asegura que los empleados que ya iniciaron jornada puedan registrar correctamente el inicio de su break time, y que el sistema confirme la acción y permita regresar a la autenticación. Es un flujo dependiente del estado previo (debe haber un Clock-In activo).
+
+Tests detallados:
+
+1. TC0001: Enter in user session
+   - Propósito: Setup de prueba - iniciar una sesión de trabajo activa.
+   - Flujo: Inserta PIN '040404' → Hace clic en `buttonTimeClock` → Espera 5 segundos para carga completa.
+   - Elementos UI: `txt_pin_user`, `buttonTimeClock`.
+   - Resultado esperado: Sesión de trabajo activa lista para operaciones de break.
+
+2. TC0002: Init break time
+   - Propósito: Validar el registro exitoso del inicio de descanso.
+   - Flujo: Hace clic en `breakInButton` → Espera 1 segundo → Valida que snackbar muestra "Entrada exitosa".
+   - Elementos UI: `breakInButton`, `snackbar_text`.
+   - Resultado esperado: Confirmación visual de que el break ha iniciado correctamente.
+
+3. TC0003: Get back to pin window
+   - Propósito: Verificar que tras iniciar break, el usuario puede regresar a la ventana de PIN.
+   - Flujo: Hace clic en `backToPin` → Espera 3 segundos → Valida que `enterPinText` muestra "Ingrese PIN".
+   - Elementos UI: `backToPin`, `enterPinText`.
+   - Resultado esperado: Navegación correcta hacia la ventana de autenticación.
+
+---
+
+Nombre completo: `TS0005FinishBreakIn.js`
+
+---
+
+Descripción general de la suite:
+Suite complementaria a TS0004, enfocada en finalizar el tiempo de descanso (Break-Out). Asegura que los empleados puedan cerrar correctamente su break time y recibir confirmación del sistema. Al igual que TS0004, requiere un estado previo de break activo.
+
+Tests detallados:
+
+1. TS0001: Start work session
+   - Propósito: Setup de prueba - iniciar sesión de trabajo para preparar el break.
+   - Flujo: Inserta PIN '040404' → Hace clic en `buttonTimeClock` → Espera 5 segundos.
+   - Elementos UI: `txt_pin_user`, `buttonTimeClock`.
+   - Resultado esperado: Sesión activa lista para prueba de break-out.
+
+2. TC0002: Finish rest time
+   - Propósito: Validar el registro exitoso del fin de descanso.
+   - Flujo: Hace clic en `breakOutButton` → Espera 1.5 segundos → Valida snackbar "Salida exitosa".
+   - Elementos UI: `breakOutButton`, `snackbar_text`.
+   - Resultado esperado: Confirmación de que el break ha finalizado y se registró correctamente.
+
+---
+
+Nombre completo: `TS0006CashTipsRegister.js`
+
+---
+
+Descripción general de la suite:
+Suite especializada en el registro y acumulación de propinas en efectivo (Cash Tips). Verifica que los empleados puedan declarar propinas durante su jornada, que el sistema las guarda correctamente y que el monto total se actualiza de manera acumulativa. Incluye lógica de cálculo para validar la sumatoria.
+
+Tests detallados:
+
+1. TC0001: Check tips current value
+   - Propósito: Obtener el valor base de propinas antes de añadir nuevo monto.
+   - Flujo: Hace clic en `viewHoursButton` → Espera 5 segundos → Parsea a float el texto de `txtValueTotalTipTimeSheet` → Almacena en `current_cash` → Regresa con botón de navegación.
+   - Elementos UI: `viewHoursButton`, `txtValueTotalTipTimeSheet`, `nav_back`.
+   - Resultado esperado: Valor actual de propinas guardado para comparación posterior.
+
+2. TC0002: Insert tips in modal
+   - Propósito: Verificar que el sistema permite declarar nuevas propinas.
+   - Flujo: Hace clic en `btnCashTips` → Limpia campo `declareTipsAmountId` → Inserta '1.00' → Hace clic en `checkBigImage` → Espera 3 segundos → Valida snackbar "Cash tip saved successfully".
+   - Elementos UI: `btnCashTips`, `declareTipsAmountId`, `checkBigImage`, `snackbar_text`.
+   - Resultado esperado: Propinas guardadas y confirmación en inglés del sistema.
+
+3. TC0003: Get current tips if added successfuly
+   - Propósito: Validar que el monto total de propinas se actualizó correctamente.
+   - Flujo: Navega a viewHoursButton → Espera 5 segundos → Obtiene nuevo valor parseado → Usa `calculate_tips()` para sumar `current_cash + cash` → Regresa → Valida que `new_cash === result`.
+   - Funciones helper: `calculate_tips()` suma floats.
+   - Elementos UI: `viewHoursButton`, `txtValueTotalTipTimeSheet`, `nav_back`.
+   - Resultado esperado: El total debe ser exactamente la suma del valor anterior más $1.00.
+
+---
+
+Nombre completo: `TS0007FinishWorkTime.js`
+
+---
+
+Descripción general de la suite:
+Suite para finalizar la jornada laboral completa (Clock-Out). Valida que los empleados pueden cerrar su turno de trabajo, recibir confirmación del sistema y regresar a la pantalla de autenticación. Es el flujo final del ciclo de trabajo.
+
+Tests detallados:
+
+1. TC0001: Finish user work time
+   - Propósito: Validar el cierre exitoso de la jornada laboral.
+   - Flujo: Hace clic en `clockOutButton` → Espera 2 segundos → Valida que snackbar muestra "Salida fue exitosa".
+   - Elementos UI: `clockOutButton`, `snackbar_text`.
+   - Resultado esperado: Confirmación de que la salida fue registrada correctamente.
+
+2. TC0002: Get back to pin window
+   - Propósito: Verificar que tras finalizar jornada, se regresa a la ventana de PIN.
+   - Flujo: Hace clic en `backToPin` → Espera 3 segundos → Valida que `enterPinText` muestra "Ingrese PIN".
+   - Elementos UI: `backToPin`, `enterPinText`.
+   - Resultado esperado: Aplicación lista para nueva autenticación de usuario.
+
+---
+
+Nombre completo: `TS0009SendFoodToKitchen.js`
+
+---
+
+Descripción general de la suite:
+Suite de pruebas para el flujo completo de creación y envío de órdenes de comida a cocina en el módulo POS. Automatiza el proceso desde la autenticación del empleado hasta la selección de tipo de orden (Pick Up), adición de ítems (qa3), configuración de precios por peso, y envío final a cocina. Verifica que los datos de la orden se generan correctamente antes del envío.
+
+Tests detallados:
+
+1. TC0001: Enter employer seccion
+   - Propósito: Autenticar empleado con PIN válido y acceder a la interfaz de registro de tiempo.
+   - Flujo: Inserta '040404' en `txt_pin_user` → Clic en `buttonTimeClock` → Espera 5 segundos → Valida que `backToPin` está presente.
+   - Elementos UI: `password_input`, `reg_time`, `back_pin`.
+   - Resultado esperado: Acceso exitoso al módulo de registro de tiempo.
+
+2. TC0002: Select Time clock option
+   - Propósito: Iniciar jornada laboral (Clock-In) para habilitar el módulo POS.
+   - Flujo: Clic en `clockInButton` → Espera 5 segundos → Valida que el botón `btnPos` existe con selector XPath específico.
+   - Elementos UI: `clock_in`, `btnPos`.
+   - Resultado esperado: Transición a la vista de selección de módulo POS.
+
+3. TC0003: Press pos to init seccion
+   - Propósito: Acceder al menú principal del módulo POS donde se gestionan órdenes.
+   - Flujo: Clic en `btnPos` → Espera 5 segundos → Valida que el RecyclerView `customersListRecycler` está cargado.
+   - Elementos UI: `btnPos`, `customersListRecycler`.
+   - Resultado esperado: Vista principal del POS lista para operaciones de venta.
+
+4. TC0004: Pick up option to send to kitchen
+   - Propósito: Seleccionar el tipo de orden "Pick Up" para la prueba.
+   - Flujo: Clic en el elemento `pick_up` (Localizador XPath con texto "Pick Up").
+   - Elementos UI: `pick_up`.
+   - Resultado esperado: Modal o vista de configuración de orden Pick Up cargada.
+
+5. TC0005: Select card for qa3 test
+   - Propósito: Seleccionar el producto "qa3" del catálogo para agregarlo a la orden.
+   - Flujo: Clic en la primera card del LinearLayout `linearLayout30` → Espera que aparezca modal → Clic en `btnCustomName` para confirmar selección.
+   - Elementos UI: Card en `linearLayout30`, `btnCustomName`.
+   - Resultado esperado: Producto qa3 agregado a la orden y modal de configuración mostrada.
+
+6. TC0006: Set price per element
+   - Propósito: Configurar el precio del primer ítem qa3 (probablemente por peso o cantidad).
+   - Flujo: Clic en `accept_button` → Interactúa con modal de peso (clic en `one_btn_pin`) → Clic en `accept_button` para confirmar.
+   - Elementos UI: `accept_button`, `one_btn_pin`.
+   - Resultado esperado: Precio configurado correctamente para el primer ítem.
+
+7. TC0007: Pick up again qa3 option
+   - Propósito: Agregar un segundo ítem qa3 idéntico a la orden.
+   - Flujo: Repite acciones de TC0005: selecciona misma card → confirma con `btnCustomName`.
+   - Elementos UI: `linearLayout30`, `btnCustomName`.
+   - Resultado esperado: Segundo ítem qa3 agregado a la orden.
+
+8. TC0008: Set price per element second time
+   - Propósito: Configurar precio para el segundo ítem qa3.
+   - Flujo: Repite acciones de TC0006: acepta → ingresa peso → acepta.
+   - Elementos UI: `accept_button`, `one_btn_pin`.
+   - Resultado esperado: Precio configurado para el segundo ítem.
+
+9. TC0009: Open account and send to kitchen
+   - Propósito: Verificar la orden completa y enviarla a cocina.
+   - Flujo: Clic en `btnShowOrder` para abrir cuenta → Obtiene texto de `itemInvoiceName` → Valida que comienza con 'qa3' → Clic en `btnSendPointOfSale` → Valida que `result` es true.
+   - Elementos UI: `show_account`, `itemInvoiceName`, `btnSendPointOfSale`.
+   - Resultado esperado: Orden contiene ítems qa3 y es enviada exitosamente a cocina.
+
+---
+
+Nombre completo: `TS0011SendFoodToKitckenWithDiscount.js`
+
+---
+
+Descripción general de la suite:
+Suite de pruebas para crear órdenes con descuentos aplicados y enviarlas a cocina. Similar a TS0009 pero incluye flujo adicional para seleccionar y aplicar descuentos antes del envío. Verifica que el sistema calcule y muestre correctamente el porcentaje de descuento en la interfaz.
+
+Tests detallados:
+
+1. TC0001: Pick up option to send to kitchen
+   - Propósito: Seleccionar tipo de orden "Pick Up" (asume sesión ya iniciada).
+   - Flujo: Clic en elemento `pick_up`.
+   - Elementos UI: `pick_up`.
+   - Resultado esperado: Vista de orden Pick Up activa.
+
+2. TC0002: Select card for qa3 test
+   - Propósito: Agregar primer ítem qa3 a la orden.
+   - Flujo: Clic en primera card de `linearLayout30` → Clic en `btnCustomName` para confirmar.
+   - Elementos UI: `linearLayout30`, `btnCustomName`.
+   - Resultado esperado: Ítem qa3 agregado a la orden.
+
+3. TC0003: Set price per element
+   - Propósito: Configurar precio para el primer ítem qa3.
+   - Flujo: Clic en `accept_button` → Configura peso con `one_btn_pin` → Clic en `accept_button`.
+   - Elementos UI: `accept_button`, `one_btn_pin`.
+   - Resultado esperado: Precio del primer ítem configurado.
+
+4. TC0004: Pick up again qa3 option
+   - Propósito: Agregar segundo ítem qa3 idéntico.
+   - Flujo: Repite selección de card y confirmación.
+   - Elementos UI: `linearLayout30`, `btnCustomName`.
+   - Resultado esperado: Segundo ítem qa3 agregado.
+
+5. TC0005: Set price per element second time
+   - Propósito: Configurar precio para el segundo ítem qa3.
+   - Flujo: Repite configuración de peso y aceptación.
+   - Elementos UI: `accept_button`, `one_btn_pin`.
+   - Resultado esperado: Precio del segundo ítem configurado.
+
+6. TC0006: Open account and send to apply discount
+   - Propósito: Abrir la cuenta/orden para preparar aplicación de descuento.
+   - Flujo: Clic en `btnShowOrder` para ver la orden completa.
+   - Elementos UI: `show_account`.
+   - Resultado esperado: Vista de detalle de orden con ítems qa3 cargada.
+
+7. TC0007: Select discount option
+   - Propósito: Aplicar un descuento a la orden y capturar el porcentaje aplicado.
+   - Flujo: Clic en `idBtnDiscount` → Obtiene texto de `discountValue` → Almacena en `discount_percent` → Clic en `layoutDiscount` para aplicar.
+   - Elementos UI: `discount_button`, `discount_value`, `discount_block`.
+   - Resultado esperado: Descuento aplicado y porcentaje capturado en variable `discount_percent`.
+
+8. TC0008: Send to kitchen
+   - Propósito: Enviar la orden con descuento aplicado a cocina.
+   - Flujo: Clic en `btnShowOrder` → Clic en `btnSendPointOfSale`.
+   - Elementos UI: `show_account`, `btnSendPointOfSale`.
+   - Resultado esperado: Orden con descuento enviada exitosamente a cocina.
+
+---
+
+Nombre completo: `TS0015CancelAccount.js`
+
+---
+
+Descripción general de la suite:
+Suite de pruebas para cancelar/void órdenes existentes en el sistema. Prueba el flujo de búsqueda de cuentas abiertas, identificación por empleado, selección de orden específica y aplicación de void. Es una operación de administración/manejo de excepciones en el POS.
+
+
+Tests detallados:
+
+1. TC0001: Pick up option to send to kitchen
+   - Propósito: Acceder al listado de cuentas abiertas para buscar la orden a cancelar.
+   - Flujo: Clic en `btnOrderRecall` → Espera 3 segundos para carga.
+   - Elementos UI: `open_accounts`.
+   - Resultado esperado: Vista de cuentas/recall cargada con órdenes abiertas.
+
+2. TC0002: Check emmployee id
+   - Propósito: Validar que la orden pertenece al empleado correcto antes de void.
+   - Flujo: Obtiene texto de `txtValueEmployeeCheck` → Valida que muestra 'QA 3'.
+   - Elementos UI: `get_employee_id`.
+   - Resultado esperado: Orden identificada correctamente por empleado QA 3.
+
+3. TC0003: Click in account and press button recall to open menu config
+   - Propósito: Seleccionar una orden específica y abrir el menú de configuración para aplicar void.
+   - Flujo: Clic en `layout_check_detail_item` → Espera 3 segundos → Clic en `btnRecall` → Espera 3 segundos.
+   - Elementos UI: `layout_item`, `open_menu_account`.
+   - Resultado esperado: Menú de configuración de orden abierto con opción de void disponible.
+
+4. TC0004: Select instace list
+   - Propósito: Seleccionar una instancia específica de la lista de tickets y aplicar void general a la orden.
+   - Flujo: Clic en segundo elemento de `idTicketListRecycler` (índice 2) → Clic en `btnVoid` → Clic en `voidGeneralLayout` para confirmar void.
+   - Elementos UI: `idTicketListRecycler`, `btnVoid`, `voidGeneralLayout`.
+   - Resultado esperado: Orden marcada como void/cancelada exitosamente en el sistema.
+
+
+Nombre completo: `TS0016CancelProduct.js`
+
+---
+
+Descripción general de la suite:
+Suite de pruebas para cancelar/eliminar productos individuales de una orden existente en el POS. Similar a TS0015CancelAccount, pero en lugar de void la orden completa, esta suite valida el flujo de eliminación de ítems específicos y confirmación de cambios. Asegura que el sistema permita quitar productos y preserve los cambios correctamente.
+
+
+Tests detallados:
+
+1. TC0001: Pick up option to send to kitchen
+   - Propósito: Acceder al listado de cuentas abiertas para localizar la orden con productos a cancelar.
+   - Flujo: Clic en `btnOrderRecall` → Espera 3 segundos para carga de lista.
+   - Elementos UI: `open_accounts`.
+   - Resultado esperado: Vista de recall con cuentas abiertas disponibles.
+
+2. TC0002: Check emmployee id
+   - Propósito: Validar que la orden pertenece al empleado QA 3 antes de modificar productos.
+   - Flujo: Obtiene texto de `txtValueEmployeeCheck` → Valida que muestra exactamente 'QA 3'.
+   - Elementos UI: `get_employee_id`.
+   - Resultado esperado: Orden identificada y verificada por empleado correcto.
+
+3. TC0003: Click in account and press button recall to open menu config
+   - Propósito: Seleccionar una orden específica y abrir menú de configuración para poder cancelar productos.
+   - Flujo: Clic en `layout_check_detail_item` → Espera 3 segundos → Clic en `btnRecall` → Espera 3 segundos.
+   - Elementos UI: `layout_item`, `open_menu_account`.
+   - Resultado esperado: Menú de configuración de orden abierto con opciones de void/cancelación disponibles.
+
+4. TC0004: Select instace list
+   - Propósito: Seleccionar instancia de ticket y acceder a funcionalidad de void.
+   - Flujo: Clic en segundo elemento de `idTicketListRecycler` (índice 2) → Clic en `btnVoid` → Clic en `voidGeneralLayout` para confirmar.
+   - Elementos UI: `idTicketListRecycler`, `btnVoid`, `voidGeneralLayout`.
+   - Resultado esperado: Interfaz de void cargada y lista para seleccionar productos específicos.
+
+5. TC0005: Saves change whe product are deleted
+   - Propósito: Confirmar la cancelación de productos y guardar los cambios en la orden.
+   - Flujo: Clic en `idCancelButton` (botón Cancelar) → Clic en `voidCloseButton` (botón "Guardar cambios").
+   - Elementos UI: `idCancelButton`, `voidCloseButton`.
+   - Resultado esperado: Productos eliminados exitosamente y cambios guardados en el sistema.

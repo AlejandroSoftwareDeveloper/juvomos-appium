@@ -1,0 +1,6 @@
+- Ejecutar las test
+cls & npx wdio
+
+- Ejecutar reportes
+npm run ar
+
