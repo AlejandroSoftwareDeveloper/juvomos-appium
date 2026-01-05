@@ -15,10 +15,10 @@ describe("Cancel account ", () => {
       await btn.click();
 
       // Load next screen
-      await browser.pause(3000)
+      await browser.pause(30000) //3 seg
     });
     
-    it("TC0002: Check emmployee id", async () => {
+    it("TC0002: Check employee id", async () => {
        //  Check correct register  
       const upper_case_employee_id = await $(get_employee_id)
       await expect(upper_case_employee_id).toHaveText('QA 3')
@@ -32,27 +32,34 @@ describe("Cancel account ", () => {
       await btn2.click();
        
       // Load next screen
-      await browser.pause(3000)
+      await browser.pause(10000) //3 seg
 
        // Click account
       const btn3 = await $(open_menu_account)
       await btn3.click();
        
       // Load next screen
-      await browser.pause(3000)
+      await browser.pause(10000) //3 seg
 
     });
 
-    it("TC0004: Select instace list ", async () => {
-       // Click account
-        await $('(//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/idTicketListRecycler"])[2]').click()
-        
+    it("TC0004: Cancel first item in instace list", async () => {
+        // Click account
+        await $('(//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/idTicketListRecycler"])[2]/android.view.ViewGroup[1]').click()
+
         // void order
         await $('id:com.juvomos.pos:id/btnVoid').click()
         await $('id:com.juvomos.pos:id/voidGeneralLayout').click()
 
     });
 
+    it("TC0004: Cancel second item in instace list", async () => {
+        // Click account
+        await $('(//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/idTicketListRecycler"])[2]/android.view.ViewGroup[2]').click()
 
+        // void order
+        await $('id:com.juvomos.pos:id/btnVoid').click()
+        await $('id:com.juvomos.pos:id/voidGeneralLayout').click()
 
+    });
 });

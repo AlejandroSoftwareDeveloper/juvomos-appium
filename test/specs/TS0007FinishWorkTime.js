@@ -31,7 +31,7 @@ describe("Validate finish work time", () => {
       await $(back_pin).click();
 
       // 1.2 Wait 5 seg till window load
-      await browser.pause(3000)
+      await browser.pause(10000) // 3 seg
 
       // 1.3 Validate pin window
       const pin_window = await $(enter_pin_text);

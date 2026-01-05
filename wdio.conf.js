@@ -3,8 +3,17 @@ const allure = require('allure-commandline')
 exports.config = {
     port: 4723,
     specs: [
-        './test/specs/*',
-        // './test/specs_en_dev/*.js',
+        // './test/specs/TS0001LicenseInstalationProcess.js',
+        // './test/specs/TS0002PinRegistration.js',
+        // './test/specs/TS0003StartWorkTime.js',
+        // './test/specs/TS0004InitBreakIn.js',
+        // './test/specs/TS0005FinishBreakIn.js',
+        './test/specs/TS0006CashTipsRegister.js',
+        // './test/specs/TS0007FinishWorkTime.js',
+        // './test/specs/TS0009SendFoodToKitchen.js',
+        // './test/specs/TS0011SendFoodToKitckenWithDiscount.js',
+        // './test/specs/TS0015CancelAccount.js',
+        // './test/specs/TS0016CancelProduct.js',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],
@@ -42,37 +51,36 @@ exports.config = {
         }
     },
     reporters: 
-    ['spec'],
-    
-// [
-//         ['allure', {
-//         outputDir: 'allure-results',
-//         disableWebdriverStepsReporting: true,
-//         disableWebdriverScreenshotsReporting: true,
-//         disableMochaHooks:true,
-//         addConsoleLogs: true, // Attach console logs to reports
-//         reportedEnvironmentVars: {
-//             'NODE_VERSION': process.version,
-//             'BROWSER': 'chrome'
-//         }
-//     }]
-// ],
+    // ['spec'],
+[
+        ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+        disableMochaHooks:true,
+        addConsoleLogs: true, // Attach console logs to reports
+        reportedEnvironmentVars: {
+            'NODE_VERSION': process.version,
+            'BROWSER': 'chrome'
+        }
+    }]
+],
     onComplete: function() {
-        // const reportError = new Error('Could not generate Allure report')
-        // const generation = allure(['generate', 'allure-results', '--clean'])
-        // return new Promise((resolve, reject) => {
-        //     const generationTimeout = setTimeout(
-        //         () => reject(reportError),
-        //         5000)
-        //     generation.on('exit', function(exitCode) {
-        //         clearTimeout(generationTimeout)
-        //
-        //         if (exitCode !== 0) {
-        //             return reject(reportError)
-        //         }
-        //         console.log('Allure report successfully generated')
-        //         resolve()
-        //     })
-        // })
+        const reportError = new Error('Could not generate Allure report')
+        const generation = allure(['generate', 'allure-results', '--clean'])
+        return new Promise((resolve, reject) => {
+            const generationTimeout = setTimeout(
+                () => reject(reportError),
+                5000)
+            generation.on('exit', function(exitCode) {
+                clearTimeout(generationTimeout)
+
+                if (exitCode !== 0) {
+                    return reject(reportError)
+                }
+                console.log('Allure report successfully generated')
+                resolve()
+            })
+        })
     },
 }

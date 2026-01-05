@@ -2,6 +2,7 @@ describe("Send food to coock with discount", () => {
     const juv = 'id:com.juvomos.pos:id/'
     // id de menus
     const pick_up = '//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]'
+    const accept_button     = juv + 'checkBigImage'
     const show_account = juv + 'btnShowOrder'
     const discount_block =  juv + 'layoutDiscount'
     const discount_value =  juv + 'discountValue'
@@ -31,6 +32,7 @@ describe("Send food to coock with discount", () => {
         await $(accept_button).click()
 
         // check weigth modal
+        await browser.pause(1000)
         await $('id:com.juvomos.pos:id/one_btn_pin').click()
         await $(accept_button).click()
 

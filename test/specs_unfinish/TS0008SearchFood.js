@@ -27,6 +27,7 @@ describe("Send food to coock", () => {
        //  Check correct register  
       const btn = await $(pick_up)
       await btn.click();
+
     });
 
     it("TC0002: Select card for qa3 test.", async () => {

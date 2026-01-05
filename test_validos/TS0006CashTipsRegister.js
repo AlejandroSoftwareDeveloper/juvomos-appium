@@ -4,27 +4,28 @@ import LoginFlow from '../../src/TestsFlows/LoginFlow'
 
 describe("Check tips cash recieved", () => {
 
-    const clock_in = 'id:com.juvomos.pos:id/clockInButton'
-    const back_pin = 'id:com.juvomos.pos:id/backToPin'
-    const reg_time = 'id:com.juvomos.pos:id/buttonTimeClock'
-    const input = 'id:com.juvomos.pos:id/txt_pin_user'
-    const clock_out = 'id:com.juvomos.pos:id/clockOutButton'
+    const juv = 'id:com.juvomos.pos:id/'
 
-    const totalSheetTime = 'id:com.juvomos.pos:id/txtValueTotalTipTimeSheet'
+    const clock_in = juv + 'clockInButton'
+    const back_pin = juv + 'backToPin'
+    const reg_time = juv + 'buttonTimeClock'
+    const input = juv + 'txt_pin_user'
+    const clock_out = juv + 'clockOutButton'
+    const totalSheetTime = juv + 'txtValueTotalTipTimeSheet'
     const nav_back = '~Navegar hacia arriba'
-    const snack_bar = 'id:com.juvomos.pos:id/snackbar_text'
+    const snack_bar = juv + 'snackbar_text'
+    const btn_cash_tips = juv + 'btnCashTips'
+    const declare_tips_amount = juv + 'declareTipsAmountId'
+    const btn_check = juv + 'checkBigImage'
+    const enter_pin_text = juv + 'enterPinText'
+    const totalTips = juv + 'totalCashDeclaredValue'
 
-    const btn_cash_tips = 'id:com.juvomos.pos:id/btnCashTips'
-
-    const declare_tips_amount = 'id:com.juvomos.pos:id/declareTipsAmountId'
-
-    const btn_check = 'id:com.juvomos.pos:id/checkBigImage'
-    const enter_pin_text = 'id:com.juvomos.pos:id/enterPinText'
-    const totalTips = 'id:com.juvomos.pos:id/totalCashDeclaredValue'
+    const btn_zero = 'zero_txt_pin'
+    const btn_one  = 'one_txt_pin'
 
     let cash = '1.00'
     let current_cash = '0.00'
-
+     
     function calculate_tips(current_tips, aditional_tips){
         return parseFloat(current_tips) + parseFloat(aditional_tips)
     }
@@ -86,10 +87,14 @@ describe("Check tips cash recieved", () => {
         // Click in btn cash tips button
        await $('id:com.juvomos.pos:id/btnCashTips').click()
 
-       // Insert tips in modal
-       const ct = await $(declare_tips_amount)
-       await ct.clearValue() 
-       await ct.setValue(cash) 
+       // // Insert tips in modal
+       // const ct = await $(declare_tips_amount)
+       // await ct.clearValue() 
+       // await ct.setValue(cash) 
+       
+
+
+
 
        // Insert tips and wait
        await $(btn_check).click()

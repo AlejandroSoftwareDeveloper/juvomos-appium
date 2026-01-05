@@ -1,0 +1,82 @@
+[A] Implementar funcionalidad “por Peso” con modal de cantidad
+
+
+Description
+
+Se debe agregar una nueva funcionalidad para productos que tengan activado el flag “Por Peso”.
+Esta opción funciona de forma similar al open price, pero en lugar de ingresar un precio manual, el usuario debe ingresar una cantidad en peso, y el sistema calculará automáticamente el precio final en base al precio unitario del producto.
+
+Además, cuando el producto tenga activo Dual Pricing, el sistema deberá calcular correctamente:
+
+Precio en Cash
+
+Precio en Tarjeta de Credito
+
+Flujo esperado
+Cuando se seleccione un producto con la opción Por Peso habilitada:
+
+Se debe abrir un modal que solicite al usuario ingresar la cantidad en peso (ej.: 1.5, 2.25, etc.).
+
+Al confirmar:
+
+El sistema debe multiplicar la cantidad ingresada × precio unitario del producto.
+
+Continuar el flujo normal de agregar el producto al pedido con el precio ya calculado.
+
+Alcance del desarrollo
+Crear y diseñar un modal para ingreso de peso.
+
+Implementar la lógica de cálculo basada en cantidad × precio.
+
+Integrar la lógica para Dual Pricing (Cash/Card).
+
+Validar que el flujo funcione igual en POS y Mobile si aplica.
+
+Ajustar la vista para mostrar correctamente el precio calculado.
+
+Contemplar casos como:
+ si el producto tiene open price primero debe abrir el dialogo del precio luego el dialogo de cantidad 
+si el producto tiene multiple precio primero abrir el dialogo de multiprecio y luego el dialogo de cantidad
+
+si el producto tiene su precio definido solo deberia abrir el dialogo de cantidad
+
+en los ticket deberia salir el nombre del producto concatenado la cantidad del por peso seleccionado
+
+Estimación de tiempo
+Diseño del modal: 1 hora
+
+Implementación de lógica de cálculo + Dual Pricing: 2 horas
+
+Pruebas funcionales: 1 hora
+
+Total estimado: 4 horas
+
+
+
+
+
+[A] Mostrar modal de selección de cuenta al imprimir cuando existen múltiples cuentas
+
+
+Description
+
+Descripción
+Cuando el usuario presiona el botón Imprimir, actualmente el sistema envía directamente la orden a impresión sin validar si existen múltiples cuentas generadas.
+
+Se requiere agregar un flujo adicional:
+Si la mesa tiene más de una cuenta, al presionar Imprimir, debe abrirse un modal donde el usuario pueda seleccionar específicamente qué cuenta desea imprimir.
+
+Esto permitirá evitar confusiones y permitirá imprimir únicamente la cuenta deseada.
+
+JuvoPOS - Abraham 
+
+Alcance del desarrollo
+Detectar si existen múltiples cuentas asociadas al Split.
+
+Agregar un modal de selección que liste todas las cuentas disponibles (con su número o referencia).
+
+Permitir al usuario elegir una sola opción.
+
+Tras seleccionar la cuenta, ejecutar el flujo de impresión actual.
+
+Mantener el comportamiento actual si solo existe una cuenta (imprimir directamente sin modal).

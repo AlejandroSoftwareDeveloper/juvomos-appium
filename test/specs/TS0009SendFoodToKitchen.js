@@ -6,6 +6,7 @@ describe("Send food to coock", () => {
     const reg_time          = juv + 'buttonTimeClock'
     const accept_button     = juv + 'checkBigImage'
     const show_account = juv + 'btnShowOrder'
+    const pick_up = '//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]'
 
     // 1. Get pin validation
     it("TC0001: Enter employer seccion", async () => {
@@ -16,7 +17,7 @@ describe("Send food to coock", () => {
       // await LoginFlow.insert_value_and_submit();
 
        // 1.2 Wait till validation
-      await browser.pause(5000);
+      await browser.pause(30000); // 5 seg
 
         // 1.3 Get back pin button
       const ELEMENT = await $(back_pin);
@@ -32,7 +33,7 @@ describe("Send food to coock", () => {
       await btn.click() 
 
       // 2.2 Wait till snackbar appears
-      await browser.pause(5000);
+      await browser.pause(30000); // 5 seg
 
       // 2.3 Check registration model
       const ELEMENT = await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnPos"]')
@@ -49,7 +50,7 @@ describe("Send food to coock", () => {
       await btn.click();
 
        // 3.2 Wait till snackbar appears
-       await browser.pause(5000);
+       await browser.pause(20000); //5seg
 
        // 3.3 Check user has menu view
        const ELEMENT = await $('//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/customersListRecycler"]')
@@ -64,6 +65,7 @@ describe("Send food to coock", () => {
        //  Check correct register  
       const btn = await $(pick_up)
       await btn.click();
+
     });
 
     it("TC0005: Select card for qa3 test.", async () => {
@@ -83,6 +85,7 @@ describe("Send food to coock", () => {
         await $(accept_button).click()
 
         // check weigth modal
+        await browser.pause(1000)
         await $('id:com.juvomos.pos:id/one_btn_pin').click()
         await $(accept_button).click()
 

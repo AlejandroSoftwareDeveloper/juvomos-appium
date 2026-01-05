@@ -15,7 +15,7 @@ describe("Cancel product ", () => {
       await btn.click();
 
       // Load next screen
-      await browser.pause(3000)
+      await browser.pause(40000) //3seg
     });
     
     it("TC0002: Check emmployee id", async () => {
@@ -32,14 +32,14 @@ describe("Cancel product ", () => {
       await btn2.click();
        
       // Load next screen
-      await browser.pause(3000)
+      await browser.pause(30000) // 3seg
 
        // Click account
       const btn3 = await $(open_menu_account)
       await btn3.click();
        
       // Load next screen
-      await browser.pause(3000)
+      await browser.pause(10000) // 3seg
 
     });
 
@@ -53,7 +53,7 @@ describe("Cancel product ", () => {
 
     });
 
-    it("TC0005: Saves change whe product are deleted", async () => {
+    it("TC0005: Saves change where product are deleted", async () => {
        // Click "Cancelar"
        await $('id:com.juvomos.pos:id/idCancelButton').click()
         

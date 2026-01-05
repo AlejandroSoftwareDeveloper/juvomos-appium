@@ -22,7 +22,7 @@ describe("Finish BreakIn", () => {
       await $(reg_time).click();
 
       //  Wait till page load
-      await browser.pause(5000);
+      await browser.pause(20000);
 
     })
 

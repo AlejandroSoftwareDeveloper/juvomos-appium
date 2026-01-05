@@ -1,0 +1,2 @@
+El sistema da diversas formas para hacer la mismas accion y la interfaz en el version
+movil. Se podria mejorar la interfaz reduciendo la cantidad de optiones que se puede

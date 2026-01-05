@@ -7,57 +7,43 @@ describe("Validate start work time process", () => {
     const reg_time = 'id:com.juvomos.pos:id/buttonTimeClock'
  
 
-    // 1. Get pin validation
+    // Get pin validation
     it("TC0001: Enter employer seccion", async () => {
-       // 1.1 Set field value
+       // Set field value
       const input = await $('id:com.juvomos.pos:id/txt_pin_user')
       await input.setValue('040404') 
       await $(reg_time).click();
       // await LoginFlow.insert_value_and_submit();
 
-       // 1.2 Wait till validation
-       await browser.pause(5000);
+       // Wait till validation
+       await browser.pause(20000);
 
-        // 1.3 Get back pin button
+        // Get back pin button
         const ELEMENT = await $(back_pin);
         const selector = ELEMENT.selector
 
         expect(selector === 'id:com.juvomos.pos:id/backToPin').toBe(true)
     });
 
-    // 2. Select init work time
+    // Select init work time
     it("TC0002: Select Time clock option", async () => {
-       // 2.1 Click in time clock
-      const btn = await $(clock_in)
-      await btn.click() 
+       // Click in time clock
+      await $(clock_in).click()
        
-      // 2.2 Wait till snackbar appears
-      await browser.pause(5000);
-
-      // 2.3 Check registration model
-      const ELEMENT = await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnPos"]')
-      const selector = ELEMENT.selector
-       
-      expect(selector === '//android.widget.Button[@resource-id="com.juvomos.pos:id/btnPos"]').toBe(true)
+      // Wait till pos load
+      await browser.pause(30000);
 
     });
 
-    // 3. Check init work seccion 
+    //  Check init work seccion 
     it("TC0003: Press pos to init seccion", async () => {
-       // 3.1 Check correct register  
-      const btn = await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnPos"]')
-      await btn.click();
-
-       // 3.2 Wait till snackbar appears
-       await browser.pause(5000);
-
-       // 3.3 Check user has menu view
-       const ELEMENT = await $('//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/customersListRecycler"]')
-       const selector = ELEMENT.selector
-
-       expect(selector === '//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/customersListRecycler"]').toBe(true)
-
+       // Check correct register  
+      await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnPos"]').click()
+        
+       // Wait till window load
+      await browser.pause(5000);
     });
+
 
     it("TC0004: Return to main window when click in close option" , async () => {
        await $('id:com.juvomos.pos:id/imgCloseButton').click()

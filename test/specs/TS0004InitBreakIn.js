@@ -20,8 +20,7 @@ describe("Start BreakIn", () => {
       await $(reg_time).click();
 
       // Wait till page load
-      await browser.pause(5000);
-
+      await browser.pause(20000);
 
     });
 
@@ -32,7 +31,7 @@ describe("Start BreakIn", () => {
        await $(break_in).click()
 
        // Wait till load
-       await browser.pause(1000)
+       await browser.pause(3000)
 
        // load snackbar
        const sb = await $(snack_bar)
@@ -46,7 +45,7 @@ describe("Start BreakIn", () => {
       await $(back_pin).click();
 
       // 1.2 Wait 5 seg till window load
-      await browser.pause(3000)
+      await browser.pause(10000)
 
       // 1.3 Validate pin window
       const pin_window = await $(enter_pin_text);
