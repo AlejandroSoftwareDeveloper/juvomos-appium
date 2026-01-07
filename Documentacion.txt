@@ -1,0 +1,172 @@
+### **Archivo 1: TS0012TransferProductToAnotherAccount.js**
+
+**Nombre completo**: `TS0012TransferProductToAnotherAccount.js`
+
+---
+
+**Descripción general de la suite**:
+Suite de pruebas para validar el **traslado individual de productos** entre cuentas abiertas. Asegura que un ítem específico en estado "Enviado a cocina" pueda ser movido de una cuenta origen a una cuenta destino, con ajuste automático de totales y preservación de datos. Incluye validación de preservación de cambios y cierre de flujo.
+
+
+**Errores de Implementación**:
+1. **TC0001**: Uso de `firts_account` (corregir a `first_account`)
+2. **TC0004**: Lógica inválida `await expect( item1 & item2 & item3 ).toBe(true)` - debe validarse individualmente
+
+**Tests detallados**:
+
+1. **TC0001: Open account list and select first account**
+   - **Propósito**: Acceder a la interfaz de recall y seleccionar cuenta origen.
+   - **Flujo**: Clic en `button_menu_account` → Intento de usar `first_account` (con error tipográfico) → Clic en `account_menu`.
+   - **Resultado esperado**: Vista de detalle de cuenta con ítems listos para transferir.
+   - **Observación**: Código tiene error tipográfico `firts_account` que causaría fallo.
+
+2. **TC0002: Select first item**
+   - **Propósito**: Identificar y seleccionar el producto específico a transferir.
+   - **Flujo**: Obtiene texto de `item_to_transfer` → Almacena en `item_to_transfer_description` → Clic en `first_element_in_account`.
+   - **Validación**: Descripción guardada para verificación posterior.
+   - **Resultado esperado**: Producto seleccionado y menú de acciones visible.
+
+3. **TC0003: Select transfer option and execute transfer**
+   - **Propósito**: Ejecutar flujo completo de transferencia.
+   - **Flujo**: Clic en `transfer_button` → Seleccionar cuenta destino (`account_card_from_trasnfer_account`) → Confirmar (`btn_accept_transfer`) → Esperar 5s → Cancelar (`cancel_button`) → Guardar (`save_changes_button`).
+   - **Validación**: Retorno a `messageTitle` con "Tipo de orden".
+   - **Resultado esperado**: Producto trasladado y cambios persistidos.
+   - **Observación**: La pausa de 5s debería ser reemplazada por waitUntil visible.
+
+4. **TC0004: Open menu and confirm account transfer**
+   - **Propósito**: Verificar que el ítem aparece en cuenta destino.
+   - **Flujo**: Abrir `button_menu_account` → Seleccionar `second_account` → Verificar existencia de 3 ítems.
+   - **Validación**: Lógica inválida actual, debe validar cada item1, item2, item3 individualmente.
+   - **Resultado esperado**: Cuenta destino contiene producto transferido.
+
+5. **TC0005: Close menu options**
+   - **Propósito**: Cerrar flujo y retornar a menú principal.
+   - **Flujo**: Clic en `cancel_button` → Clic en `imgCloseButton` → Clic en navegación atrás → Validar `messageTitle` = "Tipo de orden".
+   - **Resultado esperado**: Aplicación en estado inicial para nuevas operaciones.
+
+---
+
+
+
+**Nombre completo**: `TS0013TransferAccountToAccount.js`
+
+---
+
+**Descripción general de la suite**:
+Suite incompleta para **transferir una cuenta completa a otra cuenta** en formato Split. El código muestra definición de constantes pero implementación parcial. No ejecuta el flujo completo descrito en el caso de uso (faltan pasos de validación y verificación del split).
+
+**Constantes definidas** (17):
+- `juv`: Prefijo base para IDs
+- `pick_up`: Selector tipo de orden (NO USADO)
+- `button_menu_account`: Botón recall
+- `first_account`: Primera cuenta (con error tipográfico `firts_account`, NO USADA)
+- `second_account`: Segunda cuenta (NO USADA)
+- `account_menu`: Botón recall interno (SI USADO)
+- `first_element_in_account`: Primer elemento (NO USADO)
+- `transfer_button`: Botón transferir ítem (NO USADO)
+- `item_to_transfer`: Descripción ítem (NO USADO)
+- `item_to_transfer_description`: Variable (NO USADA)
+- `account_card_from_trasnfer_account`: Selector cuenta destino (NO USADO)
+- `btn_accept_transfer`: Botón confirmar transferencia (SI USADO)
+- `cancel_button`: Botón cancelar (SI USADO)
+- `save_changes_button`: Botón guardar (NO USADO)
+
+**Constantes NO utilizadas** (12):
+- `pick_up`
+- `first_account` (typo `firts_account`)
+- `second_account`
+- `first_element_in_account`
+- `transfer_button`
+- `item_to_transfer`
+- `item_to_transfer_description`
+- `account_card_from_trasnfer_account`
+- `save_changes_button`
+
+**Tests detallados**:
+
+1. **TC0001: Open account list and select first account**
+   - **Propósito**: Setup inicial (similar a TS0012).
+   - **Flujo**: Clic en `button_menu_account` → Intento de `first_account` (typo) → Clic en `account_menu`.
+   - **Problema**: Uso de `firts_account` causará fallo. Falta verificación de estado de cuenta.
+
+2. **TC0002: Select account number**
+   - **Propósito**: Acceder a opciones de cuenta.
+   - **Flujo**: Clic en `txtTicketNumber` → Validar texto "Opciones de la cuenta".
+   - **Resultado esperado**: Menú de opciones desplegado.
+   - **Observación**: No usa constantes definidas, usa selectores hardcodeados.
+
+3. **TC0003: Select transfer option**
+   - **Propósito**: Iniciar flujo de split.
+   - **Flujo**: Clic en `btn_accept_transfer` → Clic en `btnTransferChec` (error tipográfico: debería ser `btnTransferCheck`) → Validar "Transferir Cuenta".
+   - **Problema**: Selector `btnTransferChec` probablemente sea incorrecto.
+
+4. **TC0004: Transfer account to another account**
+   - **Propósito**: Finalizar split.
+   - **Flujo**: Clic en `btn_accept_transfer` → Pausa 10s → Cerrar menú → Validar retorno a "Tipo de orden".
+   - **Observación**: No selecciona cuenta destino explícitamente. Pausa larga sin waitUntil. No verifica resultado del split.
+
+---
+
+## 📊 3. SÍNTESIS DE CALIDAD DEL CÓDIGO
+
+### **Problemas Críticos Encontrados:**
+
+| Archivo | Problemática | Impacto | Solución Propuesta |
+|---------|--------------|---------|-------------------|
+| TS0012 | `firts_account` typo | ❌ **Fallo garantizado** | Corregir a `first_account` |
+| TS0012 | Validación inválida `item1 & item2 & item3` | ❌ **Aserto siempre falso** | Separar en 3 expect individuales |
+| TS0013 | 12/17 constantes no usadas | ⚠️ **Confusión** | Eliminar constantes redundantes |
+| TS0013 | `btnTransferChec` typo | ❌ **Selector no encontrado** | Verificar ID real del botón |
+| TS0013 | Falta selección de cuenta destino | ⚠️ **Flujo incompleto** | Agregar paso con `second_account` |
+| Ambos | Uso de `pause` fijo | ⚠️ **Inestabilidad** | Reemplazar con `waitUntil` |
+
+### **Cobertura Real vs Esperada:**
+- **TS0012**: 70% del flujo implementado (falta verificación de ajuste de totales)
+- **TS0013**: 40% del flujo implementado (faltan validaciones de split y estado final)
+
+---
+
+## 📈 4. RECOMENDACIONES ESPECÍFICAS
+
+### **Para TS0012TransferProductToAnotherAccount.js:**
+1. **Corregir typo**: `firts_account` → `first_account`
+2. **Refactor TC0004**:
+```javascript
+// Antes (inválido)
+await expect( item1 & item2 & item3 ).toBe(true);
+
+// Después (válido)
+await expect(item1).toBe(true);
+await expect(item2).toBe(true);
+await expect(item3).toBe(true);
+```
+3. **Agregar validación de totales**: Comparar montos antes/después en cuenta origen y destino
+4. **Reemplazar `browser.pause(5000)`** con:
+```javascript
+await $(save_changes_button).waitForDisplayed({ timeout: 5000 });
+```
+
+### **Para TS0013TransferAccountToAccount.js:**
+1. **Eliminar constantes no usadas** (12 de 17)
+2. **Completar flujo de split**:
+```javascript
+// Falta agregar:
+await $(second_account).click(); // Seleccionar cuenta destino
+await $('id:com.juvomos.pos:id/btnConfirmSplit').click();
+await expect($(`${CommonPage.JUV}splitConfirmationText`)).toHaveText('Split completado');
+```
+3. **Verificar resultado**: Validar que ambas cuentas muestran "SPLIT" en UI
+4. **Corregir selector**: `btnTransferChec` → `btnTransferCheck`
+
+---
+
+## 🎯 5. CONCLUSIÓN
+
+Los dos archivos presentan **implementación parcial** con patrones de TS0012 copiados a TS0013 sin adaptación. Se requiere **refactorización urgente** antes de ejecución en pipeline.
+
+**Prioridad de Corrección:**
+1. **ALTA**: TS0012 (corregir typo y validación)
+2. **CRÍTICA**: TS0013 (reescribir completamente)
+3. **MEDIA**: Ambos (reemplazar pausas fijas)
+
+**Tiempo Estimado de Corrección:** 2 horas para ambos archivos
