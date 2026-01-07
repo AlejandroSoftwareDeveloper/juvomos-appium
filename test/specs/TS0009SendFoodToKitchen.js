@@ -8,11 +8,23 @@ describe("Send food to coock", () => {
     const show_account = juv + 'btnShowOrder'
     const pick_up = '//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]'
 
+    const btn_zero = juv + 'zero_btn_pin'
+    const btn_four = juv + 'four_btn_pin'
+
+
     // 1. Get pin validation
     it("TC0001: Enter employer seccion", async () => {
        // 1.1 Set field value
       const input = await $('id:com.juvomos.pos:id/txt_pin_user')
-      await input.setValue('040404') 
+      await $(btn_zero).click()
+      await $(btn_four).click()
+      await $(btn_zero).click()
+      await $(btn_four).click()
+      await $(btn_zero).click()
+      await $(btn_four).click()
+
+      // await input.setValue('040404') 
+
       await $(reg_time).click();
       // await LoginFlow.insert_value_and_submit();
 
