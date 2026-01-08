@@ -16,9 +16,10 @@ describe("Send food to coock with discount", () => {
       await btn.click();
     });
 
-    it("TC0002: Select card for qa3 test.", async () => {
+    it("TC0002: Select custom card for test.", async () => {
       // Select card qa3
-      const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[1]')
+        // const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[1]')
+      const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[12]')
       await card_clicked.click()
 
        // Show modal and confirm
@@ -38,9 +39,10 @@ describe("Send food to coock with discount", () => {
 
     });
     
-    it("TC0004: Pick up again qa3 option.", async () => {
+    it("TC0004: Pick up custom card again option.", async () => {
       // Select card qa3
-      const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[1]')
+      // const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[1]')
+      const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[12]')
       await card_clicked.click()
 
        // Show modal and confirm

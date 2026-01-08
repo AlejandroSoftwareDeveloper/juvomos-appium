@@ -21,14 +21,22 @@ describe("Check tips cash recieved", () => {
     const totalTips = juv + 'totalCashDeclaredValue'
     let cash = '1.00'
     let current_cash = '0.00'
+     const backspace = '(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]'
+
+    const one = juv + 'one_btn_pin'
+    const zero = juv + 'zero_btn_pin'
 
     function calculate_tips(current_tips, aditional_tips){
         return parseFloat(current_tips) + parseFloat(aditional_tips)
     }
 
+    async function clean_backspace(){
+       await $('(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]').click()
+    }
+
 
      it("TC0001: Check tips current value", async () => {
-         
+
          // Enter in work hour view
         const vhb = await $('id:com.juvomos.pos:id/viewHoursButton')
         await vhb.click();
@@ -46,17 +54,17 @@ describe("Check tips cash recieved", () => {
 
      it("TC0002: Insert tips in modal", async () => {
 
-        // Click in btn cash tips button
-       await $('id:com.juvomos.pos:id/btnCashTips').click()
+      // Click in btn cash tips button
+     await $('id:com.juvomos.pos:id/btnCashTips').click()
 
-       // Insert tips in modal
-       // const ct = await $(declare_tips_amount)
-       // await ct.clearValue() 
-       // await ct.setValue(cash) 
-       
+      for (i = 0 ; i < 10 ;i++){
+          await clean_backspace()
+      }
 
-       // Insert with button of keyboard
-
+      // Insert tips in modal
+       await $(one).click()
+       await $(zero).click()
+       await $(zero).click()
 
        // Insert tips and wait
        await $(btn_check).click()
@@ -83,17 +91,14 @@ describe("Check tips cash recieved", () => {
         // Get current tips value update
         new_cash = parseFloat(await $(totalSheetTime).getText())
         result = calculate_tips(current_cash, cash)
-         
 
         // Confirm result
         await expect(new_cash).toBe(result)
-         
+
         // Exit seccion
         await $(nav_back).click()
-         
+
      })
-
-
 
 });
 
