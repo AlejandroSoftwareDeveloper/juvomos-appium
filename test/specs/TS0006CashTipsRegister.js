@@ -21,10 +21,13 @@ describe("Check tips cash recieved", () => {
     const totalTips = juv + 'totalCashDeclaredValue'
     let cash = '1.00'
     let current_cash = '0.00'
-     const backspace = '(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]'
+    const backspace = '(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]'
 
     const one = juv + 'one_btn_pin'
     const zero = juv + 'zero_btn_pin'
+    const cancel_dialog = juv + 'btnCancelDialogTimeSheet' 
+
+    let back_or_cancel = 0
 
     function calculate_tips(current_tips, aditional_tips){
         return parseFloat(current_tips) + parseFloat(aditional_tips)
@@ -32,6 +35,13 @@ describe("Check tips cash recieved", () => {
 
     async function clean_backspace(){
        await $('(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]').click()
+    }
+
+
+    async function check_buttons(){
+         let back = await $(nav_back)
+         let cancel = await $(cancel_dialog)
+        back_or_cancel = back ? 1 : 0 
     }
 
 
@@ -51,6 +61,7 @@ describe("Check tips cash recieved", () => {
         await $(nav_back).click()
 
      })
+
 
      it("TC0002: Insert tips in modal", async () => {
 
