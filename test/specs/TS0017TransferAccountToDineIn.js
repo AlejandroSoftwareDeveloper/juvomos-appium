@@ -1,13 +1,7 @@
 describe("Trasnfer product between acccounts", () => {
 
-     let product_name = ''
-     let product_price = ''
-
-      let employee_name = ''
-
-
       // Estas prubas son subseptibles a cambios
-    it("TC0001: Open account list and select item", async () => {
+    it("TC0001: Open account Dine in ", async () => {
        //Open pick up option
        await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]').click()
 
@@ -56,23 +50,19 @@ describe("Trasnfer product between acccounts", () => {
         await browser.pause(5000)
 
         // Get employee name 
-        //
-        await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/employeeName" and @text="QA 3"]').click()
+        const temp  = await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/employeeName" and @text="QA 3"]')
+        employee_name = temp.getText()
+        temp.click()
+
+        // transfer to employee
         await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnTransfer"]').click()
 
-        // const temp  = await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/employeeName" and @text="QA 3"]')
-        // employee_name = temp.getText()
-        // temp.click()
-        //
-        // // transfer to employee
-        // await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnTransfer"]').click()
-        //
-        // // wait till list load
-        // await browser.pause(5000)
-        //
-        // // Back to menu
-        // await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]')
-        // await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/idCancelButton"]')
+        // wait till list load
+        await browser.pause(5000)
+        
+        // Back to menu
+        await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]')
+        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/idCancelButton"]')
 
     });
    

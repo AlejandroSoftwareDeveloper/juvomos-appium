@@ -10,7 +10,7 @@ describe("Register with correct pin", () => {
     });
 
     it("TC0002: Insert correct pin and authenticate", async () => {
-       await LoginFlow.insert_value_and_submit('040404');
+       await LoginFlow.insert_value_and_submit('090909');
        await LoginFlow.wait_till_next_view_load(15000);
     });
 
