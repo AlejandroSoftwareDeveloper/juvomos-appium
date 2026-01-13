@@ -1,4 +1,4 @@
-describe("Trasnfer product between acccounts", () => {
+describe("Transfer account to employee", () => {
 
      let product_name = ''
      let product_price = ''
@@ -56,7 +56,6 @@ describe("Trasnfer product between acccounts", () => {
         await browser.pause(5000)
 
         // Get employee name 
-        //
         await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/employeeName" and @text="QA 3"]').click()
         await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnTransfer"]').click()
 

@@ -1,4 +1,4 @@
-describe("Trasnfer product between acccounts", () => {
+describe("Trasnfer product to Dine in", () => {
 
       // Estas prubas son subseptibles a cambios
     it("TC0001: Open account Dine in ", async () => {

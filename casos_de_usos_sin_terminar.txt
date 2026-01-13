@@ -50,3 +50,47 @@
     4. Seleccionar tipo de orden Dine In			
     Se debe mantener la misma distribucion creado desde el BackOffice
 
+
+
+
+QAPOS1	Instalacion e inicio	
+Colocar codigo de Instalacion Seleccionar una estacion Colocar PIN empleado Ir al POS	
+Se deben mostrar todas las categorias, subcategorias y productos		alejandro	9/1/2026
+
+QAPOS2	Informe Diario	
+Crear cuenta normal SIN DESCUENTO al iniciar el día Pagarla de forma normal Ir a informe diario Verificar que los datos se hayan registrado correctamente	El informe en Resumen de Ventas, debe registrar correctamente los valores.		alejandro	12/1/2026
+
+QAPOS3	Busqueda de productos		
+Al buscar productos estos pueden contener el mismo nombre en varias subcategorias por lo que se espera que la barra de subcategorias contenga las subcategorias en donde se encuentren los productos buscados			
+
+QAPOS4	Numero de cuenta	
+Se debe ver completamente el numero del check		alejandro	9/1/2026
+
+QAPOS5	Option Comments Items	
+La opcion de comentarios para cocina debe funcionar en todo momento		alejandro	12/1/2026
+
+QAPOS6	Nombre Cliente	
+Se crea una cuenta y se le asigna un cliente Se presiona botón Send Comprobar el registro de cliente en checks
+El nombre del cliente debe aparecer registrado en el check		alejandro	12/1/2026
+
+QAPOS7	Nombre Cliente | 
+Split	Se crea una cuenta y se le asigna un cliente Con el cliente asignado 
+ir a la pantalla de split Dividir en 3 cuentas y aceptar En el POS presionar 
+boton opciones de cheques y verificar cada cheque	
+Cada cheque debe tener la opción de poder seleccionar un cliente diferente.			
+
+QAPOS8	Floor Layout	
+Ingresar desde Type Order a Dane In	La pantalla se debe cargar de forma correcta		Alejandro	12/1/2026
+
+QAPOS9	Impresion de cambio	Se crea un cheque, 
+se paga en efectivo con un valor mayor para obtener cambio Se visuliza 
+la impresión	La impresión debe contener el valor del cambio			
+
+QAPOS10	MESA OCUPADA SIN ORDEN	Seleccionar dine in seleccionar mesa selecciona numero de ocupantes no se hace pedido seleccionar dine in seleccionar misma mesa	La mesa deberia estar disponible		Vladimir	
+
+QAPOS11	Mesa ocuapda con orden	Seleccionar varios productos Clic en Deni In Clic en una de las mesas Seleccionar cantidad comenzales Enviar	Se le asiga ese check a la mesa seleccionada		Vladimir	
+QAPOS12	Pagar Cheque con Mesa	Clic tipo de Orden Clic Dine In Selecionar un Check Pagar	Se debe mostrar la mesa desocupada		alejandro	12/1/2026
+QAPOS13	Floor layout select table	Clic tipo de Orden Clic Dine In Seleccionar una mesa Selecionar un Check Enviar Seleccionar Tipo de Oden Dine In Dejar presionado la mesa ocupada Desocupar mesa Pagar	Se debe desocupar la mesa		alejandro	12/1/2026
+QAPOS14	Floor layout select table version 2	Clic en Dine In Seleccionar una mesa y numero de personas Clic en DIne In	Se debe marcar la mesa como seleccionada		alejandro	12/1/2026
+
+

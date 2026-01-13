@@ -1,4 +1,4 @@
-describe("Trasnfer product between acccounts", () => {
+describe("Trasnfer product between accounts", () => {
     const juv = 'id:com.juvomos.pos:id/'
     // id de menus
     const pick_up = '//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]'
