@@ -1,58 +1,47 @@
-import {
-  PIN_INPUT,
-  REG_TIME_BUTTON,
-  ACCEPT_BUTTON,
-  BTN_SHOW_ORDER,
-  PICK_UP_OPTION,
-  BTN_ZERO,
-  BTN_FOUR,
-  CLOCK_IN_BUTTON
-} from '../../src/selectors/constants'
-
 describe("Send food to coock", () => {
-    // const juv = 'id:com.juvomos.pos:id/'
-    // const clock_in          = juv + 'clockInButton'
-    // const back_pin          = juv + 'backToPin'
-    // const password_input    = juv + 'txt_pin_user'
-    // const reg_time          = juv + 'buttonTimeClock'
-    // const accept_button     = juv + 'checkBigImage'
-    // const show_account = juv + 'btnShowOrder'
-    // const pick_up = '//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]'
+    const juv = 'id:com.juvomos.pos:id/'
+    const clock_in          = juv + 'clockInButton'
+    const back_pin          = juv + 'backToPin'
+    const password_input    = juv + 'txt_pin_user'
+    const reg_time          = juv + 'buttonTimeClock'
+    const accept_button     = juv + 'checkBigImage'
+    const show_account = juv + 'btnShowOrder'
+    const pick_up = '//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]'
 
-    // const btn_zero = juv + 'zero_btn_pin'
-    // const btn_four = juv + 'four_btn_pin'
+    const btn_zero = juv + 'zero_btn_pin'
+    const btn_four = juv + 'four_btn_pin'
 
 
     // 1. Get pin validation
     it("TC0001: Enter employer seccion", async () => {
        // 1.1 Set field value
-      // const input = await $('id:com.juvomos.pos:id/txt_pin_user')
-      await $(BTN_ZERO).click()
-      await $(BTN_FOUR).click()
-      await $(BTN_ZERO).click()
-      await $(BTN_FOUR).click()
-      await $(BTN_ZERO).click()
-      await $(BTN_FOUR).click()
+      const input = await $('id:com.juvomos.pos:id/txt_pin_user')
+      await $(btn_zero).click()
+      await $(btn_four).click()
+      await $(btn_zero).click()
+      await $(btn_four).click()
+      await $(btn_zero).click()
+      await $(btn_four).click()
 
       // await input.setValue('040404') 
 
-      await $(REG_TIME_BUTTON).click();
+      await $(reg_time).click();
       // await LoginFlow.insert_value_and_submit();
 
        // 1.2 Wait till validation
       await browser.pause(30000); // 5 seg
 
         // 1.3 Get back pin button
-      const ELEMENT = await $(BACK_TO_PIN_BUTTON);
+      const ELEMENT = await $(back_pin);
       const selector = ELEMENT.selector
 
-        expect(selector === BACK_TO_PIN_BUTTON).toBe(true)
+        expect(selector === 'id:com.juvomos.pos:id/backToPin').toBe(true)
     });
 
     // 2. Select init work time
     it("TC0002: Select Time clock option", async () => {
        // 2.1 Click in time clock
-      const btn = await $(CLOCK_IN_BUTTON)
+      const btn = await $(clock_in)
       await btn.click() 
 
       // 2.2 Wait till snackbar appears
@@ -86,7 +75,7 @@ describe("Send food to coock", () => {
     //  Pick up food to send to kitchen 
     it("TC0004: Pick up option to send to kitchen.", async () => {
        //  Check correct register  
-      const btn = await $(PICK_UP_OPTION)
+      const btn = await $(pick_up)
       await btn.click();
 
     });
@@ -94,7 +83,7 @@ describe("Send food to coock", () => {
     it("TC0005: Select custom card for test.", async () => {
       // Select card qa3
       // const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[1]')
-      const card_clicked = await $(CUSTOM_CARD)
+      const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[12]')
       await card_clicked.click()
 
        // Show modal and confirm
@@ -106,19 +95,19 @@ describe("Send food to coock", () => {
 
     it("TC0006: Set price per element.", async () => {
         // Select card qa3
-        await $(ACCEPT_BUTTON).click()
+        await $(accept_button).click()
 
         // check weigth modal
         await browser.pause(1000)
         await $('id:com.juvomos.pos:id/one_btn_pin').click()
-        await $(ACCEPT_BUTTON).click()
+        await $(accept_button).click()
 
     });
     
     it("TC0007: Pick up again custom option.", async () => {
       // Select card qa3
       // const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[1]')
-      const card_clicked = await $(CUSTOM_CARD)
+      const card_clicked = await $('(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[12]')
       await card_clicked.click()
 
        // Show modal and confirm
@@ -130,17 +119,17 @@ describe("Send food to coock", () => {
 
     it("TC0008: Set price per element second time.", async () => {
         // Select card qa3
-        await $(ACCEPT_BUTTON).click()
+        await $(accept_button).click()
 
         // check weigth modal
         await $('id:com.juvomos.pos:id/one_btn_pin').click()
-        await $(ACCEPT_BUTTON).click()
+        await $(accept_button).click()
 
     });
 
     it("TC0009: Open account and send to kitchen.", async () => {
         // Click in account button
-        await $(BTN_SHOW_ORDER).click()
+        await $(show_account).click()
 
         // check order
         const text_order = await $('id:com.juvomos.pos:id/itemInvoiceName').getText()

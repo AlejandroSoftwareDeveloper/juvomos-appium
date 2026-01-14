@@ -1,10 +1,7 @@
-
-
 import LoginFlow from '../../src/TestsFlows/LoginFlow'
-import { ENTER_PIN_TEXT } from '../../src/selectors/constants'
 
 describe("Register with correct pin", () => {
-    // const enter_pin_text = 'id:com.juvomos.pos:id/enterPinText' // reemplazado por constante
+    const enter_pin_text = 'id:com.juvomos.pos:id/enterPinText'
 
     it("TC0001: Show pin error message 'Ingrese un PIN válido' if input field is empty",async () => {
        await LoginFlow.insert_value_and_submit();
@@ -19,7 +16,12 @@ describe("Register with correct pin", () => {
 
     it("TC0003: Return to main window when click in pin button" , async () => {
        await LoginFlow.click_back_pin_button();
-       const pin_window = await $(ENTER_PIN_TEXT);
+       const pin_window = await $(enter_pin_text);
        await expect(pin_window).toHaveText('Ingrese PIN')
    });
 });
+
+
+
+
+

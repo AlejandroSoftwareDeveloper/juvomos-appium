@@ -1,15 +1,4 @@
-import {
-  PICK_UP_OPTION,
-  BTN_SHOW_ORDER,
-  BTN_SEND_TO_KITCHEN,
-  BTN_ORDER_RECALL,
-  LAYOUT_CHECK_ITEM,
-  BTN_RECALL,
-  BTN_TRANSFER,
-  BTN_TRANSFER_EMPLOYEE
-} from '../../src/selectors/constants'
-
-describe("Trasnfer product between acccounts", () => {
+describe("Transfer account to employee", () => {
 
      let product_name = ''
      let product_price = ''
@@ -20,13 +9,13 @@ describe("Trasnfer product between acccounts", () => {
       // Estas prubas son subseptibles a cambios
     it("TC0001: Open account list and select item", async () => {
        //Open pick up option
-       await $(PICK_UP_OPTION).click()
+       await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]').click()
 
        // Select item
        await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/category_product_name" and @text="QA"]').click()
 
        // Select account in list
-       await $(BTN_SHOW_ORDER).click()
+       await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnShowOrder"]').click()
     });
 
 
@@ -36,7 +25,7 @@ describe("Trasnfer product between acccounts", () => {
       product_price = await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemInvoiceTotal"]').getText()
       
         //send to kitchen
-       await $(BTN_SEND_TO_KITCHEN).click()
+       await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnSendPointOfSale"]').click()
 
        // check account option existence
        await expect(await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/messageTitle"]')).toHaveText('Tipo de orden')
@@ -45,29 +34,28 @@ describe("Trasnfer product between acccounts", () => {
 
     it("TC0003: Select account and transfer", async () => {
         // Click in "abrir"
-        await $(BTN_ORDER_RECALL).click()
+        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnOrderRecall"]').click()
 
         //Select account with qa9
-        await $(LAYOUT_CHECK_ITEM + '[1]').click()
+        await $('(//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/layout_check_detail_item"])[1]').click()
 
         // Wait till load 
          await browser.pause(10000);
 
         // Go to back interface 
-        await $(BTN_RECALL).click()
+        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnRecall"]').click()
 
         //Select account 
-        await $('id:com.juvomos.pos:id/txtTicketNumber').click()
+        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/txtTicketNumber"]')/click()
 
         // Select transfer and employee
-        await $(BTN_TRANSFER).click()
-        await $(BTN_TRANSFER_EMPLOYEE).click()
+        await $('//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/btnTransfer"]').click()
+        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnTransferEmployee"]').click()
 
         // wait till list load
         await browser.pause(5000)
 
         // Get employee name 
-        //
         await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/employeeName" and @text="QA 3"]').click()
         await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnTransfer"]').click()
 

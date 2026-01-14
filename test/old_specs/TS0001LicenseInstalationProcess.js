@@ -1,26 +1,24 @@
 import LoginFlow from '../../src/TestsFlows/LoginFlow'
-import {
-  PIN_INPUT,
-  ACCEPT_BUTTON,
-  SNACKBAR_TEXT
-} from '../../src/selectors/constants'
 
 describe("Validate instalation process", () => {
+    let input_password = 'id:com.juvomos.pos:id/txt_pin_user';
+    let accept_button  = 'id:com.juvomos.pos:id/checkBigImage';
+
     // Helper fucntion
     async function insert_code_and_accept(code){
-        await $(PIN_INPUT).setValue(code);
-        await $(ACCEPT_BUTTON).click();
+        await $(input_password).setValue(code);
+        await $(accept_button).click();
     }
 
       // Check if validate empty field
     it("TC0001: Show pin message 'Ingrese PIN' if input field is empty",async () => {
-       await $(ACCEPT_BUTTON).click();
+       await $(accept_button).click();
 
        //  Wait till snackbar appears
        await browser.pause(1000);
 
        //  Capture snackbar text
-       const snackbar_text = await $(SNACKBAR_TEXT).getText();
+       const snackbar_text = await $('id:com.juvomos.pos:id/snackbar_text').getText();
 
        //  Show message
        await expect(snackbar_text).toBe('Ingrese PIN')
@@ -30,13 +28,13 @@ describe("Validate instalation process", () => {
     it("TC0002: Password field do support number", async () => {
          //  Insert custom value
         const VALID_PASS = '1234567890';
-        const input = await $(PIN_INPUT);
+        const input = await $(input_password);
         await input.setValue(VALID_PASS);
         const PASS_FIELD_DATA = await input.getText();
 
          // Get visual dots
         await expect(PASS_FIELD_DATA.length === VALID_PASS.length).toBe(true);
-        await $(PIN_INPUT).clearValue();
+        await $(input_password).clearValue();
         await browser.pause(250)
 
     });
@@ -52,7 +50,7 @@ describe("Validate instalation process", () => {
         await browser.pause(2000) // 3 seg
         
         //  Capture snackbar text
-        const snackbar_text = await $(SNACKBAR_TEXT).getText();
+        const snackbar_text = await $('id:com.juvomos.pos:id/snackbar_text').getText();
 
         //  Show text with warning
         await expect(snackbar_text === 'Licencia no encontrada').toBe(true)
@@ -70,11 +68,11 @@ describe("Validate instalation process", () => {
         await browser.pause(3000) // 3 seg
 
         // Capture snackbar text
-        const snackbar_text = await $(SNACKBAR_TEXT).getText();
+        const snackbar_text = await $('id:com.juvomos.pos:id/snackbar_text').getText();
 
         //  Show text with warning
         await expect(snackbar_text === 'Licencia no encontrada').toBe(true)
-        await $(PIN_INPUT).clearValue();
+        await $(input_password).clearValue();
         await browser.pause(250)
 
     });
@@ -84,15 +82,15 @@ describe("Validate instalation process", () => {
 
         //  Insert custom value
         const VALID_PASS = '647125';
-        await $(PIN_INPUT).setValue(VALID_PASS);
+        await $(input_password).setValue(VALID_PASS);
 
         //  Get visual dots 
-         const PASS_FIELD_DATA = await $(PIN_INPUT).getText();
+         const PASS_FIELD_DATA = await $(input_password).getText();
 
         //  Indirect validation of characters
         await expect(PASS_FIELD_DATA.length === 6).toBe(true);
 
-        await $(ACCEPT_BUTTON).click();
+        await $(accept_button).click();
 
         //  Wait 10000 seconds for apk to validate and load
         await browser.pause(56000)  // Currently Takes more than 10 seconds

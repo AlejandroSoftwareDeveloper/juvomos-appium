@@ -1,44 +1,31 @@
 import LoginFlow from '../../src/TestsFlows/LoginFlow'
-import {
-  CLOCK_IN_BUTTON,
-  REG_TIME_BUTTON,
-  PIN_INPUT,
-  TOTAL_TIP_TIMESHEET,
-  NAV_BACK,
-  SNACKBAR_TEXT,
-  BTN_CASH_TIPS,
-  DECLARE_TIPS_AMOUNT,
-  ACCEPT_BUTTON,
-  TOTAL_TIPS_DECLARED,
-  BTN_ONE,
-  BTN_ZERO,
-  CANCEL_DIALOG
-} from '../../src/selectors/constants'
+
+
 
 describe("Check tips cash recieved", () => {
 
 
-    // const juv = 'id:com.juvomos.pos:id/'
-    // const clock_in = juv + 'clockInButton'
-    // const back_pin = juv + 'backToPin'
-    // const reg_time = juv + 'buttonTimeClock'
-    // const input = juv + 'txt_pin_user'
-    // const clock_out = juv + 'clockOutButton'
-    // const totalSheetTime = juv + 'txtValueTotalTipTimeSheet'
-    // const nav_back = '~Navegar hacia arriba'
-    // const snack_bar = juv + 'snackbar_text'
-    // const btn_cash_tips = juv + 'btnCashTips'
-    // const declare_tips_amount = juv + 'declareTipsAmountId'
-    // const btn_check = juv + 'checkBigImage'
-    // const enter_pin_text = juv + 'enterPinText'
-    // const totalTips = juv + 'totalCashDeclaredValue'
+    const juv = 'id:com.juvomos.pos:id/'
+    const clock_in = juv + 'clockInButton'
+    const back_pin = juv + 'backToPin'
+    const reg_time = juv + 'buttonTimeClock'
+    const input = juv + 'txt_pin_user'
+    const clock_out = juv + 'clockOutButton'
+    const totalSheetTime = juv + 'txtValueTotalTipTimeSheet'
+    const nav_back = '~Navegar hacia arriba'
+    const snack_bar = juv + 'snackbar_text'
+    const btn_cash_tips = juv + 'btnCashTips'
+    const declare_tips_amount = juv + 'declareTipsAmountId'
+    const btn_check = juv + 'checkBigImage'
+    const enter_pin_text = juv + 'enterPinText'
+    const totalTips = juv + 'totalCashDeclaredValue'
     let cash = '1.00'
     let current_cash = '0.00'
-    // const backspace = '(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]'
+    const backspace = '(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]'
 
-    // const one = juv + 'one_btn_pin'
-    // const zero = juv + 'zero_btn_pin'
-    // const cancel_dialog = juv + 'btnCancelDialogTimeSheet' 
+    const one = juv + 'one_btn_pin'
+    const zero = juv + 'zero_btn_pin'
+    const cancel_dialog = juv + 'btnCancelDialogTimeSheet' 
 
 
     function calculate_tips(current_tips, aditional_tips){
@@ -51,10 +38,10 @@ describe("Check tips cash recieved", () => {
 
 
     async function check_buttons(){
-         let back = await $(NAV_BACK)
-         let cancel = await $(CANCEL_DIALOG)
+         let back = await $(nav_back)
+         let cancel = await $(cancel_dialog)
          console.log(!!back)
-         return !!back ? NAV_BACK : CANCEL_DIALOG
+         return !!back ? nav_back : cancel_dialog
     }
 
 
@@ -77,8 +64,8 @@ describe("Check tips cash recieved", () => {
 
 
 
-        let back = await $(NAV_BACK)
-        let cancel = await $(CANCEL_DIALOG)
+        let back = await $(nav_back)
+        let cancel = await $(cancel_dialog)
         // El back error existe por que  el boton no existe
         console.log(`Back es ${!!back.error} y Cancel es ${!!cancel.error}`)
 
@@ -135,3 +122,4 @@ describe("Check tips cash recieved", () => {
      // })
 
 });
+
