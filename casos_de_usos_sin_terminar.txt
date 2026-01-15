@@ -51,12 +51,6 @@
     Se debe mantener la misma distribucion creado desde el BackOffice
 
 
-
-
-QAPOS1	Instalacion e inicio	
-Colocar codigo de Instalacion Seleccionar una estacion Colocar PIN empleado Ir al POS	
-Se deben mostrar todas las categorias, subcategorias y productos		alejandro	9/1/2026
-
 QAPOS2	Informe Diario	
 Crear cuenta normal SIN DESCUENTO al iniciar el día Pagarla de forma normal Ir a informe diario Verificar que los datos se hayan registrado correctamente	El informe en Resumen de Ventas, debe registrar correctamente los valores.		alejandro	12/1/2026
 

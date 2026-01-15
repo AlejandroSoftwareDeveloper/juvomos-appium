@@ -4,6 +4,7 @@ export const JUV = 'id:com.juvomos.pos:id/';
 // --- PANTALLA PIN / LOGIN ----------------------------------------------------
 export const PIN_LOGIN             = `090909`
 export const PIN_INPUT             = `${JUV}txt_pin_user`;
+export const PIN_INPUT_REGISTER    = `${JUV}editPinStore`;
 export const ACCEPT_BUTTON         = `${JUV}checkBigImage`;
 export const BACK_TO_PIN_BUTTON    = `${JUV}backToPin`;
 export const ENTER_PIN_TEXT        = `${JUV}enterPinText`;
@@ -58,7 +59,14 @@ export const VOID_GENERAL_LAYOUT   = `${JUV}voidGeneralLayout`;
 // --- TECLADO NUMÉRICO --------------------------------------------------------
 export const BTN_ZERO              = `${JUV}zero_btn_pin`;
 export const BTN_ONE               = `${JUV}one_btn_pin`;
+export const BTN_TWO               = `${JUV}two_btn_pin`;
+export const BTN_THREE             = `${JUV}three_btn_pin`;
 export const BTN_FOUR              = `${JUV}four_btn_pin`;
+export const BTN_FIVE              = `${JUV}five_btn_pin`;
+export const BTN_SIX               = `${JUV}six_btn_pin`;
+export const BTN_SEVEN             = `${JUV}seven_btn_pin`;
+export const BTN_EIGHT             = `${JUV}eight_btn_pin`;
+export const BTN_NINE              = `${JUV}nine_btn_pin`;
 
 // --- VALORES DE PRUEBA -------------------------------------------------------
 export const VALID_PIN             = '090909';
@@ -78,12 +86,3 @@ export const CUSTOM_CARD =
 export const SECOND_TICKET_LIST =
   '(//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/idTicketListRecycler"])[2]';
 
-/*
-import {
-  PIN_INPUT,
-  REG_TIME_BUTTON,
-  BACK_TO_PIN_BUTTON,
-  VALID_PIN
-} from '../../src/selectors/constants';
-
-*/

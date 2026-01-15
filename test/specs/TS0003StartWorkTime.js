@@ -1,28 +1,18 @@
 import LoginFlow from '../../src/TestsFlows/LoginFlow'
-import {
-  PIN_INPUT,
-  CLOCK_IN_BUTTON,
-  BACK_TO_PIN_BUTTON,
-  REG_TIME_BUTTON,
-  IMG_CLOSE_BUTTON
-} from '../../src/selectors/constants'
+import { PIN_INPUT, CLOCK_IN_BUTTON, BACK_TO_PIN_BUTTON, REG_TIME_BUTTON, IMG_CLOSE_BUTTON } from '../../src/selectors/constants'
 
 describe("Validate start work time process", () => {
-    // const clock_in = 'id:com.juvomos.pos:id/clockInButton'
-    // const back_pin = 'id:com.juvomos.pos:id/backToPin'
-    // const reg_time = 'id:com.juvomos.pos:id/buttonTimeClock'
- 
 
     // Get pin validation
     it("TC0001: Enter employer seccion", async () => {
-       // Set field value
-      const input = await $(PIN_INPUT)
-      await input.setValue('040404') 
-      await $(REG_TIME_BUTTON).click();
-      // await LoginFlow.insert_value_and_submit();
+        // Set field value
+        const input = await $(PIN_INPUT)
+        await input.setValue('090909') 
+        await $(REG_TIME_BUTTON).click();
+        // await LoginFlow.insert_value_and_submit();
 
-       // Wait till validation
-       await browser.pause(20000);
+        // Wait till validation
+        await browser.pause(20000);
 
         // Get back pin button
         const ELEMENT = await $(BACK_TO_PIN_BUTTON);
