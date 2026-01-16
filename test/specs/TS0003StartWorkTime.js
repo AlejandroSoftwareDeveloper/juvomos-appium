@@ -42,7 +42,8 @@ describe("Validate start work time process", () => {
 
 
     it("TC0004: Return to main window when click in close option" , async () => {
-       await $(IMG_CLOSE_BUTTON).click()
+       await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]').click()
+       // await $(IMG_CLOSE_BUTTON).click()
        await LoginFlow.close_app_with_meatball_menu_close_option()
        await LoginFlow.wait_till_next_view_load();
        await LoginFlow.check_if_pin_window_is_displayed();
