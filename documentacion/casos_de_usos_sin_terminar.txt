@@ -1,0 +1,288 @@
+12 Transferir Producto a otra cuenta	
+    1.Clic abrir 
+    2.Abir cuenta 
+    3.Seleccionar un producto 
+    4.Trasnferir 
+    5.Seleccionar otra cuenta	
+    Los productos deben estar en estaodo de enviado cocina		
+    Se transfiere el producto a la cuenta seleccionada y se ajusta los detalles de la cuenta
+
+13	Transferir de Cuenta a Cuenta	
+    1.Clic abrir 
+    2.Abir cuenta 
+    3.Clic en numero de cuenta 
+    4.Trasnferir 
+    5.Seleccionar otra cuenta			
+    Se transfiere a cuenta seleccionada en forma de Split 
+
+14	Transferir Cuenta a Empleado	
+    1.Clic abrir 
+    2.Abir cuenta 
+    3.Clic en numero de cuenta 
+    4.Trasnferir 
+    5.Empleado 
+    5.Seleccionar empleado			
+    Se transfiere a cuenta seleccionada al empleado seleccioando
+
+17	Asignar cuenta a una Mesa	
+    1.Selecciionar tipo de orden Dine In 
+    2.Seleccionar una mesa y cantidad de clientes 
+    3,Añadir varios productos 
+    4.Clic enviar 
+    5.Repetir paso 1			
+    Se marca la mesa como ocupada, 
+    se visualiza el resumen de la cuenta en la seccion de la izquierda
+
+18	Transfefir cuenta de una mesa a otra mesa	
+    1.Selecciionar tipo de orden Dine In 
+    2. Seleccionar una mesa con cuanta asociada 
+    3.Clic en la opcion Mesa 
+    4. Sleleccionar otra mesa  con cantidad de clientes 
+    5.Enviar	
+    Debe de existir una cuenta ya asociada a una mesa		
+    Se debe desocupar la mesa inicial y ocuparse a la que se transfirio, 
+    se debe observar el cambio del numero de mesa en la seciona de cuentas en la izquierda
+
+19	Creacion y orden de mesas	
+    1. Crear una nueva seccion en Office correspondiente. 
+    2. Clic en Sync 
+    3. Actualizar en POS 
+    4. Seleccionar tipo de orden Dine In			
+    Se debe mantener la misma distribucion creado desde el BackOffice
+
+
+QAPOS2	Informe Diario	
+    Crear cuenta normal SIN DESCUENTO al iniciar el día Pagarla de forma normal 
+    Ir a informe diario Verificar que los datos se hayan registrado correctamente	
+    El informe en Resumen de Ventas, 
+    debe registrar correctamente los valores.	
+
+QAPOS4	Numero de cuenta	
+Se debe ver completamente el numero del check		alejandro	9/1/2026
+
+QAPOS5	Option Comments Items	
+La opcion de comentarios para cocina debe funcionar en todo momento		alejandro	12/1/2026
+
+QAPOS6	Nombre Cliente	
+Se crea una cuenta y se le asigna un cliente Se presiona botón Send Comprobar el registro de cliente en checks
+El nombre del cliente debe aparecer registrado en el check		alejandro	12/1/2026
+
+QAPOS7	Nombre Cliente | 
+Split	Se crea una cuenta y se le asigna un cliente Con el cliente asignado 
+ir a la pantalla de split Dividir en 3 cuentas y aceptar En el POS presionar 
+boton opciones de cheques y verificar cada cheque	
+Cada cheque debe tener la opción de poder seleccionar un cliente diferente.			
+
+QAPOS8	Floor Layout	
+Ingresar desde Type Order a Dane In	La pantalla se debe cargar de forma correcta		Alejandro	12/1/2026
+
+QAPOS9	Impresion de cambio	Se crea un cheque, 
+se paga en efectivo con un valor mayor para obtener cambio Se visuliza 
+la impresión	La impresión debe contener el valor del cambio			
+
+QAPOS10	MESA OCUPADA SIN ORDEN	Seleccionar dine in seleccionar mesa selecciona numero de ocupantes no se hace pedido seleccionar dine in seleccionar misma mesa	La mesa deberia estar disponible		Vladimir	
+
+QAPOS11	Mesa ocuapda con orden	Seleccionar varios productos Clic en Deni In Clic en una de las mesas Seleccionar cantidad comenzales Enviar	Se le asiga ese check a la mesa seleccionada		Vladimir	
+QAPOS12	Pagar Cheque con Mesa	Clic tipo de Orden Clic Dine In Selecionar un Check Pagar	Se debe mostrar la mesa desocupada		alejandro	12/1/2026
+QAPOS13	Floor layout select table	Clic tipo de Orden Clic Dine In Seleccionar una mesa Selecionar un Check Enviar Seleccionar Tipo de Oden Dine In Dejar presionado la mesa ocupada Desocupar mesa Pagar	Se debe desocupar la mesa		alejandro	12/1/2026
+QAPOS14	Floor layout select table version 
+2	Clic en Dine In Seleccionar una mesa y numero de personas Clic en DIne In	
+Se debe marcar la mesa como seleccionada		alejandro	12/1/2026
+
+
+
+
+
+
+# INFORME UNIFICADO DE USABILIDAD JuvoPOS v2.6.1
+Basado en análisis de documentación y evidencia visual
+
+---
+
+## 1. Datos generales
+- Fecha de elaboración: 19 de enero de 2026
+- Versión analizada: JuvoPOS 2.6.1 (evidencia visual)
+- Dispositivos de referencia: Samsung Galaxy A12 (720×1600 px) y dispositivos de prueba QA
+- Orientaciones evaluadas: Vertical y horizontal
+- Metodología: Análisis comparativo de documentación previa vs. evidencia visual actual
+
+---
+
+## 2. Objetivo del informe
+Documentar el estado actual de la interfaz de usuario de JuvoPOS v2.6.1 mediante 
+el análisis de capturas de pantalla, identificando inconsistencias, 
+elementos faltantes y problemas de usabilidad que afectan la experiencia del usuario final en producción.
+
+---
+
+## 3. Hallazgos críticos por pantalla
+
+### 3.1 Pantalla: "Selección de tipo de orden"
+
+Elementos identificados:
+- Flecha de navegación: AUSENTE en todas las capturas
+- Menú de opciones (tres puntos): AUSENTE en todas las capturas
+- Icono de campana: AUSENTE en esta pantalla específica
+- Botón "X": Presente en esquina superior derecha (función no documentada)
+- Inconsistencia tipográfica: "Tipode orden" sin espacio (error de UI)
+
+Impacto: Los usuarios no pueden regresar a la pantalla anterior ni acceder a configuraciones
+rápidas desde esta vista principal.
+
+---
+
+### 3.2 Pantalla: "Cuenta activa / Carrito"
+
+Elementos identificados:
+- Flecha de retroceso: AUSENTE en todas las instancias
+- Menú de opciones: AUSENTE; sustituido por texto "Opciones de Cuentas" (truncado)
+- Icono de campana: AUSENTE en esta pantalla
+- Botón "X": Presente en esquina superior derecha
+- Problemas de truncamiento: Textos como "a Clien...", "RMe...", "aPer..." impiden comprensión
+- Inconsistencia de botones: "Pagar $17.76" vs "Pagar $8.88" (formato inconsistente)
+
+Impacto: Los cajeros no pueden navegar eficientemente ni acceder a opciones de cuenta 
+avanzadas sin salir de la pantalla.
+
+---
+
+### 3.3 Pantalla: "Cuentas abiertas / Órdenes en curso"
+
+Elementos identificados:
+- Flecha de navegación: AUSENTE
+- Menú de opciones: AUSENTE
+- Icono de campana: AUSENTE
+- Inconsistencia de datos: 
+  - Hora "7:44.AM" (formato inválido con punto)
+  - "DineIn" vs "Dine In" (espaciado inconsistente)
+  - "PickUp" vs "Pick Up" (unificado incorrectamente)
+
+Impacto: Dificultad para gestionar múltiples órdenes y falta de contexto de navegación.
+
+---
+
+### 3.4 Pantalla: "Menú de productos"
+
+Elementos identificados:
+- Flecha de retroceso: AUSENTE
+- Menú de opciones: AUSENTE
+- Icono de campana: AUSENTE
+- Problemas de layout: 
+  - Texto superpuesto en productos agotados ("Agot", "DAgot..")
+  - Precios mal alineados ($33.25 fuera de contexto)
+  - Versión "2.6.1" visible en pantalla (debería estar en Acerca de...)
+- Inconsistencia de UI: "Cuenta-(0)" vs "Cuenta-(1)" sin claridad visual
+
+Impacto: Los usuarios no pueden regresar al hub principal ni gestionar notificaciones mientras toman órdenes.
+
+---
+
+### 3.5 Pantalla: "Análisis Appium Inspector"
+
+Elementos identificados:
+- Menú de tres puntos: PRESENTE en esta captura de desarrollo
+- Flecha de retroceso: AUSENTE incluso en entorno de inspección
+- Estado interactivo: El menú (三) es detectable por Appium pero no visible en producción
+
+Impacto: Indica que los elementos existen en el código pero fueron ocultados intencionalmente, 
+afectando la automatización de pruebas.
+
+---
+
+## 4. Análisis de inconsistencias críticas
+
+Categoría: Navegación
+- Problema: Falta de flecha de retroceso
+- Frecuencia: 100% de pantallas
+- Severidad: ALTA
+
+Categoría: Funcionalidad
+- Problema: Menú de opciones eliminado
+- Frecuencia: 100% de pantallas
+- Severidad: ALTA
+
+Categoría: UI Texto
+- Problema: Textos truncados (Ej: "Imp...")
+- Frecuencia: 60% de pantallas
+- Severidad: MEDIA
+
+Categoría: Tipografía
+- Problema: Espaciado inconsistente (DineIn/Dine In)
+- Frecuencia: 40% de pantallas
+- Severidad: MEDIA
+
+Categoría: Datos
+- Problema: Formato de hora inválido
+- Frecuencia: 30% de pantallas
+- Severidad: MEDIA
+
+Categoría: Layout
+- Problema: Elementos superpuestos (Agot)
+- Frecuencia: 25% de pantallas
+- Severidad: MEDIA
+
+Categoría: Versión
+- Problema: Número de versión visible en UI
+- Frecuencia: 100% de menú
+- Severidad: BAJA
+
+---
+
+## 5. Impacto funcional actual
+
+1. Bloqueo de navegación: Los usuarios dependen únicamente del gesto "back" del sistema Android, 
+inconsistente en Samsung Galaxy A12
+2. Orfandad funcional: No hay acceso a:
+   - Configuración rápida
+   - Ayuda en contexto
+   - Cierre de sesión seguro
+   - Gestión de notificaciones
+3. Inconsistencia de marca: "Juvopos" vs "JuvoPos" vs "JuvoPos" (mayúsculas inconsistentes)
+4. Error de formato: "Impuestos $116" debería ser "$1.16" (falta separador decimal)
+5. Problemas de accesibilidad: Textos truncados no son legibles por lectores de pantalla
+6. Comportamiento aleatorio en cabecera: La configuración de elementos en la barra superior 
+cambia sin intervención del usuario, alternando entre mostrar/ocultar el botón "X",
+variando espaciado entre elementos, y reorganizando íconos de forma impredecible durante la sesión activa. 
+Este comportamento afecta la consistencia operativa y genera confusión en el flujo de trabajo.
+
+
+## 6. Recomendaciones priorizadas
+
+### CRÍTICO (Implementar inmediatamente)
+1. Restaurar flecha de navegación en esquina superior izquierda de todas las pantallas
+2. Corregir error de formato monetario ($116 → $1.16) en cálculos de impuestos
+3. Establecer patrón consistente para nombres de UI (Pick Up, Dine In, To Go)
+4. Investigar y corregir comportamiento aleatorio en la configuración de la cabecera; 
+implementar estado persistente de UI
+
+### ALTA (Sprint siguiente)
+5. Habilitar menú de tres puntos con al menos: Ayuda, Configuración, Cerrar sesión
+6. Corregir truncamiento de textos: "Opciones de Cuentas" debe mostrarse completo
+7. Remover número de versión de la pantalla principal; migrar a "Acerca de"
+
+### MEDIA (Mejora continua)
+8. Implementar validación de formato de hora (evitar "7:44.AM")
+9. Mejorar contrastes de productos agotados (overlay rojo en lugar de texto superpuesto)
+10. Unificar criterio de mayúsculas en marca: estandarizar "JuvoPOS"
+
+### BAJA (Backlog)
+11. Añadir icono de campana en pantallas donde tiene sentido funcional
+
+
+## 7. Conclusión
+
+La versión 2.6.1 de JuvoPOS presenta una regresión funcional severa con la eliminación 
+sistemática de controles de navegación y opciones, afectando directamente la eficiencia operativa. 
+El comportamiento aleatorio en la cabecera agrava esta situación al introducir inconsistencias 
+dinámicas que no fueron documentadas en las notas de versión, generando un entorno de trabajo impredecible para los usuarios. Mientras la simplificación visual puede tener intenciones de mejorar la claridad, la implementación actual genera:
+
+- Dependencia gestual exclusiva incompatible con todos los dispositivos Android
+- Orfandad de funciones críticas (ajustes, ayuda, cierre de sesión)
+- Inconsistencias de UI que degradan la percepción de calidad
+- Errores de formato que comprometen la precisión financiera
+- Instabilidad de interfaz que requiere reentrenamiento constante de usuarios
+
+Recomendación ejecutiva: Suspender despliegue masivo hasta restaurar elementos de navegación y
+estabilizar configuración de cabecera; ejecutar auditoría de UI/UX completa para garantizar consistencia en v2.6.1.17
+
+

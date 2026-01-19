@@ -1,6 +1,8 @@
 
 export const JUV = 'id:com.juvomos.pos:id/';
 
+// export const  CUSTOM_CARD =  
+
 // --- PANTALLA PIN / LOGIN ----------------------------------------------------
 export const PIN_LOGIN             = `090909`
 export const PIN_INPUT             = `${JUV}txt_pin_user`;

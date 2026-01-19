@@ -1,0 +1,4 @@
+- Se empieza y se termina en la figura 1 (Menu de ordenes)
+- Usar datos propios
+- Probar configuracion de alejandro (entorno linux)
+

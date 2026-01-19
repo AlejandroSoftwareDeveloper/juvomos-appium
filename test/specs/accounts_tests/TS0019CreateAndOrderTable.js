@@ -1,15 +1,6 @@
-import {
-  PICK_UP_OPTION,
-  BTN_SHOW_ORDER,
-  BTN_SEND_TO_KITCHEN,
-  BTN_ORDER_RECALL,
-  LAYOUT_CHECK_ITEM,
-  BTN_RECALL,
-  BTN_TRANSFER,
-  BTN_TRANSFER_EMPLOYEE
-} from '../../../src/selectors/constants'
+import { PICK_UP_OPTION, BTN_SHOW_ORDER, BTN_SEND_TO_KITCHEN, BTN_ORDER_RECALL, LAYOUT_CHECK_ITEM, BTN_RECALL, BTN_TRANSFER, BTN_TRANSFER_EMPLOYEE } from '../../../src/selectors/constants'
 
-describe("Transfer product between acccounts", () => {
+describe("Trasnfer product between acccounts", () => {
 
       // Estas prubas son subseptibles a cambios
     it("TC0001: Open account Dine in ", async () => {
@@ -23,9 +14,8 @@ describe("Transfer product between acccounts", () => {
        await $(BTN_SHOW_ORDER).click()
     });
 
-
     it("TC0002: Send to kitchen", async () => {
-       // get produtc status
+       // get product status
       product_name = await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemInvoiceName"]').getText()
       product_price = await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemInvoiceTotal"]').getText()
       
@@ -74,9 +64,6 @@ describe("Transfer product between acccounts", () => {
         // Back to menu
         await $(PICK_UP_OPTION)
         await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/idCancelButton"]')
-
     });
-   
-  
 
 });

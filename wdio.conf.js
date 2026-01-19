@@ -1,26 +1,39 @@
 const allure = require('allure-commandline')
 const chai   = require('chai')
-const allure_report = 0
+const allure_report = 1
 
 exports.config = {
     port: 4723,
     specs: [
-        // './test/specs/TS0001LicenseInstalationProcess.js',
-        // './test/specs/TS0002PinRegistration.js',
-        // './test/specs/TS0003StartWorkTime.js',
-        // './test/specs/TS0004InitBreakIn.js',
-        // './test/specs/TS0005FinishBreakIn.js',
-        // './test/specs/TS0006CashTipsRegister.js',
-        // './test/specs/TS0007FinishWorkTime.js',
-        // './test/specs/TS0009SendFoodToKitchen.js',
-        './test/specs/TS0009CheckFoodTypeExistence.js',
-        // './test/specs/TS0011SendFoodToKitckenWithDiscount.js',
-        // './test/specs/TS0012TransferProductToAccount.js',
-        // './test/specs/TS0013TransferAccountToAccount.js',
-        // './test/specs/TS0014TransferAccountToEmployee.js',
-        // './test/specs/TS0015CancelAccount.js',
-        // './test/specs/TS0016CancelProduct.js',
-         // './test/specs/TestChai.js',
+        // './test/specs/register_and_login_test/*',
+
+// './test/specs/register_and_login_test/TS0001LicenseInstalationProcess.js',
+// './test/specs/register_and_login_test/TS0002PinRegistration.js',
+// './test/specs/register_and_login_test/TS0003StartWorkTime.js',
+// './test/specs/register_and_login_test/TS0004InitBreakIn.js',
+// './test/specs/register_and_login_test/TS0005FinishBreakIn.js',
+// './test/specs/register_and_login_test/TS0006CashTipsRegister.js',
+// './test/specs/register_and_login_test/TS0007FinishWorkTime.js',
+
+        './test/specs/accounts_tests/*',
+    // './test/specs/accounts_tests/TS0008SearchProductFromFood.js',
+    // './test/specs/accounts_tests/TS0010SendFoodToKitchen.js',
+    // './test/specs/accounts_tests/TS0012SendFoodToKitckenWithDiscount.js',
+    // './test/specs/accounts_tests/TS0013TransferProductToAccount.js',
+    // './test/specs/accounts_tests/TS0014TransferAccountToAccount.js',
+    // './test/specs/accounts_tests/TS0015TransferAccountToEmployee.js',
+    // './test/specs/accounts_tests/TS0016CancelAccount.js',
+    // './test/specs/accounts_tests/TS0017CancelProduct.js',
+    // './test/specs/accounts_tests/TS0022TransferMultipleProductBetweenAccount.js',
+    // './test/specs/accounts_tests/TS0019CreateAndOrderTable.js',
+
+        // './test/specs/register_and_login_test/TS0002PinRegistration.js',
+        // './test/specs/accounts_tests/TS0014TransferAccountToAccount.js',
+        // './test/specs/accounts_tests/TS0015TransferAccountToEmployee.js',
+        // './test/specs/accounts_tests/TS0017CancelProduct.js',
+        // './test/specs/accounts_tests/TS0018TransferAccountToDineIn.js',
+        // './test/specs/accounts_tests/TS0021AccountNumberQAPOS4.js',
+        // './test/specs/accounts_tests/TS0008SearchProductFromFood.js',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],
@@ -92,5 +105,6 @@ exports.config = {
     },
     before: function(){
       global.chai = chai
+      global.env = this
     }
 }
