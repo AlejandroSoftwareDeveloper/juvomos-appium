@@ -1,12 +1,16 @@
 const allure = require('allure-commandline')
 const chai   = require('chai')
-const allure_report = 1
+
+const configspecs = {
+     allure_report: false,
+};
 
 exports.config = {
     port: 4723,
     specs: [
         // './test/specs/register_and_login_test/*',
-       './src/Alejandro/specs/register_and_login_test/TS0002PinRegistration.js',
+       // './src/Alejandro/specs/register_and_login_test/TS0002PinRegistration.js',
+       './src/NewAlejandro/specs/CHECKVARS.js',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],
@@ -42,7 +46,7 @@ exports.config = {
         }
     },
     reporters: 
-        allure_report ?  ([
+        configspecs.allure_report ?  ([
             ['allure', {
             outputDir: 'allure-results',
             disableWebdriverStepsReporting: true,
@@ -57,7 +61,7 @@ exports.config = {
         ]) : (['spec']),
 
     onComplete: function() {
-        if(allure_report){
+        if(configspecs.allure_report){
             const reportError = new Error('Could not generate Allure report')
             const generation = allure(['generate', 'allure-results', '--clean'])
             return new Promise((resolve, reject) => {
