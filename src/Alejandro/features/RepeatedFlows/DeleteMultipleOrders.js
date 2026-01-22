@@ -1,9 +1,9 @@
-import FoodPageMenuModal from '../Pages/FoodPageMenuModal/FoodPageMenuModal.js'
-import OrderListPage from '../Pages/OrderListPage/OrderListPage.js'
-import CheckMenuPageSecondView from '../Pages/CheckMenuPageSecondView/CheckMenuPageSecondView.js'
-import CheckMenuPage from '../Pages/CheckMenuPage/CheckMenuPage.js'
-import AccountOptionPage from '../Pages/AccountOptionPage/AccountOptionPage.js'
 import AnularPage from '../Pages/AnularPage/AnularPage.js'
+import OrderListPage from '../Pages/OrderListPage/OrderListPage.js'
+import CheckMenuPage from '../Pages/CheckMenuPage/CheckMenuPage.js'
+import FoodPageMenuModal from '../Pages/FoodPageMenuModal/FoodPageMenuModal.js'
+import AccountOptionPage from '../Pages/AccountOptionPage/AccountOptionPage.js'
+import CheckMenuPageSecondView from '../Pages/CheckMenuPageSecondView/CheckMenuPageSecondView.js'
 import AnularPageCloseAccountModal from '../Pages/AnularPageCloseAccountModal/AnularPageCloseAccountModal.js'
 
 class DeleteMultipleOrders {

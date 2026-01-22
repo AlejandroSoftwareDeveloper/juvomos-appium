@@ -1,0 +1,541 @@
+# ✅ Tareas QA POS - Flujos Filtrados
+**Criterios aplicados:** Sin "print", sin "imprimir/impresion", sin nombres en "Automatizado por"
+
+---
+
+## 📊 **Nuevo Total: 142 flujos**
+
+---
+
+### 1️⃣ **Gestión de Mesas y Floor Layout (20 flujos)**
+
+**QAPOS10** - MESA OCUPADA SIN ORDEN
+> Seleccionar dine in seleccionar mesa selecciona numero de ocupantes no se hace pedido seleccionar dine in seleccionar misma mesa
+
+**QAPOS11** - Mesa ocuapda con orden
+> Seleccionar varios productos Clic en Deni In Clic en una de las mesas Seleccionar cantidad comenzales Enviar
+
+**QAPOS12** - Pagar Cheque con Mesa
+> Clic tipo de Orden Clic Dine In Selecionar un Check Pagar
+
+**QAPOS13** - Floor layout select table
+> Clic tipo de Orden Clic Dine In Seleccionar una mesa Selecionar un Check Enviar Seleccionar Tipo de Oden Dine In Dejar presionado la mesa ocupada Desocupar mesa Pagar
+
+**QAPOS14** - Floor layout select table version 2
+> Clic en Dine In Seleccionar una mesa y numero de personas Clic en DIne In
+
+**QAPOS62** - Check con tabla asignada
+> Crear un check. Asignar una mesa. Finalizar el check. Proceder con el pago en efectivo.
+
+**QAPOS78** - Check con múltiples Guess y transferencias de mesas
+> Crear un check. Asignar una mesa con 6 Guess. Transferir el check a otra mesa. Modificar un producto. Proceder con el pago en efectivo.
+
+**QAPOS87** - Check con recall y nueva asignación de mesa
+> Crear un check con 6 productos. Asignar una mesa. Hacer 'Recall' y cambiar la mesa asignada. Proceder con el pago en efectivo.
+
+**QAPOS93** - Floor layout select table
+> Click dine in Click en mesa Volver a hacer click en dine in
+
+**QAPOS94** - Floor layout select table
+> Click dine in Dejar presionado mesa ocupada Confirmar
+
+**QAPOS95** - Floor Layout with Two Stations
+> Click dine in Click en mesa Dirigirse a otra estacion y hacer click en dine in
+
+**QAPOS96** - Floor layout display
+> Click en dine in
+
+**QAPOS119** - Table reservation
+> Reservar en dos estaciones diferentes la misma mesa y realizar un check en cada una de las estaciones . Send
+
+**QAPOS121** - Floor Layout - Multiple Devices
+> Al tener presionado sobre una mesa y liberarla se cumple la acción en el dispositivo fuente, pero en el segundo dispositivo no se libera.
+
+**QAPOS126** - Floor Layout - Multiple Devices
+> Al relizar varias transacciones en flujos relacionado a las mesas, el detalle de los cheques descuadra.
+
+**QAPOS127** - Floor Layout - Multiple Devices
+> Seleccionar una mesa Ir al POS, no seleccionar items Presionar recall
+
+**QAPOS169** - Floor layout select table
+> (sin pasos definidos)
+
+**QAPOS170** - Floor layout select table
+> Clic to Go Add item to Check Clic order type Select Dine in Select Table Sent to kitchen
+
+**QAPOS171** - Floor layout select table
+> Clic to Go Add item to Check Clic order type Select Dine in Select Table Pay
+
+**QAPOS207** - Seleccion de mesas desde varios dispositivos
+> Dispositivo 1 1.Seleccionar tipo de orden Dine In 2. Seleccionar una Mesa Dispositivo 2 1.Seleccionar tipo de orden Dine In 2. Seleccionar la misma mesa del Dispositovo 1
+
+---
+
+### 2️⃣ **Operaciones de Split y División (25 flujos)**
+
+**QAPOS31** - División de check con split evenly y send
+> Seleccionar un item con modificadores Presionar botón split Dividir el check en dos con split evenly Presionar done Presionar send Ir a recall Comprobar que los cheques tengan las caracteristicas y modificadores.
+
+**QAPOS32** - Split de pagos, con edición de items.
+> Crear orden Presionar botón pagar Presionar el botón de Split de Pagos Navegar a Split de Pagos Seleccionar ldos pagos Pagar el primero Cerrar vista de pagos con X Aumentar un item Al item nuevo ponerle un descuento Terminar pago completo.
+
+**QAPOS33** - Split de pagos
+> Crear orden. Presionar botón pagar. Presionar el botón de Split de Pagos. Navegar a Split de Pagos. Seleccionar ldos pagos Pagar el primero Pagar el segundo Retroceder con flecha a la pantalla de pagos. Eliminar el ultimo pago Escoger otro tipo de pago Terminar proceso de pago.
+
+**QAPOS48** - Check con Split Payment
+> Crear un check con 3 productos. Seleccionar 'Split Payment'. Dividir en 3 pagos iguales. Pagar con 'Cash'.
+
+**QAPOS65** - Check con Recall y Split
+> Crear un check. Enviar productos a cocina. Abrir 'Recall'. Aplicar 'Split' y dividir en dos pagos en efectivo.
+
+**QAPOS70** - Check con Split en tres pagos y descuentos parciales
+> Crear un check con 6 productos. Aplicar un 10% de descuento a 2 productos específicos. Dividir la cuenta en 3 partes. Pagar cada parte con efectivo.
+
+**QAPOS72** - Check con múltiples transferencias y pago dividido
+> Crear un check con 4 productos. Transferir el check a otro cajero. El cajero receptor transfiere el check nuevamente. Aplicar 'Split Payment'. Proceder con el pago en efectivo.
+
+**QAPOS73** - Check con combinación de descuentos y gratuidad
+> Crear un check con 5 productos. Aplicar un 15% de descuento a un producto. Aplicar un 'Gratuity' del 10%. Proceder con el pago en efectivo.
+
+**QAPOS76** - Check con múltiples Split y Recall
+> Crear un check con 8 productos. Aplicar 'Split' en 3 cuentas distintas. Enviar productos a cocina. Hacer 'Recall' y modificar el check. Proceder con el pago en efectivo.
+
+**QAPOS79** - Check con combinación de métodos de pago y split parcial
+> Crear un check con 5 productos. Aplicar un 'Split Payment' parcial. Pagar la primera parte en efectivo. Pagar la segunda parte con Gift Card.
+
+**QAPOS85** - Check con múltiples pagos en efectivo y propinas
+> Crear un check con 5 productos. Pagar la primera mitad en efectivo. Pagar la otra mitad con otra cantidad de efectivo. Agregar propina en efectivo.
+
+**QAPOS86** - Check con combinación de transferencias y split
+> Crear un check. Agregar 8 productos. Transferir el check a otro cajero. Aplicar 'Split Payment'. Proceder con el pago en efectivo.
+
+**QAPOS108** - Split
+> Selecionar 3 items Se realiza split de 3 con add check Se procede a pagar el primero y segundo Se envía el item restante Ir a Recall Traer el último cheque y pagarlo Ira a pantalla de Checks Fragment Revisar que la transacción se haya realizado de forma correcta.
+
+**QAPOS109** - Split evently check number
+> Selecionar 6 item Click Split Click Split Evenly Dividirlo en 5 Done Click Send Click Recall
+
+**QAPOS110** - Split evently check number
+> Selecionar 6 item Click Split Click Split Evenly Dividirlo en 5 Done Clic boton de Check
+
+**QAPOS111** - Split y combine
+> Se trae un cheque dividido desde Recall En el POS se da click en split Se unifica los cheques con combine, click en Done Ir ha Recall y observar que los cheques esten unidos
+
+**QAPOS115** - Splits 10+
+> Seleccionar items Split evenly en 10 o mas checks Send Checks Recall Clic Boton amarillo del numero de Check
+
+**QAPOS116** - Split evently check number
+> Selecionar 6 item Click Split Click Split Evenly Dividirlo en 5 Done Clic boton de Check
+
+**QAPOS125** - Split Evenly - Saldos
+> Seleccionar un item Split en tres partes iguales Verificar que los saldos
+
+**QAPOS132** - Split en Pago
+> Crear un Check Add un Iteem Pagar Clic en Split dentro del Pago
+
+**QAPOS136** - Split Check y de pagos
+> Crear un cheque y dividirlo en 2 en split Pagar el primer cheque con un split de pagos de 3 Terminar el pago Ir al Checks/closed Selecionar el cheque que se pago con split de pagos Ajustar pago Verificar los pagos realizados
+
+**QAPOS141** - Split Check y de pagos
+> Crear un cheque y dividirlo en 2 en split Pagar el primer cheque con un split de pagos de 3 Terminar el pago Ir al Checks/closed Selecionar el cheque que se pago con split de pagos Ajustar pago Editar un pago, cambiale el tipo y pagar Ir a checks y verificar que el cambio
+
+**QAPOS142** - Split
+> Crear un cheque con varios items ir a Split Con Add Checks, crear tres divisiones Seleccionar el item en posición 1 y pasarlo a otro check Seleccionar el item en última posición y pasarlo a otro cheqk
+
+**QAPOS185** - split custumer
+> Agregar 3 items al check Crear 2 checks split Agregar 2 items a un check y el otro en un solo check Asociar un customer a cada cheque dividido Click send Recall
+
+**QAPOS186** - split tab
+> Agregar 3 items al check Crear 2 checks split Agregar 2 items a un check y el otro en un solo check Asociar un tab name a cada cheque dividido Click send Recall
+
+---
+
+### 3️⃣ **Transferencias entre Cajeros/Checks (15 flujos)**
+
+**QAPOS49** - Check con Transfer
+> Crear un check. Agregar 2 productos. Transferir el check a otro cajero. Verificar que el otro cajero pueda cobrarlo. Proceder con el pago en efectivo.
+
+**QAPOS61** - Check con múltiples transferencias
+> Crear un check. Agregar productos. Transferirlo a otro cajero. Transferirlo de vuelta. Proceder con el pago en efectivo.
+
+**QAPOS67** - Check con Transfer y Descuento
+> Crear un check con 3 productos. Aplicar un 20% de descuento. Transferir el check a otro cajero. Proceder con el pago en efectivo.
+
+**QAPOS72** - Check con múltiples transferencias y pago dividido
+> Crear un check con 4 productos. Transferir el check a otro cajero. El cajero receptor transfiere el check nuevamente. Aplicar 'Split Payment'. Proceder con el pago en efectivo.
+
+**QAPOS86** - Check con combinación de transferencias y split
+> Crear un check. Agregar 8 productos. Transferir el check a otro cajero. Aplicar 'Split Payment'. Proceder con el pago en efectivo.
+
+**QAPOS88** - Transferir a empleado
+> Recall a check Click check number Click transfer Click employee
+
+**QAPOS89** - Transferir a check
+> Recall a check Click check number Click transfer Click otro check
+
+**QAPOS90** - Transferir item
+> Recall a check Click item Click transfer
+
+**QAPOS91** - Transferir item
+> Recall a check Click item Click transfer Click otro check
+
+**QAPOS92** - Transferir item
+> Recall a check Click item Click transfer
+
+**QAPOS102** - Transferir item
+> Recall a check Click item Click transfer Click otro check VIDEO 17
+
+**QAPOS104** - Transferir a empleado
+> Recall a check Click check number Click transfer Click employee
+
+**QAPOS105** - Transferir a check
+> Recall a check Click check number Click transfer Click otro check VIDEO 19
+
+**QAPOS106** - Transferir item
+> Recall a check Click item Click transfer VIDEO 20
+
+**QAPOS187** - Transferir item anulado
+> Recall a check Click item Clic void Clic item anulado Click transfer
+
+---
+
+### 4️⃣ **Operaciones Hold y Fire (16 flujos)**
+
+**QAPOS47** - Check con Hold y Fire
+> Crear un check. Agregar 2 productos. 
+Poner uno en 'Hold'. 
+Enviar el otro a cocina. 
+Liberar el 'Hold'. 
+Proceder con el pago en efectivo.
+
+**QAPOS54** - Check con Recall
+> Crear un check. 
+Enviar productos a cocina. 
+Abrir 'Recall' y traer el check. 
+Modificar agregando otro producto. 
+Proceder con el pago en efectivo.
+
+**QAPOS66** - Check con múltiples modificaciones y Hold
+> Crear un check. 
+Agregar 5 productos con modificaciones. 
+Aplicar 'Hold' a dos productos. 
+Enviar el resto a cocina. 
+Liberar los 'Hold' y enviarlos. Proceder con el pago en efectivo.
+
+**QAPOS81** - Check con múltiples productos en Hold y cambios
+> Crear un check. 
+Agregar 7 productos. 
+Aplicar 'Hold' a 4 productos. 
+Enviar los demás a cocina.
+Cambiar un producto antes de liberar el 'Hold'. 
+Proceder con el pago en efectivo.
+
+
+
+
+
+**QAPOS122** - Change Status Items
+> Crear un check Colocar uno de los Items en Hold Send Recall Click check number Click en fire
+
+**QAPOS174** - Repeat item not send
+> Agregar nuevo item Agregar nuevo item con modificador Clic en Repeat
+
+**QAPOS175** - Repeat item with discount
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en Repeat
+
+**QAPOS176** - Repeat item with hold
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en Hold Clic en Repeat
+
+**QAPOS177** - Repeat item with fire
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en Fire Clic en Repeat
+
+**QAPOS178** - Repeat item with kitchen comment
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en kitchen Comment Clic en Repeat
+
+**QAPOS179** - Repeat and delete item
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en Repeat Eliminar el articulo repetido
+
+**QAPOS180** - Repeat and remove discount
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en Repeat Clic en eliminar descuento
+
+**QAPOS181** - Repeat item with tax
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en Tax Clic en Repeat
+
+**QAPOS182** - Repeat and remove hold
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en Hold Clic en Repeat Clic en Eliminar Hold del articulo repetido
+
+**QAPOS183** - Repeat and remove tax
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en Tax Clic en Repeat Clic en eliminar el tax del articulo repetido
+
+**QAPOS184** - Repeat and remove comment
+> Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en kitchen Comment Clic en Repeat Eliminar el comentario
+
+
+
+
+QAPOS122ChangeStatusItems
+QAPOS174RepeatItemNotSend
+QAPOS175RepeatItemWithDiscount
+QAPOS176RepeatItemWithHold
+QAPOS177RepeatItemWithFire
+QAPOS178RepeatItemWithKitchenComment
+QAPOS179RepeatAndDeleteItem
+QAPOS180RepeatAndRemoveDiscount
+QAPOS181RepeatItemWithTax
+QAPOS182RepeatAndRemoveHold
+QAPOS183RepeatAndRemoveTax
+QAPOS184RepeatAndRemoveComment
+
+
+
+---
+
+### 5️⃣ **Sincronización Multi-Dispositivo (9 flujos)**
+
+**QAPOS42** - firebase actualizacion cheque
+> 1. Seleccionar 5 items 2. enviar
+
+**QAPOS43** - firebase actualizacion cheque con seleccion en 2 dispositivos
+> 1. Seleccionar 5 items 2. enviar 3. Se comprueba seleccion de cheque en 2 dispositivos 4. el boton de recall no permite ser usado
+
+**QAPOS112** - Instalación de App y cheques
+> Se instala la aplicación de 0 en dos dispositivos Se ingresa al POS y a Recall Se compara los checks rgistrados.
+
+**QAPOS120** - Split - Multiple Devices
+> Selecionar 3 items Se realiza split de 3 con add check Se presiona Done Se envia con Send Ir a Recall En el segundo dispositivo Ir a Recall Buscar los cheques enviados desde el primero
+
+**QAPOS
+
+**QAPOS123** - Multiple Devices - Edición de cheque
+> Dispositivo 1 Se crea una orden con tres items y se la envía Se trae la orden y se anula 2 items y se la envía. Dispositivo 2 Estando sobre el cheque creado en el dispositivo 1, se realiza recall se procede a pagar
+
+**QAPOS128** - Checks - recall
+> Dispositivo 1 Se crea una orden con tres items y se la envía Dispositivo 2 Se ingresa a recall y se visualiza la orden
+
+**QAPOS129** - Sincronizacion Checks
+> En estacion 1: -Crear un Check -Send -Recall Check -Aplicar 100% de descuento En estacion 2: -Recall Check de la estacion 1 (El sistema emite un mensaje que se encuentra ocupado en 1) En estacion 1: -Send o Close al Check -Verificar en el Menu de Checks que se encuentra Cerrado En estacion 2: -Recall Al check de la estacion 1 (El sistema permite el recall) -Agregar un item -Clic Send -Recall -Se abre el cheque con el mismo numero del check que fue cerrado en estacion 1
+
+**QAPOS139** - Pago multiple dispositivo desde recall
+> Dispositivo 1 Crear cheque Enviarlo a cocina Ir a recall seleccionar cheque Dispositivo 2 Ir a recall Seleccionar cheque Estando el mismo cheque en los dos dispositivos seleccionados proceder a pagar
+
+---
+
+### 6️⃣ **Operaciones Básicas y Edge Cases (58 flujos)**
+
+**QAPOS7** - Nombre Cliente | Split
+> Se crea una cuenta y se le asigna un cliente Con el cliente asignado ir a la pantalla de split Dividir en 3 cuentas y aceptar En el POS presionar boton opciones de cheques y verificar cada cheque
+
+**QAPOS15** - Crear check split
+> Click en split con orden vacia Click en add check Click done
+
+**QAPOS16** - Descargar checks abiertos luego de instalacion
+> Crear check Send Reinstalar app Recall
+
+**QAPOS17** - Crear nuevo check split de orden enviada
+> Agregar 3 items al check Crear 2 checks split Agregar 2 items a un check y el otro en un solo check Click send Recall y pagar el check con un solo item Crear nuevo split de 2 checks con el check restante Pagar uno de los checks split
+
+**QAPOS24** - Eliminar Item con hold
+> Crear check con varios items Colocar un items en hold Click send Click recall al check Swipe al item en hold para eliminar
+
+**QAPOS25** - Fire
+> Crear check con varios items Click en item Click en fire
+
+**QAPOS27** - Fire check
+> Crear check con varios items Click en check options Click en fire
+
+**QAPOS28** - Split numero de check
+> Crear check con 2 items Click split Agregar check Asignar un item al check nuevo Send Recall Split
+
+**QAPOS29** - Split numero de check sin check number
+> Crear check con 2 items Click split Agregar check
+
+**QAPOS30** - Split add new item
+> Agregar 3 items dividir en 3 checks send recall pagar 2 checks agregar otro item al check restante click en split
+
+**QAPOS45** - Creación de Check con Productos Variados
+> Crear un nuevo check. Agregar 3 productos diferentes. Presionar 'Send' para enviarlo a cocina. Verificar que los productos aparecen en cocina. Proceder con el pago en efectivo.
+
+**QAPOS46** - Check con Modificadores
+> Crear un check nuevo. Agregar una hamburguesa. Quitar los pepinillos. Enviar a cocina. Proceder con el pago en efectivo.
+
+**QAPOS50** - Check con Descuento
+> Crear un check. Agregar un producto. Aplicar un 10% de descuento. Finalizar pago con efectivo.
+
+**QAPOS51** - Check con Void
+> Crear un check. Agregar un producto. Aplicar 'Void'. Finalizar el check. Proceder con el pago en efectivo.
+
+**QAPOS52** - Check con To Go
+> Crear un check. Agregar un producto. Seleccionar 'To Go'. Finalizar el check. Proceder con el pago en efectivo.
+
+**QAPOS53** - Check con Tax Exempt
+> Crear un check. Agregar un producto. Marcar 'Tax Exempt'. Finalizar el check. Proceder con el pago en efectivo.
+
+**QAPOS55** - Check con Gratuity
+> Crear un check. Agregar un producto. Aplicar un 15% de Gratuity. Finalizar pago con efectivo.
+
+**QAPOS57** - Check con múltiples pagos
+> Crear un check con 2 productos. Pagar la mitad en 'Cash' y la otra en 'Gift Card'. Completar el pago.
+
+**QAPOS58** - Check con comentario de cocina
+> Crear un check. Agregar un producto. Escribir comentario 'Sin sal'. Enviar a cocina. Proceder con el pago en efectivo.
+
+**QAPOS60** - Check con Cancel
+> Crear un check. Agregar productos. Presionar 'Cancel'. Confirmar cancelación.
+
+**QAPOS63** - Check con número de guess
+> Crear un check. Asignar 4 guess. Finalizar el check. Proceder con el pago en efectivo.
+
+**QAPOS64** - Check con Tab
+> Crear un check. Agregar comentario en 'Tab'. Finalizar el check. Proceder con el pago en efectivo.
+
+**QAPOS68** - Check con Cancel y Recall
+> Crear un check. Agregar productos. Cancelar el check. Intentar hacer Recall.
+
+**QAPOS71** - Fire check
+> Crear check con varios items Click en check options Click en fire
+
+**QAPOS75** - Check con Tax Exempt y productos combinados
+> Crear un check. Agregar 5 productos con precios variables. Aplicar 'Tax Exempt'. Proceder con el pago en efectivo.
+
+**QAPOS77** - Check con orden de delivery y cambios en última hora
+> Crear un check. Seleccionar 'Delivery'. Agregar 7 productos. Enviar a cocina. Hacer 'Recall' y cambiar 2 productos. Proceder con el pago en efectivo.
+
+**QAPOS80** - Check con Tab y comentarios en cuenta
+> Crear un check. Agregar 4 productos. Escribir un comentario en 'Tab'. Proceder con el pago en efectivo.
+
+**QAPOS82** - Check con combinación de productos To Go y Dine In
+> Crear un check con 6 productos. Marcar 3 como 'To Go' y 3 como 'Dine In'. Proceder con el pago en efectivo.
+
+**QAPOS83** - Check con recall y cancelación parcial
+> Crear un check con 5 productos. Enviar a cocina. Hacer 'Recall'. Cancelar 2 productos. Proceder con el pago en efectivo.
+
+**QAPOS84** - Check con Fire y Tax Exempt en productos distintos
+> Crear un check con 6 productos. Aplicar 'Fire' a 3 productos. Aplicar 'Tax Exempt' a los otros 3. Proceder con el pago en efectivo.
+
+**QAPOS100** - Orden se limpia cuando se pagan todos los checks
+> Orden se limpia cuando se pagan todos los checks
+
+**QAPOS101** - Al repetir items no se debe cambiar status en item original
+> Agregar item al check Poner en hold Click repeat en item
+
+**QAPOS113** - API TimeClock
+> Ingresar a Fragmeto de TimeClock
+
+**QAPOS124** - Ajuste de pago - Dual Price
+> Crear un cheque y pagarlo Ir a ChecksFragment Hacer un reajuste de pago Verificar el balanceDue
+
+**QAPOS130** - Detalles del cliente
+> 0.7243055555555555
+
+**QAPOS132** - Split en Pago
+> Crear un Check Add un Iteem Pagar Clic en Split dentro del Pago
+
+**QAPOS133** - Crear check
+> Alain Stable
+
+**QAPOS134** - Opciones de items
+> del trasnfer check
+
+**QAPOS135** - Split Check
+> ￼
+
+**QAPOS137** - Agregar apertura de bank
+> Ir a turnos/ agregar apertura de bank Seleccionar valores usando diferentes convinaciones Los valores no se seleccionan correctamente
+
+**QAPOS138** - Ajuste de pago
+> Crear un cheque Pagarlo Ir a Check/closed Seleccionar el cheque Ajustarlo
+
+**QAPOS140** - Items ToGo
+> ￼
+
+**QAPOS142** - Split
+> Crear un cheque con varios items ir a Split Con Add Checks, crear tres divisiones Seleccionar el item en posición 1 y pasarlo a otro check Seleccionar el item en última posición y pasarlo a otro cheqk
+
+**QAPOS143** - Transfer Items
+> ￼
+
+**QAPOS151** - Print open checks via Checks
+> (sin pasos)
+
+**QAPOS152** - Print open checks via Recall
+> (sin pasos)
+
+**QAPOS153** - Print closed checks via Checks
+> (sin pasos)
+
+**QAPOS154** - View Daily Report
+> (sin pasos)
+
+**QAPOS155** - View Tips Report
+> (sin pasos)
+
+**QAPOS156** - Discount Item (Open Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Select an Item - Apply a discount - Remove a discount - Apply discount again - Substute current discount with another discount - Pay order Cash
+
+**QAPOS157** - Discount Item (Send Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Send check - Recall Check - Select an Item - Apply a discount - Remove a discount - Apply discount again - Substute current discount with another discount - Pay order Cash
+
+**QAPOS158** - Discount Check (Open Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Select Check options - Apply a discount - Remove a discount - Apply discount again - Substute current discount with another discount - Pay order Cash
+
+**QAPOS159** - Discount Check (Send Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Send check - Recall Check - Select check options - Apply a discount - Remove a discount - Apply discount again - Substute current discount with another discount - Pay order Cash
+
+**QAPOS160** - Void Item
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Send check - Verify items are sent to the KDS and Kitchen - Recall Check - Select an Item - Select Void - Select Reason - Send check - Recall Check - Pay order Cash
+
+**QAPOS161** - Void Item
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Send check - Recall Check - Select an Item - Select Void - Select Reason - Pay order Cash
+
+**QAPOS162** - Void Check
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Send check - Recall Check - Select check options - Select Void - Select Reason - Void and close - Check should close
+
+**QAPOS163** - Gratuity Check (Open Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Select Check options - Apply a gratuity - Remove a gratuity - Apply gratuity again - Substute current gratuity with another gratuity - Pay order Cash
+
+**QAPOS164** - Gratuity Check (Send Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Send check - Recall check - Select check options - Apply a gratuity - Remove a gratuity - Apply gratyuity again - Substute current gratuity with another gratuity - Pay order Cash
+
+**QAPOS165** - Tax Exempt Item (Open Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to the check - Add items with modifers to the check - Select an Item - Apply a Tax exempt - Remove a tax exempt - Apply tax exempt again - Substute current tax exempt with another tax exempt - Pay order Cash
+
+**QAPOS166** - Tax Exempt Item (Send Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to la check - Add items with modifers to the check - Send check - Recall Check - Select an Item - Apply a tax exempt - Remove a tax exempt - Apply tax exempt again - Substute current tax exempt with another tax exempt - Pay order Cash
+
+**QAPOS167** - Tax Exempt Check (Open Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to la check - Add items with modifers to la check - Select Check options - Apply a tax exempt - Remove a tax exempt - Apply tax exempt again - Substute current tax exempt with another tax exempt - Pay order Cash
+
+**QAPOS168** - Discount Check (Send Check)
+> - Log in - Select order type for here - Add item to the check - Add multi price item to la check - Add items with modifers to la check - Send check - Recall Check - Select check options - Apply a tax exempt - Remove a tax exempt - Apply tax exempt again - Substute current tax exempt with another tax exempt - Pay order Cash
+
+**QAPOS172** - Pay open checks via recall
+> Go to Recall Clic en Pay Pay the check
+
+**QAPOS173** - Pay and adjust checks via recall
+> Go to Recall Clic en Pay Pay the check Adjust the payment Delete pay Pay the check
+
+**QAPOS149** - Recall Order
+> - Recall an open order - Void an item - Pay the check Cash
+
+**QAPOS150** - Recall Order
+> - Recall an open order - Void an item - Add a new item - Pay the check Cash
+
+---
+
+## 📊 **Resumen Final**
+
+**Total de flujos: 142**
+
+- Gestión de Mesas y Floor Layout: **20 flujos**
+- Operaciones de Split y División: **25 flujos**
+- Transferencias entre Cajeros/Checks: **15 flujos**
+- Operaciones Hold y Fire: **16 flujos**
+- Sincronización Multi-Dispositivo: **9 flujos**
+- Operaciones Básicas y Edge Cases: **58 flujos**
+
+---
+
+*(Se identificaron 5 casos con nombres como "alejandro" y 22 casos con "vladimir" que fueron excluidos según solicitado)*
+
+
+

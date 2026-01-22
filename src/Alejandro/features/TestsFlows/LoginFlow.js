@@ -1,6 +1,6 @@
-import PinRegistration from '../PageObjects/Registration/PinRegistrationObject'
-import Helper from '../PageObjects/GlobalObjects/GlobalHelpers'
-import LoginBaseFlow from './BaseFlows/LoginBaseFlow'
+import PinRegistration from '../PageObjects/Registration/PinRegistrationObject.js'
+import Helper from '../PageObjects/GlobalObjects/GlobalHelpers.js'
+import LoginBaseFlow from './BaseFlows/LoginBaseFlow.js'
 
 class LoginFlow extends LoginBaseFlow {
 

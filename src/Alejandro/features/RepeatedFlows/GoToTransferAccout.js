@@ -3,8 +3,6 @@ import OrderListPage from '../Pages/OrderListPage/OrderListPage.js'
 import CheckMenuPageSecondView from '../Pages/CheckMenuPageSecondView/CheckMenuPageSecondView.js'
 import CheckMenuPage from '../Pages/CheckMenuPage/CheckMenuPage.js'
 import AccountOptionPage from '../Pages/AccountOptionPage/AccountOptionPage.js'
-import AnularPage from '../Pages/AnularPage/AnularPage.js'
-import AnularPageCloseAccountModal from '../Pages/AnularPageCloseAccountModal/AnularPageCloseAccountModal.js'
 import AccountOptionPageTransferSelectionModal from '../Pages/AccountOptionPageTransferSelectionModal/AccountOptionPageTransferSelectionModal.js'
 import AccountOptionPageTransferAccountModal from '../Pages/AccountOptionPageTransferAccountModal/AccountOptionPageTransferAccountModal.js'
 

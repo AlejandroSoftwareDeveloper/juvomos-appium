@@ -1,4 +1,4 @@
-import PinRegistration from '../../PageObjects/Registration/PinRegistrationObject'
+import PinRegistration from '../../PageObjects/Registration/PinRegistrationObject.js'
 
 class LoginBaseFlow {
 
