@@ -10,7 +10,8 @@ exports.config = {
     specs: [
         // './test/specs/register_and_login_test/*',
        // './src/Alejandro/specs/register_and_login_test/TS0002PinRegistration.js',
-       './src/NewAlejandro/specs/CHECKVARS.js',
+       // './src/NewAlejandro/specs/CHECKVARS.js',
+        './src/Alejandro/specs/QAPOS122ChangeStatusItems.js',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],

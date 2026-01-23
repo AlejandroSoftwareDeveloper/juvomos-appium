@@ -1,4 +1,4 @@
-const TICKET_NUMBER = '//android.widget.Button[@resource-id="com.juvomos.pos:id/txtTicketNumber"]';
+const TICKET_NUMBER        = '//android.widget.Button[@resource-id="com.juvomos.pos:id/txtTicketNumber"]';
 const TICKET_CUSTOMER_NAME = '//android.widget.Button[@resource-id="com.juvomos.pos:id/ticketCustomerName"]';
 const FIRST_ITEM = '(//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/idTicketListRecycler"])[2]/android.view.ViewGroup[1]';
 const SECOND_ITEM = '(//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/idTicketListRecycler"])[2]/android.view.ViewGroup[2]';
@@ -45,6 +45,14 @@ class CheckMenuPage {
       await this.pay_button.click()
     }
 
+    async get_pay_button_value(){
+       const btn = await this.pay_button
+       const value = await btn.getText()
+       return parseFloat(value.split("$")[1])
+
+    }
+
+
     async click_print_button(){
       await this.print_button.click()
     }
@@ -57,10 +65,10 @@ class CheckMenuPage {
       await this.split_button.click()
     }
 
-    async get_total(){
-        const total = await this.get_details()
-        return parseFloat(total.split("$")[1])
-    }
+    // async get_total(){
+    //     const total = await this.get_details()
+    //     return 
+    // }
 
 
     // Getters de elementos

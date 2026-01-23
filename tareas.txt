@@ -201,38 +201,6 @@
 
 ### 4️⃣ **Operaciones Hold y Fire (16 flujos)**
 
-**QAPOS47** - Check con Hold y Fire
-> Crear un check. Agregar 2 productos. 
-Poner uno en 'Hold'. 
-Enviar el otro a cocina. 
-Liberar el 'Hold'. 
-Proceder con el pago en efectivo.
-
-**QAPOS54** - Check con Recall
-> Crear un check. 
-Enviar productos a cocina. 
-Abrir 'Recall' y traer el check. 
-Modificar agregando otro producto. 
-Proceder con el pago en efectivo.
-
-**QAPOS66** - Check con múltiples modificaciones y Hold
-> Crear un check. 
-Agregar 5 productos con modificaciones. 
-Aplicar 'Hold' a dos productos. 
-Enviar el resto a cocina. 
-Liberar los 'Hold' y enviarlos. Proceder con el pago en efectivo.
-
-**QAPOS81** - Check con múltiples productos en Hold y cambios
-> Crear un check. 
-Agregar 7 productos. 
-Aplicar 'Hold' a 4 productos. 
-Enviar los demás a cocina.
-Cambiar un producto antes de liberar el 'Hold'. 
-Proceder con el pago en efectivo.
-
-
-
-
 
 **QAPOS122** - Change Status Items
 > Crear un check Colocar uno de los Items en Hold Send Recall Click check number Click en fire
@@ -269,23 +237,6 @@ Proceder con el pago en efectivo.
 
 **QAPOS184** - Repeat and remove comment
 > Agregar nuevo item Agregar nuevo item con modificador Aplicar descuento al modificador Clic en kitchen Comment Clic en Repeat Eliminar el comentario
-
-
-
-
-QAPOS122ChangeStatusItems
-QAPOS174RepeatItemNotSend
-QAPOS175RepeatItemWithDiscount
-QAPOS176RepeatItemWithHold
-QAPOS177RepeatItemWithFire
-QAPOS178RepeatItemWithKitchenComment
-QAPOS179RepeatAndDeleteItem
-QAPOS180RepeatAndRemoveDiscount
-QAPOS181RepeatItemWithTax
-QAPOS182RepeatAndRemoveHold
-QAPOS183RepeatAndRemoveTax
-QAPOS184RepeatAndRemoveComment
-
 
 
 ---

@@ -13,12 +13,18 @@ class CreateOrder {
        // Click in menu
       await this.pick_up_option.click()
 
-      // Click twice
+      // // Click twice (old version)
       const card_clicked = await this.custom_card
       await card_clicked.click()
       await card_clicked.click()
+
     }
     
+    async click_on_card(){
+      await this.custom_card.click()
+    }
+
+
     async send_to_kitchen_item_number(number){
       //Open account 
       await this.btn_show_order.click()

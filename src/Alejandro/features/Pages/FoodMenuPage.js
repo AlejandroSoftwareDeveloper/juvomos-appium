@@ -5,11 +5,11 @@ const TEXT_INPUT                 = 'id:com.juvomos.pos:id/search_src_text'
 const RESET_TEXT_INPUT           = '~Borrar consulta'
 // const CUSTOM_CARD             = `(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${CARD_TO_SELECT}]/android.view.ViewGroup`
 const LEFT_MENU                  =  "~Abrir panel lateral de navegación"
-
+const MENU_NUMBER                = 8
 
 class FoodMenuPage {
 
-    async click_card(number){
+    async click_card(number = MENU_NUMBER){
       await $(`(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${number}]/android.view.ViewGroup`).click()
     }
 
@@ -19,6 +19,11 @@ class FoodMenuPage {
         return data
     }
 
+    async get_card_text_price(number = MENU_NUMBER){
+        const text = await $(`(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${number}]/android.view.ViewGroup`)
+        let data = await text.$('//android.widget.TextView[@resource-id="com.juvomos.pos:id/item_price"]').getText()
+        return parseFloat(data.split("$")[1])
+    }
     async click_account_btn(){
         await this.account_btn.click()
     }
