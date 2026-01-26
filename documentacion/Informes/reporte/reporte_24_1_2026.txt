@@ -1,0 +1,70 @@
+Nombre: QA 9
+Hora: 9:44 am
+
+# Diferencias de valores en el pagina de "REPORTE DIARIO"
+Imagen: TotalContabilizable.jpeg
+
+La imagen muestra un diferencia entre el total contabilizable
+y las ventas totales, esta operacion se ejecuto posterior a la instalacion de la version 2.6.1.20
+a las 8:44 am del sabado 24 - 1 - 2026. el valor mostrado en el "total contabilizables" es 0.29 cents
+donde debe mostrar 7.76.
+
+EL valor se desglosa de la siguiente forma:
+
+Producto "Apache"
+Subtotal           : 7.26
+Impuestos          : 0.50
+Total with Cc      : 7.47
+Total with cash    : 7.76
+
+resultado debe ser : 7.76
+muestra            : 0.29
+Es resultado es la diferencia entre mostrado es:
+
+Total with Cash    - Total with Cc
+(7.26 + 0.50)7.76  -    7.47 = 0.29
+
+Recomendacion revisar el valor a mostrar y verificar si
+la formula esta mostrando correctamente el resultado.
+
+SOLO SE MOSTRO UNA VEZ EN LA PRIMERA VENTA DEL DIA.
+
+
+#  Valores inexactos en el cobro de los impuestos a productos vendidos.
+
+## Hallazgos principales
+
+1. Ningún producto alcanza el 7% teórico
+- Los porcentajes impositivos reales varián entre 6.8871% y 6.9934%
+- Todos están por debajo del 7% oficial, lo que representa una sub-cobranza del impuesto
+
+2. Patrón de redondeo sistemático
+El impuesto cobrado se redondea consistentemente hacia abajo al centavo más cercano:
+- Burger tender: Debe ser $0.581 → se cobra $0.58 (diferencia de $0.001)
+- Wing 1,5: Debe ser $2.3422 → se cobra $2.34 (diferencia de $0.0022)
+- General Grill: Debe ser $0.4354 → se cobra $0.43 (diferencia de $0.0054)
+- Apache: Debe ser $0.5082 → se cobra $0.50 (diferencia de $0.0082)
+
+3. Impacto escalonado por valor de centavos por 100 ventas
+A mayor precio del producto, mayor diferencia absoluta:
+- Burger tender ($8.30) : 0.10 cents 
+- Wing 1,5      ($33.46): 0.22 cents 
+- General Grill ($6.22) : 0.54 cents 
+- Apache        ($7.26) : 0.82 cents 
+
+## Implicación
+Este sistema de redondeo perjudica al fisco en aproximadamente $0.001-$0.008 por transacción, 
+pero favorece al cliente con micro-ahorros en cada compra.
+
++-------------------------------------------------------------------------------------------+
+| No | Producto       | valor |  impuesto |  % impositivo |  impuesto al 7% | 100 ventas    |
+|----+----------------+-------+-----------+---------------+-----------------+---------------|
+| 1  | Burger tender  | 8.30  |  0.58     |  6.9879518072 |  0.581          | 0.10 centavos |
+|----+----------------|-------|-----------+---------------+-----------------+---------------|
+| 2  | Wing 1,5       | 33.46 |  2.34     |  6.99342499   |  2.3422         | 0.22 centavos |
+|----+----------------|-------+-----------+---------------+-----------------+---------------|
+| 3  | General Grill  | 6.22  |  0.43     |  6.9131832797 |  0.4354         | 0.54 centavos |
+|----+----------------+-------+-----------+---------------+-----------------+---------------|
+| 4  | Apache         | 7.26  |  0.50     |  6.8870523416 |  0.5082         | 0.82 centavos | 
++----+----------------+-------+-----------+---------------+-----------------+---------------+
+

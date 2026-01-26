@@ -3,7 +3,7 @@ import {
   SNACKBAR_TEXT,
   ENTER_PIN_TEXT,
   BACK_TO_PIN_BUTTON
-} from '../features/selectors/constants.js'
+} from '../../features/selectors/constants.js'
 
 describe("Validate finish work time", () => {
 

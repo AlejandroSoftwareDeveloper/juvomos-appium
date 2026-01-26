@@ -71,6 +71,13 @@ class CheckMenuPage {
     // }
 
 
+    async two_items(){
+       const itm1 = await this.first_item
+       const itm2 = await this.second_item
+       
+       await chai.expect((!!itm1 && !!itm2) === true).to.equal(true)
+    }
+
     // Getters de elementos
     
     get ticket_number(){ return $( TICKET_NUMBER ) }

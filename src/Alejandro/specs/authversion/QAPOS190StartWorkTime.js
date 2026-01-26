@@ -1,5 +1,5 @@
-import LoginFlow from '../features/TestsFlows/LoginFlow.js'
-import { PIN_INPUT, CLOCK_IN_BUTTON, BACK_TO_PIN_BUTTON, REG_TIME_BUTTON } from '../features/selectors/constants.js'
+import LoginFlow from '../../features/TestsFlows/LoginFlow.js'
+import { PIN_INPUT, CLOCK_IN_BUTTON, BACK_TO_PIN_BUTTON, REG_TIME_BUTTON } from '../../features/selectors/constants.js'
 
 describe("Validate start work time process", () => {
 

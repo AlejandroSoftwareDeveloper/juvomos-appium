@@ -1,6 +1,6 @@
-import LoginFlow from '../features/TestsFlows/LoginFlow.js'
-import { ENTER_PIN_TEXT } from '../features/selectors/constants.js'
-import PinRegistrationPage  from '../features/Pages/PinRegistrationPage/PinRegistrationPage.js'
+import LoginFlow from '../../features/TestsFlows/LoginFlow.js'
+import { ENTER_PIN_TEXT } from '../../features/selectors/constants.js'
+import PinRegistrationPage  from '../../features/Pages/PinRegistrationPage/PinRegistrationPage.js'
 
 describe("Register with correct pin", () => {
 

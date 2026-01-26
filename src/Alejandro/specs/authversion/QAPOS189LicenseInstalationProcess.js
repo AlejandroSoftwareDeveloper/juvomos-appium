@@ -1,6 +1,6 @@
-import LoginFlow from '../features/TestsFlows/LoginFlow.js'
-import LicenseRegistrationPage  from '../features/Pages/LicenseRegistrationPage/LicenseRegistrationPage.js'
-import { PIN_INPUT_REGISTER, ACCEPT_BUTTON, SNACKBAR_TEXT } from '../features/selectors/constants.js'
+import LoginFlow from '../../features/TestsFlows/LoginFlow.js'
+import LicenseRegistrationPage  from '../../features/Pages/LicenseRegistrationPage/LicenseRegistrationPage.js'
+import { PIN_INPUT_REGISTER, ACCEPT_BUTTON, SNACKBAR_TEXT } from '../../features/selectors/constants.js'
 
 describe("Validate instalation process ", () => {
 

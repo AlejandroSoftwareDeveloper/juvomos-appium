@@ -1,4 +1,4 @@
-import LoginFlow from '../features/TestsFlows/LoginFlow.js'
+import LoginFlow from '../../features/TestsFlows/LoginFlow.js'
 import {
   CLOCK_IN_BUTTON,
   REG_TIME_BUTTON,
@@ -13,7 +13,7 @@ import {
   BTN_ONE,
   BTN_ZERO,
   // CANCEL_DIALOG
-} from '../features/selectors/constants.js'
+} from '../../features/selectors/constants.js'
 
 describe("Check tips cash recieved", () => {
 

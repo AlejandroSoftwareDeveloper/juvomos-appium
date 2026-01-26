@@ -15,10 +15,14 @@ const ACCEPT_BTN          = JUVO + "checkBigImage"
 const BACKSPACE           = '(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]'
 const PIN_INPUT           = JUVO + "txt_pin_user"
 
-class PinRegistrationPage {
+
+import ResultPattern  from '../../HelperClass/ResultPattern.js'
+
+
+class PinRegistrationPage extends ResultPattern {
 
     async click_card(number){
-      await $(`(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${number}]/android.view.ViewGroup`).click()
+        await $(`(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${number}]/android.view.ViewGroup`).click()
     }
 
     async card_text(){

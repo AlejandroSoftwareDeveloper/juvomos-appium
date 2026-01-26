@@ -1,4 +1,4 @@
-import LoginFlow from '../features/TestsFlows/LoginFlow.js'
+import LoginFlow from '../../features/TestsFlows/LoginFlow.js'
 import {
   PIN_INPUT,
   REG_TIME_BUTTON,
@@ -7,7 +7,7 @@ import {
   CLOCK_IN_BUTTON,
   BACK_TO_PIN_BUTTON,
   ENTER_PIN_TEXT
-} from '../features/selectors/constants.js'
+} from '../../features/selectors/constants.js'
 
 describe("Finish BreakIn", () => {
     // const clock_in = 'id:com.juvomos.pos:id/clockInButton'

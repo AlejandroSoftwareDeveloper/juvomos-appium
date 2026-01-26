@@ -1,14 +1,9 @@
-import CreateMultipleOrders  from '../features/RepeatedFlows/CreateMultipleOrders.js'
 import FoodMenuPage                 from '../features/Pages/FoodMenuPage.js'
 import FoodPageMenuModal            from '../features/Pages/FoodPageMenuModal/FoodPageMenuModal.js'
-import NavbarPage                   from '../features/Pages/NavbarPage/NavBarPage.js'
-import ReportPage                   from '../features/Pages/ReportPage/ReportPage.js'
-import DailyReportPage              from '../features/Pages/DailyReportPage/DailyReportPage.js'
 import CheckMenuPage                from '../features/Pages/CheckMenuPage/CheckMenuPage.js'
-import PaymentViewPage              from '../features/Pages/PaymentViewPage/PaymentViewPage.js'
-import PaymentOptionsPage           from '../features/Pages/PaymentOptionsPage/PaymentOptionsPage.js'
 import OrderListPage                from '../features/Pages/OrderListPage/OrderListPage.js'
 import CheckMenuPageSecondView      from '../features/Pages/CheckMenuPageSecondView/CheckMenuPageSecondView.js'
+import DeleteMultipleOrders  from '../features/RepeatedFlows/DeleteMultipleOrders.js'
 
 describe("Check if items change correctly status",()=>{
 
@@ -32,12 +27,15 @@ describe("Check if items change correctly status",()=>{
         await CheckMenuPageSecondView.click_btn_recall()
         await CheckMenuPage.click_ticket_number()
 
+// Buscra las clases de cada boton  // Veificar el cambio de boton
+        await $('id:com.juvomos.pos:id/btnFireCheck').click()
+        await $('id:com.juvomos.pos:id/btnFireNow').click()
+        await $('id:com.juvomos.pos:id/btnSendPointOfSale').click()
+
     })
-/*
-    
-Me quede en enviar a la  cocina
 
-
-**/
+    it("TC0002: Delete orders corretly",async()=>{
+       await DeleteMultipleOrders.delete_order();
+    })
 
 })

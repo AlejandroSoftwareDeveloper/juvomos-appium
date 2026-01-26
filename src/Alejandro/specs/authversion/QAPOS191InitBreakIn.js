@@ -1,4 +1,4 @@
-import LoginFlow from '../features/TestsFlows/LoginFlow.js'
+import LoginFlow from '../../features/TestsFlows/LoginFlow.js'
 import {
   PIN_INPUT,
   REG_TIME_BUTTON,
@@ -6,7 +6,7 @@ import {
   SNACKBAR_TEXT,
   ENTER_PIN_TEXT,
   BACK_TO_PIN_BUTTON
-} from '../features/selectors/constants.js'
+} from '../../features/selectors/constants.js'
 
 describe("Start BreakIn", () => {
      // Enter work section
