@@ -2,16 +2,21 @@ const allure = require('allure-commandline')
 const chai   = require('chai')
 
 const configspecs = {
-     allure_report: false,
+     allure_report: true,
 };
 
 exports.config = {
     port: 4723,
     specs: [
+
+// './src/Alejandro/specs/authversion/*.js',
+'./src/Alejandro/specs/*.js',
+
+
         // './test/specs/register_and_login_test/*',
        // './src/Alejandro/specs/register_and_login_test/TS0002PinRegistration.js',
        // './src/NewAlejandro/specs/CHECKVARS.js',
-        './src/Alejandro/specs/QAPOS122ChangeStatusItems.js',
+        // './src/Alejandro/specs/QAPOS122ChangeStatusItems.js',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],

@@ -64,7 +64,7 @@ class PinRegistrationPage {
         await this.backspace.click()
     }
 
-    async click_accept_btn(){ 
+    async accept_btn(){ 
         await this.accept_btn.click()
     }
 
@@ -124,7 +124,7 @@ class PinRegistrationPage {
         return btn
     }
 
-    async get_accept_btn(){
+    async accept_btn(){
         const btn = this.accept_btn
         return btn
     }

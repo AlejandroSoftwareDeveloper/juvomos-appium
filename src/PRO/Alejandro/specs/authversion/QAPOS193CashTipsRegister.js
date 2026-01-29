@@ -122,13 +122,13 @@ describe("Check tips cash recieved", () => {
         let new_cash = parseFloat(await $(totalSheetTime).getText())
         let result = calculate_tips(current_cash, cash)
 
+        // Confirm result
+        await expect(new_cash).toBe(result)
+
         // Exit seccion
         // await $(nav_back).click()
         // await $(await check_buttons()).click()
         await $('id:com.juvomos.pos:id/btnCancelDialogTimeSheet').click()
-         
-        // Confirm result
-        await expect(new_cash).toBe(result)
 
      })
 

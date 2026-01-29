@@ -1,3 +1,5 @@
+// const CUSTOM_CARD                = `(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${CARD_TO_SELECT}]/android.view.ViewGroup`
+
 const JUVO                = "id:com.juvomos.pos:id/"
 const PAGE_TEXT           = JUVO + "enterPinText"
 const BTN_ZERO            = JUVO + "zero_btn_pin"
@@ -13,7 +15,7 @@ const BTN_NINE            = JUVO + "nine_btn_pin"
 const HOURS_REGISTER_BTN  = JUVO + "buttonTimeClock"
 const ACCEPT_BTN          = JUVO + "checkBigImage"
 const BACKSPACE           = '(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]'
-const PIN_INPUT           = JUVO + "txt_pin_user"
+
 
 class PinRegistrationPage {
 
@@ -28,120 +30,45 @@ class PinRegistrationPage {
     }
 
     async click_btn_zero() {
-        await this.btn_zero.click()
+        this.btn_zero.click()
     }
     async click_btn_one()  {
-        await this.btn_one.click()
+        this.btn_one.click()
     }
     async click_btn_two()  {
-        await this.btn_two.click()
+        this.btn_two.click()
     }
     async click_btn_three(){
-        await this.btn_three.click()
+        this.btn_three.click()
     }           
     async click_btn_four() {
-        await this.btn_four.click()
+        this.btn_four.click()
     }            
     async click_btn_five() {
-        await this.btn_five.click()
+        this.btn_five.click()
     }            
     async click_btn_six()  {
-        await this.btn_six.click()
+        this.btn_six.click()
     }             
     async click_btn_seven(){
-        await this.btn_seven.click()
+        this.btn_seven.click()
     }            
     async click_btn_eight(){
-        await this.btn_eight.click()
+        this.btn_eight.click()
     }           
     async click_btn_nine() {
-        await this.btn_nine.click()
+        this.btn_nine.click()
     }           
     async click_hours_register_btn(){
-        await this.hours_register_btn.click()
+        this.hours_register_btn.click()
     }
     async click_backspace(){
-        await this.backspace.click()
+        this.backspace.click()
     }
 
-    async click_accept_btn(){ 
-        await this.accept_btn.click()
+    async accept_btn(){ 
+        this.accept_btn.click()
     }
-
-    async get_pin_input(){
-      const pi = this.pin_input
-      return pi
-    }
-
-    async get_backspace(){
-      const bs = this.backspace
-      return bs
-    }
-
-    async get_btn_zero(){
-        const btn = this.btn_zero
-        return btn
-    }
-    async get_btn_one(){
-        const btn = this.btn_one
-        return btn
-    }
-    async get_btn_two(){
-        const btn = this.btn_two
-        return btn
-    }
-    async get_btn_three(){
-        const btn = this.btn_three
-        return btn
-    }           
-    async get_btn_four(){
-        const btn = this.btn_four
-        return btn
-    }            
-    async get_btn_five(){
-        const btn = this.btn_five
-        return btn
-    }            
-    async get_btn_six(){
-        const btn = this.btn_six
-        return btn
-    }             
-    async get_btn_seven(){
-        const btn = this.btn_seven
-        return btn
-    }            
-    async get_btn_eight(){
-        const btn = this.btn_eight
-        return btn
-    }           
-    async get_btn_nine(){
-        const btn = this.btn_nine
-        return btn
-    }           
-
-    async get_hours_register_btn(){
-        const btn = this.hours_register_btn
-        return btn
-    }
-
-    async get_accept_btn(){
-        const btn = this.accept_btn
-        return btn
-    }
-    async check_all_number(){
-        const methodNames = [
-            'zero', 'one', 'two', 'three',
-            'four', 'five', 'six', 'seven',
-            'eight', 'nine'
-        ];
-        const elements = await Promise.all(
-            methodNames.map(method => this["get_btn_" + method]())
-        );
-        
-        const allExist = elements.every(el => !!el);
-        chai.expect(allExist).to.equal(true);
-    }
-
 
     get page_text(){return $(PAGE_TEXT)}
     get btn_zero(){return $(BTN_ZERO)}
@@ -157,7 +84,6 @@ class PinRegistrationPage {
     get hours_register_btn(){return $(HOURS_REGISTER_BTN)}
     get backspace(){return $(BACKSPACE)}
     get accept_btn(){return $(ACCEPT_BTN)}
-    get pin_input(){return $(PIN_INPUT)}
 
 }
 

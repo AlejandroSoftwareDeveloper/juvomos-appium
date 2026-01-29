@@ -27,7 +27,7 @@ describe("Check if items change correctly status",()=>{
         await CheckMenuPageSecondView.click_btn_recall()
         await CheckMenuPage.click_ticket_number()
 
-        // Buscra las clases de cada boton  // Veificar el cambio de boton
+// Buscra las clases de cada boton  // Veificar el cambio de boton
         await $('id:com.juvomos.pos:id/btnFireCheck').click()
         await $('id:com.juvomos.pos:id/btnFireNow').click()
         await $('id:com.juvomos.pos:id/btnSendPointOfSale').click()
