@@ -1,9 +1,9 @@
-import FoodMenuPage                 from '../features/Pages/FoodMenuPage.js'
-import FoodPageMenuModal            from '../features/Pages/FoodPageMenuModal/FoodPageMenuModal.js'
-import CheckMenuPage                from '../features/Pages/CheckMenuPage/CheckMenuPage.js'
-import OrderListPage                from '../features/Pages/OrderListPage/OrderListPage.js'
-import CheckMenuPageSecondView      from '../features/Pages/CheckMenuPageSecondView/CheckMenuPageSecondView.js'
-import DeleteMultipleOrders  from '../features/RepeatedFlows/DeleteMultipleOrders.js'
+import FoodMenuPage                 from '../../../features/Pages/FoodMenuPage.js'
+import FoodPageMenuModal            from '../../../features/Pages/FoodPageMenuModal/FoodPageMenuModal.js'
+import CheckMenuPage                from '../../../features/Pages/CheckMenuPage/CheckMenuPage.js'
+import OrderListPage                from '../../../features/Pages/OrderListPage/OrderListPage.js'
+import CheckMenuPageSecondView      from '../../../features/Pages/CheckMenuPageSecondView/CheckMenuPageSecondView.js'
+import DeleteMultipleOrders         from '../../../features/RepeatedFlows/DeleteMultipleOrders.js'
 
 describe("Repeat item not send",()=>{
     it("TC0001: Create orders corretly and duplicatee",async()=>{

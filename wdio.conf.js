@@ -8,15 +8,15 @@ const configspecs = {
 exports.config = {
     port: 4723,
     specs: [
-
-// './src/Alejandro/specs/authversion/*.js',
-'./src/Alejandro/specs/*.js',
-
-
-        // './test/specs/register_and_login_test/*',
-       // './src/Alejandro/specs/register_and_login_test/TS0002PinRegistration.js',
-       // './src/NewAlejandro/specs/CHECKVARS.js',
-        // './src/Alejandro/specs/QAPOS122ChangeStatusItems.js',
+        './src/Alejandro/specs/working/QAPOS189_194/*', // Auth (7)
+        './src/Alejandro/specs/working/INITPOS.js',
+        './src/Alejandro/specs/working/QAPOS121_130/*', //      (1)
+        './src/Alejandro/specs/working/QAPOS131_140/*', //      (0)
+        './src/Alejandro/specs/working/QAPOS141_150/*', //      (0)
+        './src/Alejandro/specs/working/QAPOS171_180/*',
+        './src/Alejandro/specs/working/QAPOS181_188/*', // Revisar estas hoy, hay una que da problema
+        './src/Alejandro/specs/working/QAPOS195_200/*',
+        './src/Alejandro/specs/working/QAPOS200_210/*',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],

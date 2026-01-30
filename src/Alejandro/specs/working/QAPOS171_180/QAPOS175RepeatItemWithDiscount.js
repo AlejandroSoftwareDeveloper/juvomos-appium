@@ -1,10 +1,10 @@
-import FoodMenuPage                 from '../features/Pages/FoodMenuPage.js'
-import FoodPageMenuModal            from '../features/Pages/FoodPageMenuModal/FoodPageMenuModal.js'
-import CheckMenuPage                from '../features/Pages/CheckMenuPage/CheckMenuPage.js'
-import OrderListPage                from '../features/Pages/OrderListPage/OrderListPage.js'
-import CheckMenuPageSecondView      from '../features/Pages/CheckMenuPageSecondView/CheckMenuPageSecondView.js'
-import DeleteMultipleOrders  from '../features/RepeatedFlows/DeleteMultipleOrders.js'
-import DiscountPage                from '../features/Pages/DiscountPage/DiscountPage.js'
+import FoodMenuPage                 from '../../../features/Pages/FoodMenuPage.js'
+import FoodPageMenuModal            from '../../../features/Pages/FoodPageMenuModal/FoodPageMenuModal.js'
+import CheckMenuPage                from '../../../features/Pages/CheckMenuPage/CheckMenuPage.js'
+import OrderListPage                from '../../../features/Pages/OrderListPage/OrderListPage.js'
+import CheckMenuPageSecondView      from '../../../features/Pages/CheckMenuPageSecondView/CheckMenuPageSecondView.js'
+import DeleteMultipleOrders         from '../../../features/RepeatedFlows/DeleteMultipleOrders.js'
+import DiscountPage                 from '../../../features/Pages/DiscountPage/DiscountPage.js'
 
 describe("Repeat item with discount",()=>{
 
