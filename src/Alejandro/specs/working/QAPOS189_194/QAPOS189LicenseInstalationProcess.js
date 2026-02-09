@@ -27,7 +27,8 @@ describe("Validate instalation process ", () => {
        await $(ACCEPT_BUTTON).click();
 
        //  Wait till snackbar appears
-       await browser.pause(1000);
+       // await browser.pause(1000);
+       await $(SNACKBAR_TEXT).waitForDisplayed({ timeout: 20000 });
 
        //  Capture snackbar text
        const snackbar_text = await $(SNACKBAR_TEXT).getText();
@@ -62,7 +63,8 @@ describe("Validate instalation process ", () => {
         // await LoginFlow.insert_code_and_accept(INVALID_PASS)
 
         // wait for snackbar
-        await browser.pause(2000) // 3 seg
+       await $(SNACKBAR_TEXT).waitForDisplayed({ timeout: 20000 });
+        // await browser.pause(2000) // 3 seg
 
         //  Capture snackbar text
         const snackbar_text = await $(SNACKBAR_TEXT).getText();
@@ -85,7 +87,8 @@ describe("Validate instalation process ", () => {
         // await LoginFlow.insert_code_and_accept(INVALID_PASS)
 
         //  Wait for apk to validate and load
-        await browser.pause(3000) // 3 seg
+       await $(SNACKBAR_TEXT).waitForDisplayed({ timeout: 20000 });
+        // await browser.pause(3000) // 3 seg
 
         // Capture snackbar text
         const snackbar_text = await $(SNACKBAR_TEXT).getText();
@@ -113,7 +116,9 @@ describe("Validate instalation process ", () => {
         await $(ACCEPT_BUTTON).click();
 
         //  Wait 10000 seconds for apk to validate and load
-        await browser.pause(56000)  // Currently Takes more than 10 seconds
+       await $('//android.widget.FrameLayout[@resource-id="com.juvomos.pos:id/stationItemLayout"]').waitForDisplayed({ timeout: 56000 });
+
+        // await browser.pause(56000)  // Currently Takes more than 10 seconds
 
     });
 

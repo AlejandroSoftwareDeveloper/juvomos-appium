@@ -1,5 +1,5 @@
 import LoginFlow from '../../../features/TestsFlows/LoginFlow.js'
-import { PIN_INPUT, REG_TIME_BUTTON, BREAK_OUT_BUTTON, SNACKBAR_TEXT, CLOCK_IN_BUTTON, BACK_TO_PIN_BUTTON, ENTER_PIN_TEXT } from '../../../features/selectors/constants.js'
+import { PIN_LOGIN,PIN_INPUT, REG_TIME_BUTTON, BREAK_OUT_BUTTON, SNACKBAR_TEXT, CLOCK_IN_BUTTON, BACK_TO_PIN_BUTTON, ENTER_PIN_TEXT } from '../../../features/selectors/constants.js'
 
 describe("Finish BreakIn", () => {
     // const clock_in = 'id:com.juvomos.pos:id/clockInButton'
@@ -18,11 +18,12 @@ describe("Finish BreakIn", () => {
 
        // Set field value
       const inp = await $(PIN_INPUT)
-      await inp.setValue('090909') 
+      await inp.setValue(PIN_LOGIN) 
       await $(REG_TIME_BUTTON).click();
 
       //  Wait till page load
-      await browser.pause(20000);
+      await $(BREAK_OUT_BUTTON).waitForDisplayed({ timeout: 20000 });
+      // await browser.pause(20000);
 
     })
 
@@ -32,7 +33,8 @@ describe("Finish BreakIn", () => {
        await $(BREAK_OUT_BUTTON).click()
 
        // Wait till load
-       await browser.pause(1500)
+       await $(SNACKBAR_TEXT).waitForDisplayed({ timeout: 10000 });
+       // await browser.pause(1500)
 
        // load snackbar
        const sb = await $(SNACKBAR_TEXT)

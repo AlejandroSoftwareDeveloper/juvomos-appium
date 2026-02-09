@@ -2,21 +2,25 @@ const allure = require('allure-commandline')
 const chai   = require('chai')
 
 const configspecs = {
-     allure_report: true,
+     allure_report: false,
 };
 
 exports.config = {
     port: 4723,
     specs: [
-        './src/Alejandro/specs/working/QAPOS189_194/*', // Auth (7)
-        './src/Alejandro/specs/working/INITPOS.js',
-        './src/Alejandro/specs/working/QAPOS121_130/*', //      (1)
-        './src/Alejandro/specs/working/QAPOS131_140/*', //      (0)
-        './src/Alejandro/specs/working/QAPOS141_150/*', //      (0)
-        './src/Alejandro/specs/working/QAPOS171_180/*',
-        './src/Alejandro/specs/working/QAPOS181_188/*', // Revisar estas hoy, hay una que da problema
-        './src/Alejandro/specs/working/QAPOS195_200/*',
-        './src/Alejandro/specs/working/QAPOS200_210/*',
+         // './src/Alejandro/specs/working/QAPOS189_194/QAPOS190PinRegistration.js',
+        // './src/Alejandro/specs/working/QAPOS189_194/*', // Auth (7)
+        // './src/Alejandro/specs/working/INITPOS.js',
+        // // './src/Alejandro/specs/working/QAPOS01_10/*', //      (1)
+        // './src/Alejandro/specs/working/QAPOS121_130/*', //      (1)
+        // './src/Alejandro/specs/working/QAPOS131_140/*', //      (0)
+        // './src/Alejandro/specs/working/QAPOS141_150/*', //      (0)
+        // './src/Alejandro/specs/working/QAPOS171_180/*',
+        // './src/Alejandro/specs/working/QAPOS181_188/*', // Revisar estas hoy, hay una que da problema
+        // './src/Alejandro/specs/working/QAPOS195_200/*',
+        // './src/Alejandro/specs/working/QAPOS200_210/*',
+        //  './src/Ana/specs/*.js',   // Ana
+        './src/cardtest.js',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],

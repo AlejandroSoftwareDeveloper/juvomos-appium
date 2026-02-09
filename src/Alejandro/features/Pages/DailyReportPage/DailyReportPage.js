@@ -6,9 +6,8 @@ const DATE_LABEL          = '//android.widget.TextView[@resource-id="com.juvomos
 const base                =  "id:com.juvomos.pos:id/"
 const DETAILS             = base + "resultCategoryDetailsDaily"
 
-
-
 class DailyReportPage {
+
     async click_print(){
         await this.print_button.click();
     }
@@ -29,6 +28,10 @@ class DailyReportPage {
     async get_total(){
         const total = await this.get_details()
         return parseFloat(total.split("$")[1])
+    }
+
+    async wait_for_details(timeout = 10000){
+        await this.details.waitForDisplayed({timeout})
     }
 
 

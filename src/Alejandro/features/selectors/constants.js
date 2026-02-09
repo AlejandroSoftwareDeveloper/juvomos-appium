@@ -4,7 +4,7 @@ export const JUV = 'id:com.juvomos.pos:id/';
 // export const  CUSTOM_CARD =  
 
 // --- PANTALLA PIN / LOGIN ----------------------------------------------------
-export const PIN_LOGIN             = `090909`
+export const PIN_LOGIN             = `850916`
 export const PIN_INPUT             = `${JUV}txt_pin_user`;
 export const PIN_INPUT_REGISTER    = `${JUV}editPinStore`;
 export const ACCEPT_BUTTON         = `${JUV}checkBigImage`;

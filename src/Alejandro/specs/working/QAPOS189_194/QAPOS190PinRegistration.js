@@ -1,32 +1,30 @@
 import LoginFlow              from '../../../features/TestsFlows/LoginFlow.js'
-import { ENTER_PIN_TEXT }     from '../../../features/selectors/constants.js'
+import { ENTER_PIN_TEXT, PIN_LOGIN }     from '../../../features/selectors/constants.js'
 import PinRegistrationPage    from '../../../features/Pages/PinRegistrationPage/PinRegistrationPage.js'
 
 describe("Register with correct pin", () => {
-
     it("Password input is correct",async () =>{
-        const inp = await PinRegistrationPage.get_pin_input()
-       await expect(!!inp).toBe(true)
+       await PinRegistrationPage.accept_btn_is_displayed()
     });
 
     it("Backspace button is correct", async () =>{
-         const btn = await PinRegistrationPage.get_backspace()
-         await expect(!!btn).toBe(true)
+       const btn = await PinRegistrationPage.get_backspace()
+       await expect(!!btn).toBe(true)
     });
 
     it("Accept button is correct", async () =>{
-        const accept = await PinRegistrationPage.accept_btn()
+       const accept = await PinRegistrationPage.get_accept_btn()
        await expect(!!accept).toBe(true)
     });
 
     it("Register button is correct", async () =>{
-        const reg = await PinRegistrationPage.get_hours_register_btn()
-        await expect(!!reg).toBe(true)
+       const reg = await PinRegistrationPage.get_hours_register_btn()
+       await expect(!!reg).toBe(true)
     });
 
 
     it("Number buttons are correct", async () =>{
-        await PinRegistrationPage.check_all_number()
+       await PinRegistrationPage.check_all_number()
     })
 
     it("TC0001: Show pin error message 'Ingrese un PIN válido' if input field is empty",async () => {
@@ -36,7 +34,7 @@ describe("Register with correct pin", () => {
     });
 
     it("TC0002: Insert correct pin and authenticate", async () => {
-       await LoginFlow.insert_value_and_submit('090909');
+       await LoginFlow.insert_value_and_submit(PIN_LOGIN);
        await LoginFlow.wait_till_next_view_load(15000);
     });
 

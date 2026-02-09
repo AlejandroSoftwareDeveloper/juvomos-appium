@@ -63,7 +63,8 @@ describe("Check tips cash recieved", () => {
         await vhb.click();
 
         // Wait till load time finish
-        await browser.pause(5000)
+        await $(totalSheetTime).waitForDisplayed({ timeout: 10000 });
+        // await browser.pause(5000)
 
         // Get current tips value
         current_cash = parseFloat(await $(totalSheetTime).getText())
@@ -99,7 +100,8 @@ describe("Check tips cash recieved", () => {
        await $(btn_check).click()
 
       // Wait till load time finish
-      await browser.pause(3000)
+        await $(snack_bar).waitForDisplayed({ timeout: 10000 });
+      // await browser.pause(3000)
 
        //Check snackbar message 
       const snack = await $(snack_bar)
@@ -115,7 +117,8 @@ describe("Check tips cash recieved", () => {
         await vhb.click();
 
         // Wait till load time finish
-        await browser.pause(10000)
+        await $(totalSheetTime).waitForDisplayed({ timeout: 10000 });
+        // await browser.pause(10000)
 
         // Get current tips value update
         let new_cash = parseFloat(await $(totalSheetTime).getText())

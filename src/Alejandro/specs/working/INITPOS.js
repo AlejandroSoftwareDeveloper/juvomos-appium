@@ -1,5 +1,5 @@
 import LoginFlow                                                           from '../../features/TestsFlows/LoginFlow.js'
-import { PIN_INPUT, CLOCK_IN_BUTTON, BACK_TO_PIN_BUTTON, REG_TIME_BUTTON } from '../../features/selectors/constants.js'
+import { PIN_LOGIN,PIN_INPUT, CLOCK_IN_BUTTON, BACK_TO_PIN_BUTTON, REG_TIME_BUTTON } from '../../features/selectors/constants.js'
 
 describe("Validate start work time process", () => {
 
@@ -7,12 +7,13 @@ describe("Validate start work time process", () => {
     it("TC0001: Enter employer seccion", async () => {
         // Set field value
         const input = await $(PIN_INPUT)
-        await input.setValue('090909') 
+        await input.setValue(PIN_LOGIN) 
         await $(REG_TIME_BUTTON).click();
         // await LoginFlow.insert_value_and_submit();
 
         // Wait till validation
-        await browser.pause(20000);
+      await $ (BACK_TO_PIN_BUTTON).waitForDisplayed({ timeout: 20000 });
+        // await browser.pause(20000);
 
         // Get back pin button
         const ELEMENT = await $(BACK_TO_PIN_BUTTON);
@@ -27,7 +28,8 @@ describe("Validate start work time process", () => {
       await $(CLOCK_IN_BUTTON).click()
        
       // Wait till pos load
-      await browser.pause(30000);
+      await $ ('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnPos"]').waitForDisplayed({ timeout: 30000 });
+      // await browser.pause(30000);
 
     });
 

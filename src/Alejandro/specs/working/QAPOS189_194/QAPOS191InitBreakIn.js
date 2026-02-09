@@ -1,5 +1,6 @@
 import LoginFlow from '../../../features/TestsFlows/LoginFlow.js'
 import {
+  PIN_LOGIN,
   PIN_INPUT,
   REG_TIME_BUTTON,
   BREAK_IN_BUTTON,
@@ -14,7 +15,7 @@ describe("Start BreakIn", () => {
 
        // Set field value
       const inp = await $(PIN_INPUT)
-      await inp.setValue('090909') 
+      await inp.setValue(PIN_LOGIN) 
       await $(REG_TIME_BUTTON).click();
 
       // Wait till page load
@@ -29,7 +30,8 @@ describe("Start BreakIn", () => {
        await $(BREAK_IN_BUTTON).click()
 
        // Wait till load
-       await browser.pause(3000)
+       await $(SNACKBAR_TEXT).waitForDisplayed({ timeout: 10000 });
+       // await browser.pause(3000)
 
        // load snackbar
        const sb = await $(SNACKBAR_TEXT)
@@ -43,7 +45,8 @@ describe("Start BreakIn", () => {
       await $(BACK_TO_PIN_BUTTON).click();
 
       // 1.2 Wait 5 seg till window load
-      await browser.pause(10000)
+      await $(ENTER_PIN_TEXT).waitForDisplayed({ timeout: 10000 });
+      // await browser.pause(10000)
 
       // 1.3 Validate pin window
       const pin_window = await $(ENTER_PIN_TEXT);

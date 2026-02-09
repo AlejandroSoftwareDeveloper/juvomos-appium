@@ -1,65 +1,93 @@
+import StrategiesHandler from '../../HelperClass/StrategiesHandler.js'
+import STRATEGIES             from '../../../features/selectors/PinRegistrationStrategies.js'
 const JUVO                = "id:com.juvomos.pos:id/"
+const PIN_INPUT           = JUVO + "txt_pin_user"
 const PAGE_TEXT           = JUVO + "enterPinText"
-const BTN_ZERO            = JUVO + "zero_btn_pin"
-const BTN_ONE             = JUVO + "one_btn_pin"
-const BTN_TWO             = JUVO + "two_btn_pin"
-const BTN_THREE           = JUVO + "three_btn_pin"
-const BTN_FOUR            = JUVO + "four_btn_pin"
-const BTN_FIVE            = JUVO + "five_btn_pin"
-const BTN_SIX             = JUVO + "six_btn_pin"
-const BTN_SEVEN           = JUVO + "seven_btn_pin"
-const BTN_EIGHT           = JUVO + "eight_btn_pin"
-const BTN_NINE            = JUVO + "nine_btn_pin"
+const BTN_LIST            = [ 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine' ]
+const BTN_TAIL            =  "_btn_pin"
 const HOURS_REGISTER_BTN  = JUVO + "buttonTimeClock"
 const ACCEPT_BTN          = JUVO + "checkBigImage"
 const BACKSPACE           = '(//android.widget.ImageView[@content-desc="Ingrese PIN"])[1]'
-const PIN_INPUT           = JUVO + "txt_pin_user"
 
-class PinRegistrationPage {
+class PinRegistrationPage extends StrategiesHandler {
 
-    async click_card(number){
-      await $(`(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${number}]/android.view.ViewGroup`).click()
+     constructor(strategies){
+         super(strategies);
+         this.strategies = strategies
+     }
+
+    async click_card(number = 7){
+        await $(`(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${number}]/android.view.ViewGroup`).click()
     }
 
-    async card_text(){
+    async card_text(number = 7){
         const text = await $(`(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${number}]/android.view.ViewGroup`)
         let data = await text.$('//android.widget.TextView[@resource-id="com.juvomos.pos:id/category_product_name"]').getText()
         return data
     }
 
+    async check_all_number(){
+        const methodNames = [
+            'zero', 'one', 'two', 'three',
+            'four', 'five', 'six', 'seven',
+            'eight', 'nine'
+        ];
+        const elements = await Promise.all(
+            methodNames.map(method => this["get_btn_" + method]())
+        );
+
+        const allExist = elements.every(el => !!el);
+        chai.expect(allExist).to.equal(true);
+    }
+
+
+
+
+
     async click_btn_zero() {
         await this.btn_zero.click()
     }
+
     async click_btn_one()  {
         await this.btn_one.click()
     }
+
     async click_btn_two()  {
         await this.btn_two.click()
     }
+
     async click_btn_three(){
         await this.btn_three.click()
-    }           
+    }
+
     async click_btn_four() {
         await this.btn_four.click()
-    }            
+    }
+
     async click_btn_five() {
         await this.btn_five.click()
-    }            
+    }
+
     async click_btn_six()  {
         await this.btn_six.click()
-    }             
+    }
+
     async click_btn_seven(){
         await this.btn_seven.click()
     }            
+
     async click_btn_eight(){
         await this.btn_eight.click()
-    }           
+    }
+
     async click_btn_nine() {
         await this.btn_nine.click()
-    }           
+    }
+
     async click_hours_register_btn(){
         await this.hours_register_btn.click()
     }
+
     async click_backspace(){
         await this.backspace.click()
     }
@@ -69,13 +97,13 @@ class PinRegistrationPage {
     }
 
     async get_pin_input(){
-      const pi = this.pin_input
-      return pi
+        const pi = this.pin_input
+        return pi
     }
 
     async get_backspace(){
-      const bs = this.backspace
-      return bs
+        const bs = this.backspace
+        return bs
     }
 
     async get_btn_zero(){
@@ -128,20 +156,10 @@ class PinRegistrationPage {
         const btn = this.accept_btn
         return btn
     }
-    async check_all_number(){
-        const methodNames = [
-            'zero', 'one', 'two', 'three',
-            'four', 'five', 'six', 'seven',
-            'eight', 'nine'
-        ];
-        const elements = await Promise.all(
-            methodNames.map(method => this["get_btn_" + method]())
-        );
-        
-        const allExist = elements.every(el => !!el);
-        chai.expect(allExist).to.equal(true);
-    }
 
+    async accept_btn_is_displayed(){
+        await this.accept_btn.waitForDisplayed({timeout:5000})
+    }
 
     get page_text(){return $(PAGE_TEXT)}
     get btn_zero(){return $(BTN_ZERO)}
@@ -161,8 +179,6 @@ class PinRegistrationPage {
 
 }
 
-export default new PinRegistrationPage()
-
-
+export default new PinRegistrationPage(STRATEGIES)
 
 
