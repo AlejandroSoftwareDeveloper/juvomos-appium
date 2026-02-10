@@ -23,7 +23,21 @@ class ProductSelectionPages {
         '/ancestor::androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"]'
           );
     }
-
+    get Food () {
+        return $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemDepartmentName" and @text="Food2.0"]/parent::*');
+    }
+     get Entree () {
+    return $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/selectedCategoryItem" and @text="Entree"]/parent::*');
+    }
+    get ChickenBowl () {
+     return $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/category_product_name" and @text="Chicken Bowl"]/parent::*');
+    }
+    get BeefBowl () {
+    return $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/category_product_name" and @text="Beef Bowl"]/parent::*');
+    }
+     get ChickenPasta () {
+     return $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/category_product_name" and @text="Chicken Pasta"]/..');
+    }
     get mild() {
         return $('//android.widget.TextView[@text="Mild"]/ancestor::android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/layoutCardModifierItem"]');
     }
@@ -64,38 +78,40 @@ class ProductSelectionPages {
         await this.generalGrill.click();
     }
 
-    async selectSixProducts() {
-        await this.waitForPage();
-        
-        //Agregar Apache
-        await this.apache.waitForDisplayed();
-        await this.apache.click();
-        //Agregar BurgerTender
-        await this.burgerTender.waitForDisplayed();
-        await this.burgerTender.click();
-        //Agregar GeneralGrill
-        await this.generalGrill.waitForDisplayed();
-        await this.generalGrill.click();
-        //Agregar RibsAndChicken
-        await this.ribsAndChicken.waitForDisplayed({ timeout: 20000 });
-        await this.ribsAndChicken.click();
-        await this.mild.waitForDisplayed({ timeout: 10000 });
-        await this.mild.click();
-        await this.listoButton.waitForEnabled({ timeout: 10000 });
-        await this.listoButton.click();
-        //Agregar Productos en Beverages 
-        await this.beveragesDepartment.waitForDisplayed({ timeout: 15000 });
-        await this.beveragesDepartment.click();
-             //Fanta Orange 
-            await this.fantaOrange.waitForDisplayed({ timeout: 15000 });
-            await this.fantaOrange.click();
-
-            //Coke 
-            await this.coke.waitForDisplayed({ timeout: 15000 });
-            await this.coke.click();
-
-
+    async MostrarProductos() {
+        const showItemBtn = await $('id=com.juvomos.pos:id/btnShowItem');
+        await showItemBtn.waitForDisplayed({ timeout: 10000 });
+        await showItemBtn.click();
     }
+
+   async selectNewProducts(cant) {
+    await this.waitForPage();
+
+    const productsFlow = [
+        async () => {
+            await this.Food.waitForDisplayed({ timeout: 20000 });
+            await this.Food.click();
+            await this.Entree.waitForDisplayed({ timeout: 20000 });
+            await this.Entree.click();
+           },        
+        async () => {
+            await this.BeefBowl.waitForDisplayed({ timeout: 20000 });
+            await this.BeefBowl.click();
+        },
+        async () => {
+            await this.ChickenPasta.waitForDisplayed({ timeout: 20000 });
+            await this.ChickenPasta.click();
+        }
+    ];
+
+    if (cant > productsFlow.length) {
+        throw new Error(`Cantidad solicitada (${cant}) mayor a productos disponibles (${productsFlow.length})`);
+    }
+
+    for (let i = 0; i < cant; i++) {
+        await productsFlow[i]();
+    }
+}
 
     //seleccionar la cantidad de productos
     async selectProducts(cant) {
@@ -118,8 +134,23 @@ class ProductSelectionPages {
             await this.beveragesDepartment.click();
         },
         async () => { await this.coke.waitForDisplayed(); await this.coke.click(); },
-        async () => { await this.fantaOrange.waitForDisplayed(); await this.fantaOrange.click(); }
-        
+        async () => { await this.fantaOrange.waitForDisplayed(); await this.fantaOrange.click(); },
+        async () => {
+            await this.Food.waitForDisplayed({ timeout: 20000 });
+            await this.Food.click();
+            await this.Entree.waitForDisplayed({ timeout: 20000 });
+            await this.Entree.click();
+           },        
+        async () => {
+            await this.ChickenBowl.waitForDisplayed({ timeout: 20000 });
+            await this.ChickenBowl.click();
+        },
+        async () => {
+            await this.BeefBowl.waitForDisplayed({ timeout: 20000 });
+            await this.BeefBowl.click();
+        }
+
+
     ];
 
     if (cant > productsFlow.length) {
