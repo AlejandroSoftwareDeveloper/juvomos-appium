@@ -19,8 +19,10 @@ exports.config = {
         // './src/Alejandro/specs/working/QAPOS181_188/*', // Revisar estas hoy, hay una que da problema
         // './src/Alejandro/specs/working/QAPOS195_200/*',
         // './src/Alejandro/specs/working/QAPOS200_210/*',
-        //  './src/Ana/specs/*.js',   // Ana
-        './src/cardtest.js',
+         // './src/Ana/specs/*.js',   // Ana
+         './src/Global.js',   // Ana
+         './src/Global2.js',   // Ana
+        // './src/cardtest.js',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],
@@ -92,6 +94,7 @@ exports.config = {
     },
     before: function(){
       global.chai = chai
-      global.env = this
+      global.env  = this
+      global.card = []
     }
 }
