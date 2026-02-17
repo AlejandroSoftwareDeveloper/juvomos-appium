@@ -5,24 +5,27 @@ const configspecs = {
      allure_report: false,
 };
 
+const _url = {
+    "alejandro": './src/Alejandro/specs/working/',
+    "ana": './src/Ana/specs/working/',
+}
+
 exports.config = {
     port: 4723,
     specs: [
-         // './src/Alejandro/specs/working/QAPOS189_194/QAPOS190PinRegistration.js',
-        // './src/Alejandro/specs/working/QAPOS189_194/*', // Auth (7)
+        // _url.alejandro + 'QAPOS189_194/QAPOS190PinRegistration.js',
+        // _url.alejandro + 'QAPOS189_194/*', // Auth (7)
+        // _url.alejandro + 'QAPOS01_10/*',   //      (1)
+        // _url.alejandro + 'QAPOS121_130/*', //      (1)
+        // _url.alejandro + 'QAPOS131_140/*', //      (0)
+        // _url.alejandro + 'QAPOS141_150/*', //      (0)
+        // _url.alejandro + 'QAPOS171_180/*',
+        // _url.alejandro + 'QAPOS181_188/*', // Revisar estas hoy, hay una que da problema
+        // _url.alejandro + 'QAPOS195_200/*',
+        // _url.alejandro + 'QAPOS200_210/*',
         // './src/Alejandro/specs/working/INITPOS.js',
-        // // './src/Alejandro/specs/working/QAPOS01_10/*', //      (1)
-        // './src/Alejandro/specs/working/QAPOS121_130/*', //      (1)
-        // './src/Alejandro/specs/working/QAPOS131_140/*', //      (0)
-        // './src/Alejandro/specs/working/QAPOS141_150/*', //      (0)
-        // './src/Alejandro/specs/working/QAPOS171_180/*',
-        // './src/Alejandro/specs/working/QAPOS181_188/*', // Revisar estas hoy, hay una que da problema
-        // './src/Alejandro/specs/working/QAPOS195_200/*',
-        // './src/Alejandro/specs/working/QAPOS200_210/*',
-         // './src/Ana/specs/*.js',   // Ana
-         './src/Global.js',   // Ana
-         './src/Global2.js',   // Ana
-        // './src/cardtest.js',
+         _url.alejandro + 'INITPOS.js',
+        './src/Ana/specs/*.js',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],
@@ -95,6 +98,5 @@ exports.config = {
     before: function(){
       global.chai = chai
       global.env  = this
-      global.card = []
     }
 }

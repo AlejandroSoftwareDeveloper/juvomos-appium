@@ -1,3 +1,4 @@
+//QAPOS82CheckToGo-DineIn.js
 const OrderSelectionPages = require('../pages/OrderSelectionPages');
 const ProductSelectionPages = require('../pages/ProductSelectionPages');
 const DineInProducts = require('../pages/DineInProducts');
@@ -12,7 +13,7 @@ describe('Flujo Check Dine In (sin login)', () => {
   it('TC0001: Seleccionar Dine In', async () => {
       
     await OrderSelectionDineIn.selectDineInPresent();
-    await SelectMesaDineIn.selectmesaDisponible();
+    await SelectMesaDineIn.selectMesaDisponible();
     await SelectMesaDineIn.seleccionarNumeroClientesValido(); 
  
  })
@@ -22,7 +23,7 @@ describe('Flujo Check Dine In (sin login)', () => {
 
      // Productos
     await ProductSelectionPages.waitForPage();
-    await ProductSelectionPages.selectSixProducts();
+    await ProductSelectionPages.selectProducts(7);
     await ProductSelectionPages.goToAccount();
 
     await MarcarProductToGo.seleccionarProductoDisponible(3);   

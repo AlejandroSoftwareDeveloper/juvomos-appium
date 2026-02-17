@@ -1,4 +1,4 @@
-
+//QAPOS53CheckconTaxExempt.js
 const OrderSelectionPages = require('../pages/OrderSelectionPages');
 const ProductSelectionPages = require('../pages/ProductSelectionPages');
 const PaymentPages = require('../pages/PaymentPages');
@@ -30,32 +30,23 @@ describe('Flujo Check Tax Exempt ', () => {
       }
       });
 
-      // Pagar en Efectivo
+      // Pagar en Efectivo y enviar por correo
      it('TC0003: Pagar en Efectivo.', async () => {
       try {
-            // Pago
-            await PaymentPages.goToPayment();
-
-            await PaymentPages.waitForPayScreen();
-            await PaymentPages.selectCashPay();
+            const correos = ['1'];
+                            
+                  for (let i = 0; i < correos.length; i++) {    
+                  
+                   await PaymentPages.pagarEnEfectivoYEnviarCorreo(correos[i]);
+                  }   
 
       } catch (error) {
       throw new Error(`TC0003 (Pagar en Efectivo) falló: ${error.message}`);
       }
-      })
+      });
 
-      //Envio de Correo para completar el pago
-      it('TC0004: Envio de Correo', async () => {
-      try {
-            await PaymentPages.selectSendEmail();
-            await PaymentPages.enterEmail('correo.com');
-            await PaymentPages.clickSendEmail();
-
-      } catch (error) {
-      throw new Error(`TC0004 (Envio de Correo) falló: ${error.message}`);
-      }
       
-      })
+
 
 
 });

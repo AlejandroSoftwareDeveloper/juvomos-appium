@@ -1,4 +1,4 @@
-import LocalStorage from './Alejandro/features/HelperClass/LocalStorage.js'
+import LocalStorage from '../HelperClass/LocalStorage.js'
 
 describe('Carga de datos guardados', () => {
 

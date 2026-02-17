@@ -1,10 +1,43 @@
 class SelectMesaDineIn {
 
-  async selectmesaDisponible() {
-    const mesaDisponible = $('(//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/tableItemGeneralLayout"])[1]');
-    await mesaDisponible.waitForDisplayed({ timeout: 15000 });
-    await mesaDisponible.click();
-  }
+  async selectMesaDisponible() {
+    const grid = await $('id=com.juvomos.pos:id/rvTables');
+    await grid.waitForDisplayed({ timeout: 10000 }); // esperar hasta 10s
+
+    const tables = await grid.$$('id=com.juvomos.pos:id/tableItemGeneralLayout');
+    console.log('Mesas totales en GridView:', tables.length);
+
+    const freeTables = [];
+
+    for (const [i, table] of tables.entries()) {
+        const label = await table.$('id=com.juvomos.pos:id/tableEmployeeName');
+        let text = '';
+        if (await label.isExisting()) {
+            text = await label.getText();
+        }
+
+        console.log(`Mesa ${i}: label="${text}"`);
+        // Considerar "N/A" como mesa libre
+        if (text.trim() === 'N/A') {
+            freeTables.push(table);
+        }
+    }
+
+    if (freeTables.length === 0) {
+        throw new Error('No hay mesas disponibles');
+    }
+
+    // Seleccionar una mesa libre aleatoriamente
+    const selectedTable = freeTables[Math.floor(Math.random() * freeTables.length)];
+
+    const tableNumberEl = await selectedTable.$('id=com.juvomos.pos:id/tableNumberValue');
+    const tableNumberText = await tableNumberEl.getText();
+
+    console.log('Mesa seleccionada:', tableNumberText);
+    await selectedTable.click();
+
+    return tableNumberText;
+}
 
   async seleccionarNumeroClientesValido() {
   const guestsText = $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/guestsText"]');

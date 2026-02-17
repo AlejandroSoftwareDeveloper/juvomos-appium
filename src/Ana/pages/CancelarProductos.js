@@ -38,6 +38,9 @@ class CancelarProductos {
             await closeBtn.click();
         }
     }
+   
+  
+    
 
     get btnRecall() {
         return $$('id=com.juvomos.pos:id/btnRecall');

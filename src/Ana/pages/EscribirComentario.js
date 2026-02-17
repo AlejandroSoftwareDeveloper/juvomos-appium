@@ -1,4 +1,6 @@
 const ProductSelectionPages = require('./ProductSelectionPages');
+//const scrollTicketList = require('../utils/scrollTicketList');
+const scrollTicketListDown = require('../utils/scrollTicketList');
 
 class EscribirComentario {
 
@@ -31,22 +33,15 @@ class EscribirComentario {
         const item = await $(xpath);
 
         if (!(await item.isDisplayed())) {
-            await this.scrollTicketListDown();
+            await scrollTicketList.scrollListDown();
         }
 
         await item.waitForDisplayed({ timeout: 10000 });
         await item.click();
     }
-    async scrollTicketListDown() {
-        await driver.execute('mobile: scrollGesture', {
-        left: 60,
-        top: 650,
-        width: 600,
-        height: 400,
-        direction: 'down',
-        percent: 0.8
-    }); 
-    }
+
+   
+
     async WriteComment() {
         const kitchenCommentBtn = await $('id=com.juvomos.pos:id/btnKitchenComment');
         await kitchenCommentBtn.waitForDisplayed({ timeout: 5000 });
@@ -73,7 +68,6 @@ class EscribirComentario {
             await closeBtn.click();
         }
     }
-    
-}
+ }
 
 module.exports = new EscribirComentario();

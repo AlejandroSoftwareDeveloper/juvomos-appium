@@ -7,6 +7,15 @@ class DividirCheck {
     get splitScreen() { return $('id=com.juvomos.pos:id/layout_split_fragment'); }
     get cuentas() { return $$('id=com.juvomos.pos:id/cardSplit'); }
     get products() { return $$('id=com.juvomos.pos:id/layoutItemCheckDetails'); }
+   
+    async BTerminado() {
+       await this.btnConfirmar.waitForDisplayed({ timeout: 5000 });
+        await this.btnConfirmar.click();
+    }
+    async BotonCheck(){
+        await this.check.waitForDisplayed({ timeout: 10000 });
+        await this.check.click();
+        }
 
     async dividirCheck(totalCuentas) {
         await this.check.waitForDisplayed({ timeout: 10000 });
@@ -62,10 +71,7 @@ class DividirCheck {
 
     movimientos++;
 }
-
-
-        await this.btnConfirmar.waitForDisplayed({ timeout: 5000 });
-        await this.btnConfirmar.click();
+       this.BTerminado();
     }
 }
 

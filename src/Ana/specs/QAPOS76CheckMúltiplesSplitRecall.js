@@ -4,9 +4,9 @@ const OrderSelectionPages = require('../pages/OrderSelectionPages');
 const ProductSelectionPages = require('../pages/ProductSelectionPages');
 const DividirCheck = require('../pages/DividirCheck');
 const ValidarProductosCheck = require('../pages/ValidarProductosCheck');
-const CancelarProductos = require('../pages/CancelarProductos');
 const OpenCheck = require('../pages/OpenCheck');
 const PaymentPages = require('../pages/PaymentPages');
+const BreakTest = require('../utils/BreakTest');
 
 describe('Crear nuevo check split de orden enviada', () => {
 
@@ -40,15 +40,8 @@ describe('Crear nuevo check split de orden enviada', () => {
            //Recall
             it('TC0003: Recall', async () => {
             try {
-                // Acceder al Recall
-                await OpenCheck.open();
-                await OpenCheck.selectLastCreatedAccount();
-                // Abrir Recall
-                await CancelarProductos.openRecall();
-                 // Modificar productos
-                await ProductSelectionPages.MostrarProductos();
-                await ProductSelectionPages.selectNewProducts(2);
-                await ProductSelectionPages.goToAcc();
+               
+                await OpenCheck.recallUltimaCuenta();
 
             } catch (error) {
                 throw new Error(`TC0003 (Recall) falló: ${error.message}`);
@@ -57,31 +50,26 @@ describe('Crear nuevo check split de orden enviada', () => {
 
            // Pagar en Efectivo
             it('TC0004: Pagar en Efectivo Enviar Correo por cada cuenta.', async () => {
-            try {
-                   
-                    const correos = ['correo.com', 'gmail.com', 'google.com'];
-                    for (let i = 0; i < correos.length; i++) { 
-                        await pagarEnEfectivoYEnviarCorreo(correos[i]); 
-                        // Solo llamar goToAcc si no es el último correo 
-                        if (i < correos.length - 1) { 
-                            await ProductSelectionPages.goToAcc(); } }
-
+            try {                   
+                    const correos = ['1', '2', '3'];                                    
+                      for (let i = 0; i < correos.length; i++) {    
+                        
+                          await PaymentPages.pagarEnEfectivoYEnviarCorreo(correos[i]);
+                      }   
     
             } catch (error) {
             throw new Error(`TC0004 (Pagar y Correo) falló: ${error.message}`);
             }
             });
+             //Retornar a la pantalla de inicio
+            it('TC0006: Retorno Inicio', async () => {
+            try {                
+                  await BreakTest.closeTOrden();   
+                  await BreakTest.botonCancel();       
+                
+            } catch (error) {
+                throw new Error(`TC0006 (Retorno Inicio) falló: ${error.message}`);
+            }
+            });
                         
-          async function pagarEnEfectivoYEnviarCorreo(email) {
-            // Pago en efectivo
-            await PaymentPages.goToPayment();
-            await PaymentPages.waitForPayScreen();
-            await PaymentPages.selectCashPay();
-
-            // Envío de correo
-            await PaymentPages.selectSendEmail();
-            await PaymentPages.enterEmail(email);
-            await PaymentPages.clickSendEmail();
-}
-
- });
+        });

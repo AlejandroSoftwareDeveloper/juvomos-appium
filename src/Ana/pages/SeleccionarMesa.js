@@ -19,56 +19,58 @@ class SeleccionarMesa {
             }
     }*/
 
-    async MesaSelect(numero) {
+   async MesaSelect(mesa, guest) {
 
-            await this.SelectorMesa.waitForDisplayed();
-            await this.SelectorMesa.click();
+    await this.SelectorMesa.waitForDisplayed();
+    await this.SelectorMesa.click();
 
-             const btnClear = $('id=com.juvomos.pos:id/clear_back_arrow');
+    const btnClear = $('id=com.juvomos.pos:id/clear_back_arrow');
+    if (await btnClear.isDisplayed()) {
+        await btnClear.click();
+    }
 
-            if (await btnClear.isDisplayed()) {
-                await btnClear.click();
-            }
+    const mesaMap = {
+        0: 'zero',
+        1: 'one',
+        2: 'two',
+        3: 'three',
+        4: 'four',
+        5: 'five',
+        6: 'six',
+        7: 'seven',
+        8: 'eight',
+        9: 'nine'
+    };
 
-            const mesaMap = {
-                1: 'one',
-                2: 'two',
-                3: 'three',
-                4: 'four',
-                5: 'five',
-                6: 'six',
-                7: 'seven',
-                8: 'eight',
-                9: 'nine',
-                0: 'zero'
-            };
+    const mesaKey = mesaMap[mesa];
+    if (!mesaKey) {
+        throw new Error(`Mesa no soportada: ${mesa}`);
+    }
 
-            const key = mesaMap[numero];
-            if (!key) {
-                throw new Error(`Mesa no soportada: ${numero}`);
-            }
+    const guestKey = mesaMap[guest];
+    if (!guestKey) {
+        throw new Error(`Guest no soportado: ${guest}`);
+    }
 
+    // Mesa
+    const mesaBtn = $(`id=com.juvomos.pos:id/${mesaKey}_btn_pin`);
+    await mesaBtn.waitForDisplayed({ timeout: 10000 });
+    await mesaBtn.click();
 
+    const btnAcceptMesa = $('id=com.juvomos.pos:id/checkBigImage');
+    await btnAcceptMesa.waitForDisplayed({ timeout: 10000 });
+    await btnAcceptMesa.click();
 
-            const mesa = $(`id=com.juvomos.pos:id/${key}_btn_pin`);
-            await mesa.waitForDisplayed({ timeout: 10000 });
-            await mesa.click();
+    // Guests
+    const guestBtn = $(`id=com.juvomos.pos:id/${guestKey}_btn_pin`);
+    await guestBtn.waitForDisplayed({ timeout: 10000 });
+    await guestBtn.click();
 
-            // Aceptar
-            const btnAccept = $('id=com.juvomos.pos:id/checkBigImage');
-            await btnAccept.waitForDisplayed({ timeout: 10000 });
-            await btnAccept.click();
-
-        // Selecciona la cant. personas
-        const pers = $('id=com.juvomos.pos:id/four_btn_pin');
-        await pers.waitForDisplayed({ timeout: 10000 });
-        await pers.click();
-
-        // Aceptar
-        const btnOK = $('id=com.juvomos.pos:id/checkBigImage');
-        await btnOK.waitForDisplayed({ timeout: 10000 });
-        await btnOK.click();
-}           
+    const btnAcceptGuest = $('id=com.juvomos.pos:id/checkBigImage');
+    await btnAcceptGuest.waitForDisplayed({ timeout: 10000 });
+    await btnAcceptGuest.click();
+}
+  
         
 
 }

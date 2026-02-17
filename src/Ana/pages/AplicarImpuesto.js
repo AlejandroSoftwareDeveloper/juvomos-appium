@@ -1,5 +1,7 @@
 
 const ProductSelectionPages = require('./ProductSelectionPages');
+//const scrollTicketList = require('../utils/scrollTicketList');
+const scrollTicketList = require('../utils/scrollTicketList');
 
 class AplicarImpuesto {
 
@@ -7,11 +9,13 @@ class AplicarImpuesto {
        const selectors = [
         '//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemInvoiceName" and contains(@text,"Apache")]/parent::*',     
         '//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemInvoiceName" and contains(@text,"Burger Tender")]/parent::*',
-        '//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemInvoiceName" and contains(@text,"General Grill")]/parent::*'         
+        '//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemInvoiceName" and contains(@text,"General Grill")]/parent::*',   
+        '//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemInvoiceName" and contains(@text,"Ribs & Chicken")]/parent::*',
+        '//android.widget.TextView[@resource-id="com.juvomos.pos:id/itemInvoiceName" and contains(@text,"Coke")]/parent::*'               
         ];
 
         //Scroll
-         await this.scrollTicketListToTop();
+         await scrollTicketList.scrollListToTop();
 
         for (let i = 0; i < cantidad; i++) {
            await this.seleccionarItem(selectors[i]);
@@ -22,21 +26,27 @@ class AplicarImpuesto {
             await ProductSelectionPages.goToAcc();
         }
     }
-    async scrollTicketListToTop() {
-        const list = await $('id=com.juvomos.pos:id/idTicketListRecycler');
-        await list.waitForDisplayed({ timeout: 5000 });
-
-        await driver.execute('mobile: scrollGesture', {
-            elementId: list.elementId,
-            direction: 'up',
-            percent: 1.0
-        });
-    }
+ 
     async seleccionarItem(xpath) {
-        const item = $(xpath);
+         const item = await $(xpath);
+
+        if (!(await item.isDisplayed())) {
+            await scrollTicketList.scrollListDown();
+        }
+
         await item.waitForDisplayed({ timeout: 10000 });
         await item.click();
     }
+    /*async scrollTicketListDown() {
+        await driver.execute('mobile: scrollGesture', {
+        left: 60,
+        top: 650,
+        width: 600,
+        height: 400,
+        direction: 'down',
+        percent: 0.8
+    }); 
+    }*/
     async TaxExemptld() {
         const btnTaxExempt = $('id=com.juvomos.pos:id/btnTaxExempt');
         await btnTaxExempt.waitForDisplayed({ timeout: 5000 });

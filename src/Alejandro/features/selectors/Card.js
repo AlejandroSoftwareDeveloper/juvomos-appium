@@ -10,7 +10,6 @@ class Card {
        this.total       = 0
     }
        
-
     async update_data(){
        const element    = await $(this.id)
        this.description = await element.$(this.category).getText()

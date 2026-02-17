@@ -1,0 +1,250 @@
+═══════════════════════════════════════════════════════════════════
+           GUÍA COMPLETA DE MODELOS OLLAMA 2025
+═══════════════════════════════════════════════════════════════════
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧠 MODELOS DE PROPÓSITO GENERAL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Llama 3 / 3.1 / 3.3 (Meta)
+───────────────────────────
+Variantes: 1B, 3B, 8B, 70B, 405B
+Uso: Tareas generales, chatbots, análisis de documentos largos (hasta 128K tokens de contexto), asistentes virtuales
+Destacado: Excelente equilibrio entre calidad y eficiencia. El 70B rivaliza con GPT-4 en muchas tareas
+
+Mistral 7B
+──────────
+Uso: Tareas diarias rápidas, resumen de textos, redacción de correos, integración en herramientas empresariales
+Ventaja: Muy rápido y preciso, ideal para hardware modesto
+
+Qwen 2.5 (Alibaba)
+──────────────────
+Variantes: 0.5B a 72B
+Uso: Aplicaciones multilingües (soporta 29+ idiomas), razonamiento matemático, tareas de agentes autónomos
+Especialidad: Rendimiento excepcional en español y otros idiomas no ingleses
+
+DeepSeek-V2/V3
+──────────────
+Variantes: V2, V2.5 disponibles en Ollama
+Uso: Procesamiento de lenguaje a gran escala, arquitectura Mixture-of-Experts (MoE) eficiente
+Contexto: Hasta 128K tokens
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💻 MODELOS ESPECIALIZADOS EN CÓDIGO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DeepSeek-R1 Series
+──────────────────
+Variantes: 1.5B, 8B, 14B, 32B, 70B
+Uso: Razonamiento avanzado, resolución de problemas algorítmicos complejos, diseño de sistemas, debugging
+Destacado: Rendimiento cercano a GPT-4 en razonamiento lógico
+
+CodeLlama (Meta)
+────────────────
+Variantes: 7B, 13B, 34B
+Uso: Generación y comprensión de código en 20+ lenguajes de programación, debugging complejo, autocompletado
+Especialidad: Optimizado específicamente para tareas de desarrollo
+
+Qwen2.5-Coder
+─────────────
+Variantes: 1.5B, 7B, 14B, 32B
+Uso: Manejo de grandes bases de código, contextos largos, tareas de agentes de programación
+Ventaja: Excelente para proyectos con extensas bases de código
+
+DeepSeek-Coder V2
+─────────────────
+Uso: Comprensión avanzada de código, soporta 87 lenguajes, entrenado en 2 billones de tokens
+Especialidad: Cambios de código entre archivos (cross-file)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🖼️ MODELOS MULTIMODALES (VISIÓN + TEXTO)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Llama 3.2 Vision
+────────────────
+Variantes: 11B, 90B
+Uso: Análisis de imágenes, descripción visual, conversión de diagramas a código, interfaces visuales
+Tamaño: 7.9GB (11B) y 55GB (90B)
+
+LLaVA 1.6 (Large Language and Vision Assistant)
+───────────────────────────────────────────────
+Variantes: 7B, 13B, 34B
+Uso: Preguntas y respuestas visuales, análisis de arquitecturas de red, descripción de imágenes técnicas
+API: Soporta imágenes en base64 para análisis
+
+Qwen2-VL / Qwen3-VL
+───────────────────
+Uso: Comprensión avanzada de visión-lenguaje, desarrollo UI/UX, conversión de diseños a código, debugging visual
+Destacado: El modelo de visión más potente de la familia Qwen
+
+Moondream 2
+───────────
+Parámetros: 1.4B
+Tamaño: Solo 829MB
+Uso: Análisis visual ligero, ideal para dispositivos con recursos limitados
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚡ MODELOS LIGEROS Y EDGE COMPUTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Phi-4 (Microsoft)
+─────────────────
+Variantes: 14B
+Uso: Despliegue en edge, dispositivos móviles, Raspberry Pi, aplicaciones offline
+Rendimiento: Rivaliza con modelos mucho más grandes en benchmarks académicos
+
+Phi-3 Mini/Medium
+─────────────────
+Variantes: 3.8B (Mini), 14B (Medium)
+Uso: Ejecución en teléfonos móviles, asesoramiento agrícola en campo sin internet, IoT
+Ventaja: Funciona en hardware mínimo, ideal para áreas remotas
+
+TinyLlama
+─────────
+Parámetros: 1.1B
+Tamaño: Extremadamente ligero
+Uso: Prototipado rápido, dispositivos IoT, respuestas instantáneas, laptops antiguas
+Carga: Se carga en segundos
+
+Gemma 2 (Google)
+────────────────
+Variantes: 2B, 9B, 27B
+Uso: Tareas conversacionales, dispositivos pequeños (2B), balance rendimiento/tamaño (9B), alto rendimiento (27B)
+Optimización: Flash Attention activado por defecto en Ollama
+
+Llama 3.2 (1B/3B)
+─────────────────
+Uso: Tareas ligeras en dispositivos móviles, respuestas rápidas, bajo consumo de memoria
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🌍 MODELOS MULTILINGÜES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Aya
+───
+Uso: Soporta 100+ idiomas, incluyendo lenguas menos comunes
+Especialidad: Traducción natural sin frases forzadas, guías comunitarias multilingües
+
+Command-R
+─────────
+Uso: Documentos largos multilingües, manejo de contexto extenso en múltiples idiomas
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎭 MODELOS ESPECIALIZADOS EN CONVERSACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Vicuna
+──────
+Variantes: 7B, 13B
+Uso: Chatbots conversacionales naturales, asistentes personalizados, interacciones largas
+Característica: Respuestas fluidas, no robóticas
+
+Neural Chat 7B
+──────────────
+Uso: Explicación de conceptos complejos en términos simples, guías de usuario, comunicación con no expertos
+
+Starling 7B
+───────────
+Uso: Seguimiento preciso de instrucciones, flujos de trabajo paso a paso, listas de verificación de proyectos
+
+Orca Mini
+─────────
+Variantes: 3B, 7B, 13B
+Uso: Eficiencia en hardware antiguo, generación de lecciones educativas, consultas básicas
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔓 MODELOS SIN CENSURA (UNCENSORED)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dolphin
+───────
+Variantes: 7B, 70B
+Uso: Trabajo creativo abierto, escritura de ficción, brainstorming sin restricciones
+Nota: Requiere verificación de salidas
+
+Llama 2 Uncensored
+──────────────────
+Uso: Investigación, tareas creativas sin filtros de seguridad
+
+WizardLM
+────────
+Uso: Exploración de ideas abiertas, creatividad sin restricciones
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔧 OTROS MODELOS NOTABLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Solar 10.7B
+───────────
+Uso: Rendimiento equilibrado en múltiples tareas, alternativa a Mistral
+
+GPT-OSS (OpenAI)
+────────────────
+Uso: Razonamiento potente, tareas de agentes, casos de uso versátiles para desarrolladores
+Nota: Modelos de peso abierto de OpenAI
+
+GLM-4.6
+───────
+Uso: Capacidades agenticas avanzadas, generación de código, refactoring, tareas de desarrollo autónomo
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 GUÍA DE SELECCIÓN POR HARDWARE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+8GB RAM / CPU básico:
+• TinyLlama
+• Phi-3 Mini
+• Gemma 2B
+• Orca Mini 3B
+
+16GB RAM / GPU entry-level:
+• Mistral 7B
+• Llama 3.1 8B
+• Qwen2.5 7B
+• Gemma 9B
+
+32GB RAM / GPU mid-range:
+• Llama 3.1 70B (cuantizado)
+• Qwen2.5 14B
+• DeepSeek-R1 14B
+
+64GB+ RAM / GPU high-end:
+• Llama 3.3 70B
+• DeepSeek-R1 32B/70B
+• Qwen2.5 72B
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 COMANDOS BÁSICOS DE OLLAMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Descargar un modelo:
+    ollama pull llama3.3:70b
+
+Ejecutar modelo interactivo:
+    ollama run deepseek-r1:8b
+
+Listar modelos instalados:
+    ollama list
+
+Eliminar modelo:
+    ollama rm mistral:latest
+
+Ver información del modelo:
+    ollama show qwen2.5:32b
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ VERIFICACIÓN DE INSTALACIÓN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Verificar versión:
+    ollama --version
+
+Verificar que el servidor está corriendo:
+    curl http://localhost:11434/api/tags
+
+Ver ruta de instalación:
+    which ollama
+
+═══════════════════════════════════════════════════════════════════
+Biblioteca completa: https://ollama.com/library
+═══════════════════════════════════════════════════════════════════

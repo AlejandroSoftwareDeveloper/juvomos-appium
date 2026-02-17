@@ -1,3 +1,4 @@
+const CancelarProductos = require('./CancelarProductos');
 class OpenCheck {
   get openCheckButton() {
     return $('id=com.juvomos.pos:id/btnOpenCheck');
@@ -18,7 +19,11 @@ class OpenCheck {
   get accountsRecycler() {
     return $('id=com.juvomos.pos:id/check_detail_recycler');
   }
-
+  async  recallUltimaCuenta() {
+    await this.open();
+    await this.selectLastCreatedAccount();
+    await CancelarProductos.openRecall();
+}
   async getAccountNumber() {
     await this.accountNumberButton.waitForDisplayed({ timeout: 15000 });
     const text = await this.accountNumberButton.getText();

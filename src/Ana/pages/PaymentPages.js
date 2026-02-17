@@ -76,18 +76,14 @@ class PaymentPages {
     return $('id=com.juvomos.pos:id/btn_send_email_principal_dialog_crd');
   }
 
-  /*async isPaymentScreenVisible() {
-    return await this.paymentMethodsRecycler.isDisplayed();
-  }
-
-  async isEmailDialogVisible() {
-    return await this.emailInput.isDisplayed();
-  }
-
-  async isEmailSent() {
-    return await this.paymentMethodsRecycler.isDisplayed();
-  }*/
-
+    async pagarEnEfectivoYEnviarCorreo(email) {
+    await this.goToPayment();
+    await this.waitForPayScreen();
+    await this.selectCashPay();
+    await this.selectSendEmail();
+    await this.enterEmail(email);
+    await this.clickSendEmail();
+}
 
 
 

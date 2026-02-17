@@ -4,6 +4,7 @@ const ProductSelectionPages = require('../pages/ProductSelectionPages');
 const SeleccionarMesa = require('../pages/SeleccionarMesa');
 const CancelarProductos = require('../pages/CancelarProductos');
 const ValidarProductosCheck = require('../pages/ValidarProductosCheck');
+const BreakTest = require('../utils/BreakTest');
 
 const PaymentPages = require('../pages/PaymentPages');
 const OpenCheck = require('../pages/OpenCheck');
@@ -27,7 +28,7 @@ describe('Flujo Check Recall y Asignación de Nueva Mesa ', () => {
         //Seleccionar la mesa #9
       it('TC0002: Mesa', async () => {
       try {
-            await SeleccionarMesa.MesaSelect(9);       
+            await SeleccionarMesa.MesaSelect(9,6);       
              await ValidarProductosCheck.sendOrder(); 
 
       } catch (error) {
@@ -51,7 +52,7 @@ describe('Flujo Check Recall y Asignación de Nueva Mesa ', () => {
       // Cambiar Mesa Asignada
       it('TC0004: Cambiar Mesa Asignada al #5', async () => {
       try {
-           await SeleccionarMesa.MesaSelect(5);   
+           await SeleccionarMesa.MesaSelect(5,6);   
 
       } catch (error) {
       throw new Error(`TC0004 (Pagar en Efectivo) falló: ${error.message}`);
@@ -83,6 +84,17 @@ describe('Flujo Check Recall y Asignación de Nueva Mesa ', () => {
       }
       
       })
+
+      //Retornar a la pantalla de inicio
+      it('TC0006: Retorno Inicio', async () => {
+      try {                
+                  await BreakTest.closeTOrden();   
+                  await BreakTest.botonCancel();            
+            
+      } catch (error) {
+            throw new Error(`TC0006 (Retorno Inicio) falló: ${error.message}`);
+      }
+      });
 
 
 });

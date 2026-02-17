@@ -1,4 +1,4 @@
-
+//QAPOS80CheckTabComentariosCuenta.js
 const OrderSelectionPages = require('../pages/OrderSelectionPages');
 const ProductSelectionPages = require('../pages/ProductSelectionPages');
 const PaymentPages = require('../pages/PaymentPages');
@@ -24,7 +24,7 @@ describe('Flujo Check con Comentario ', () => {
       it('TC0002: Comentario', async () => {
       try {
             await EscribirComentario.Coment(1);
-            await ProductSelectionPages.goToAcc();
+           // await ProductSelectionPages.goToAcc();
 
       } catch (error) {
             throw new Error(`TC0002 (Comentario) falló: ${error.message}`);

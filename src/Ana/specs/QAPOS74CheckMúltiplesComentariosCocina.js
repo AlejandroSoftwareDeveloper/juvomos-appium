@@ -1,4 +1,4 @@
-
+//QAPOS74CheckMúltiplesComentariosCocina.js
 const OrderSelectionPages = require('../pages/OrderSelectionPages');
 const ProductSelectionPages = require('../pages/ProductSelectionPages');
 const PaymentPages = require('../pages/PaymentPages');
@@ -6,6 +6,7 @@ const EscribirComentario = require('../pages/EscribirComentario');
 const OpenCheck = require('../pages/OpenCheck');
 const CancelarProductos = require('../pages/CancelarProductos');
 const ValidarProductosCheck = require('../pages/ValidarProductosCheck');
+const BreakTest = require('../utils/BreakTest');
 
 
 
@@ -74,6 +75,17 @@ describe('Flujo Check con Multiples Comentarios ', () => {
       }
       
       })
+       //Retornar a la pantalla de inicio
+      it('TC0006: Retorno Inicio', async () => {
+      try {                
+            await BreakTest.closeTOrden();   
+            await BreakTest.botonCancel();            
+            
+      } catch (error) {
+            throw new Error(`TC0006 (Retorno Inicio) falló: ${error.message}`);
+      }
+      });
+                        
 
 
 });

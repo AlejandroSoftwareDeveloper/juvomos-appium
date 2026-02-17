@@ -25,7 +25,7 @@ describe('Crear nuevo check split de orden enviada', () => {
             it('TC0002: Dividir en 4 cuentas', async () => {
             try {
                     await DividirCheck.dividirCheck(4);     
-                    await ProductSelectionPages.goToAcc();                             
+                   // await ProductSelectionPages.goToAcc();                             
                     
             } catch (error) {
                     throw new Error(`TC0002 (Dividir) falló: ${error.message}`);
@@ -39,27 +39,17 @@ describe('Crear nuevo check split de orden enviada', () => {
                     
                     const correos = ['correo.com', 'gmail.com', 'google.com', 'google.cu' ];
                     for (let i = 0; i < correos.length; i++) { 
-                        await pagarEnEfectivoYEnviarCorreo(correos[i]); 
-                        // Solo llamar goToAcc si no es el último correo 
-                        if (i < correos.length - 1) { 
-                            await ProductSelectionPages.goToAcc(); } }
-
+                                      
+                      // if (i === 1 || i === 2 || i === 3) {
+                        await ProductSelectionPages.goToAcc();                       
+                   
+                        await PaymentPages.pagarEnEfectivoYEnviarCorreo(correos[i]);
+                        }
     
             } catch (error) {
             throw new Error(`TC0003 (Pagar y Correo) falló: ${error.message}`);
             }
             });
                         
-            async function pagarEnEfectivoYEnviarCorreo(email) {
-            // Pago en efectivo
-            await PaymentPages.goToPayment();
-            await PaymentPages.waitForPayScreen();
-            await PaymentPages.selectCashPay();
-
-            // Envío de correo
-            await PaymentPages.selectSendEmail();
-            await PaymentPages.enterEmail(email);
-            await PaymentPages.clickSendEmail();
-}
-
+            
  });
