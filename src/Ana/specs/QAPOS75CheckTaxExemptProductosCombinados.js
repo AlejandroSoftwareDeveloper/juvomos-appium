@@ -3,7 +3,7 @@ const ProductSelectionPages = require('../pages/ProductSelectionPages');
 const PaymentPages = require('../pages/PaymentPages');
 const AplicarImpuesto = require('../pages/AplicarImpuesto');
 
-describe('Flujo Check Tax Exempt ', () => {
+describe('Check tax exempt with combine products.', () => {
 
       // Acceder To Go, Agregar 5 productos con precios variables.
       it('TC0001: Seleccionar productos', async () => {

@@ -9,7 +9,7 @@ const ValidarProductosCheck = require('../pages/ValidarProductosCheck');
 //const CancelarProductos = require('../pages/CancelarProductos');
 const BreakTest = require('../utils/BreakTest');
 
-describe('Crear nuevo check split de orden enviada', () => {
+describe('Chequea transferencia. ', () => {
 
     // Agregar 2 items al check 
           it('TC0001: Se crea una cuenta', async () => {

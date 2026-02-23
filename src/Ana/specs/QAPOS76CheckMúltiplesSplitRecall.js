@@ -8,7 +8,7 @@ const OpenCheck = require('../pages/OpenCheck');
 const PaymentPages = require('../pages/PaymentPages');
 const BreakTest = require('../utils/BreakTest');
 
-describe('Crear nuevo check split de orden enviada', () => {
+describe('Check Multiples Split Recall', () => {
 
     // Agregar 8 items al check 
           it('TC0001: Se crea una cuenta', async () => {

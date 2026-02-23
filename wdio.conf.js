@@ -2,30 +2,33 @@ const allure = require('allure-commandline')
 const chai   = require('chai')
 
 const configspecs = {
-     allure_report: false,
+     allure_report: true,
 };
 
 const _url = {
     "alejandro": './src/Alejandro/specs/working/',
-    "ana": './src/Ana/specs/working/',
+    "ana": './src/Ana/specs/*.js',  //  (22)
+    // "vladimir": './src/Vladimir/specs/*.js',
+    // "capote": './src/Capote/specs/*.js',
+    // "ana1": './src/Ana/specs1/*.js',
+    // "ana2": './src/Ana/specs2/*.js',
 }
 
 exports.config = {
     port: 4723,
     specs: [
         // _url.alejandro + 'QAPOS189_194/QAPOS190PinRegistration.js',
-        // _url.alejandro + 'QAPOS189_194/*', // Auth (7)
-        // _url.alejandro + 'QAPOS01_10/*',   //      (1)
-        // _url.alejandro + 'QAPOS121_130/*', //      (1)
-        // _url.alejandro + 'QAPOS131_140/*', //      (0)
-        // _url.alejandro + 'QAPOS141_150/*', //      (0)
-        // _url.alejandro + 'QAPOS171_180/*',
-        // _url.alejandro + 'QAPOS181_188/*', // Revisar estas hoy, hay una que da problema
-        // _url.alejandro + 'QAPOS195_200/*',
-        // _url.alejandro + 'QAPOS200_210/*',
+        _url.alejandro + 'QAPOS189_194/*', // Auth (7)
+        _url.alejandro + 'INITPOS.js',
+        _url.alejandro + 'QAPOS01_10/*',   //      (3)
+        _url.alejandro + 'QAPOS121_130/*', //      (1)
+        _url.alejandro + 'QAPOS171_180/*', //      (6)
+        _url.alejandro + 'QAPOS181_188/*', //      (4) Revisar estas hoy, hay una que da problema
+        _url.alejandro + 'QAPOS195_200/*', //      (5)
+        _url.alejandro + 'QAPOS200_210/*', //      (3)
+        _url.ana,
         // './src/Alejandro/specs/working/INITPOS.js',
-         _url.alejandro + 'INITPOS.js',
-        './src/Ana/specs/*.js',
+        // './src/Ana/specs/*.js',
     ],
     maxInstancesPerCapability:1,
     exclude: [/*'path/to/excluded/files'*/],
@@ -100,3 +103,6 @@ exports.config = {
       global.env  = this
     }
 }
+
+// Click en el frontend a 30 dias
+

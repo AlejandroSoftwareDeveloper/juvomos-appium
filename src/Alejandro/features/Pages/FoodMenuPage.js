@@ -5,7 +5,7 @@ const TEXT_INPUT                 = 'id:com.juvomos.pos:id/search_src_text'
 const RESET_TEXT_INPUT           = '~Borrar consulta'
 // const CUSTOM_CARD             = `(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[${CARD_TO_SELECT}]/android.view.ViewGroup`
 const LEFT_MENU                  =  "~Abrir panel lateral de navegación"
-const MENU_NUMBER                = 7
+const MENU_NUMBER                = 4
 
 class FoodMenuPage {
 

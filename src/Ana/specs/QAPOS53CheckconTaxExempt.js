@@ -4,7 +4,7 @@ const ProductSelectionPages = require('../pages/ProductSelectionPages');
 const PaymentPages = require('../pages/PaymentPages');
 const AplicarImpuesto = require('../pages/AplicarImpuesto');
 
-describe('Flujo Check Tax Exempt ', () => {
+describe('Check with Tax Exempt ', () => {
 
       // Acceder To Go, seleccionar 1 producto
       it('TC0001: Seleccionar productos', async () => {

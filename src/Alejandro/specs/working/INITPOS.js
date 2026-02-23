@@ -49,11 +49,11 @@ describe("Validate start work time process", () => {
 
     // it('Capturar todas las cards', async () => {
     //   let category_url    = '(//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/departmentLayout"])'
-    //   let subcategory_url = ''
+    //   let subcategory_url = '(//android.widget.ViewGroup[@resource-id="com.juvomos.pos:id/categoryRow"])'
     //   let lista           = []
     //   let inc             = 1
     //   while(1){
-    //       url             = category_url + `[${inc}]`
+    //       url             = subcategory_url + `[${inc}]`
     //       temp            = await $(url)
     //       if(!temp.error){
     //           lista.push(url);
