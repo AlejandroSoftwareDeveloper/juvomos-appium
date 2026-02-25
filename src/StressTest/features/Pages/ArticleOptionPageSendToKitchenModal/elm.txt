@@ -1,0 +1,4 @@
+//android.widget.TextView[@resource-id="com.juvomos.pos:id/fireTitle"]
+//android.widget.ImageView[@content-desc="JuvoPOS"]
+//android.widget.Button[@resource-id="com.juvomos.pos:id/btnFireNow"]
+//android.widget.Button[@resource-id="com.juvomos.pos:id/btnApplyFire"]

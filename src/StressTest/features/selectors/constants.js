@@ -88,4 +88,3 @@ export const CUSTOM_CARD =
 export const SECOND_TICKET_LIST =
   '(//androidx.recyclerview.widget.RecyclerView[@resource-id="com.juvomos.pos:id/idTicketListRecycler"])[2]';
 
-export const FOUR_TICKET_LIST ='(//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/linearLayout30"])[4]'; 

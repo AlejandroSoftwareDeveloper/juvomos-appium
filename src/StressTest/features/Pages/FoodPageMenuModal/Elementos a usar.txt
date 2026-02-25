@@ -1,0 +1,8 @@
+
+com.juvomos.pos:id/messageTitle
+com.juvomos.pos:id/imgCloseButton
+com.juvomos.pos:id/btnOrderRecall
+//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Dine In"]
+//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="To Go"]
+//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]
+//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Delivery"]

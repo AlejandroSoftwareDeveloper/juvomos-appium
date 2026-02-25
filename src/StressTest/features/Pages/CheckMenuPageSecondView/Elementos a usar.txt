@@ -1,0 +1,2 @@
+//android.widget.Button[@resource-id="com.juvomos.pos:id/btnRecall"]
+//android.widget.Button[@resource-id="com.juvomos.pos:id/btnPayRecall"]
