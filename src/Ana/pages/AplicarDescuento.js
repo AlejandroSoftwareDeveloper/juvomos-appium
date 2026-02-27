@@ -1,5 +1,6 @@
 const scrollTicketList = require('../utils/scrollTicketList');
 const ProductSelectionPages = require('../pages/ProductSelectionPages');
+const OpenCheck = require('../pages/OpenCheck');
 
 class AplicarDescuento {
 
@@ -53,10 +54,25 @@ async AplicarDescuentoIndividual(cantidad) {
         await this.DescuentoBtn50.waitForDisplayed({ timeout: 10000 });
         await this.DescuentoBtn50.click();
 
-        await ProductSelectionPages.goToAcc();    
+       // await ProductSelectionPages.goToAcc();    
     }
 
 }
+
+    async AplicarDescuentoCheck() {
+        await OpenCheck.accountNumberButton.waitForDisplayed({ timeout: 10000 });
+        await OpenCheck.accountNumberButton.click();
+
+        await this.DescuentoBtn.waitForDisplayed({ timeout: 10000 });
+        await this.DescuentoBtn.click();
+
+        await this.DescuentoBtn50.waitForDisplayed({ timeout: 10000 });
+        await this.DescuentoBtn50.click();
+
+       // await ProductSelectionPages.goToAcc();    
+    }
+
+
    
     
     

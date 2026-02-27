@@ -94,6 +94,7 @@ async procesarCheque(indice, cliente) {
   get employees() {
     return $$('id=com.juvomos.pos:id/employeeData');
   }
+  
 
   // Métodos
   async openTransferMenu() {
@@ -129,7 +130,7 @@ async procesarCheque(indice, cliente) {
     await this.openTransferMenu();
     await this.selectTransferEmployee();
     await this.waitForEmployees();
-    await this.selectRandomEmployee();
+    await this.selectRandomEmployee(); 
     await this.btnTransferencia();
     
     

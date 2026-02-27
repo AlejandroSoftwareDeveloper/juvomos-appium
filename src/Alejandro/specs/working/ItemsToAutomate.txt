@@ -1,0 +1,55 @@
+- Log in 
+- Select order type for here
+- Add item to the check 
+- Add multi price item to the check 
+- Add items with modifers to the check 
+
+- Select an Item 
+- Apply a Tax exempt 
+- Remove a tax exempt 
+- Apply tax exempt again 
+- Substute current tax exempt with another tax exempt 
+- Pay order Cash
+
+
+- Log in 
+- Select order type for here 
+- Add item to the check 
+- Add multi price item to la check 
+- Add items with modifers to the check
+
+- Send check 
+- Recall Check 
+- Select an Item 
+- Apply a tax exempt 
+- Remove a tax exempt 
+- Apply tax exempt again 
+- Substute current tax exempt with another tax exempt 
+- Pay order Cash
+
+
+
+
+- Log in - Select order type for here 
+- Add item to the check 
+- Add multi price item to la check 
+- Add items with modifers to la check 
+- Select Check options 
+- Apply a tax exempt 
+- Remove a tax exempt 
+- Apply tax exempt again 
+- Substute current tax exempt with another tax exempt 
+- Pay order Cash
+
+- Log in 
+- Select order type for here 
+- Add item to the check 
+- Add multi price item to la check 
+- Add items with modifers to la check 
+- Send check - Recall Check 
+- Select check options 
+- Apply a tax exempt 
+- Remove a tax exempt 
+- Apply tax exempt again 
+- Substute current tax exempt with another tax exempt 
+- Pay order Cash

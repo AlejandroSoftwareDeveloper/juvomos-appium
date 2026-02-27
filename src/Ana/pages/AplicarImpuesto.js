@@ -37,16 +37,7 @@ class AplicarImpuesto {
         await item.waitForDisplayed({ timeout: 10000 });
         await item.click();
     }
-    /*async scrollTicketListDown() {
-        await driver.execute('mobile: scrollGesture', {
-        left: 60,
-        top: 650,
-        width: 600,
-        height: 400,
-        direction: 'down',
-        percent: 0.8
-    }); 
-    }*/
+    
     async TaxExemptld() {
         const btnTaxExempt = $('id=com.juvomos.pos:id/btnTaxExempt');
         await btnTaxExempt.waitForDisplayed({ timeout: 5000 });

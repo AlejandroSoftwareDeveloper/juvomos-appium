@@ -12,6 +12,14 @@ class OpenCheck {
     return $('id=com.juvomos.pos:id/txtTicketNumber');
   }
 
+    async  OpenCheckRecall() {
+      await this.accountNumberButton.waitForDisplayed({ timeout: 10000 });
+      await this.accountNumberButton.click();
+      await CancelarProductos.cancel();
+      await CancelarProductos.cold();
+      await CancelarProductos.close();
+      }
+
   get openButton() {
     return $('id=com.juvomos.pos:id/btnOrderRecall');
   }
@@ -50,6 +58,31 @@ class OpenCheck {
   async selectLastCreatedAccount() {
     await this.waitForChecks();
     await this.checksList[0].click();
+    /*const firstText = (await this.checksList[0].getText()).trim();
+    const secondText = (await this.checksList[1].getText()).trim();
+
+    if (firstText.endsWith('.1')) {
+        await this.checksList[0].click();
+        return;
+    }
+
+    if (secondText.endsWith('.1')) {
+        await this.checksList[1].click();
+        return;
+    }*/
+    // Recorremos los primeros dos elementos
+    /*  for (let i = 0; i < 2; i++) {
+          const ticket = this.checksList[i];
+          // Buscamos el TextView que tiene el número de cuenta
+          const ticketTextElement = await ticket.$('id=com.juvomos.pos:id/itemInvoiceName');
+          const ticketText = (await ticketTextElement.getText()).trim();
+
+          if (ticketText.endsWith('.1')) {
+              await ticket.click();
+              return;
+          }
+      }*/
+
   }
 
   async selectAccount(accountNumber) {

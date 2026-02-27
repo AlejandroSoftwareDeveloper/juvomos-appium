@@ -9,8 +9,6 @@ const _url = {
     "alejandro": './src/Alejandro/specs/working/',
     "ana": './src/Ana/specs/*.js',  //  (22)
     // "vladimir": './src/Vladimir/specs/*.js',
-    // "capote": './src/Capote/specs/*.js',
-    // "ana1": './src/Ana/specs1/*.js',
     // "ana2": './src/Ana/specs2/*.js',
 }
 
@@ -20,23 +18,20 @@ exports.config = {
         // _url.alejandro + 'QAPOS189_194/QAPOS190PinRegistration.js',
         // _url.alejandro + 'QAPOS189_194/*', // Auth (7)
         // _url.alejandro + 'INITPOS.js',
+       
+        
         // _url.alejandro + 'QAPOS01_10/*',   //      (3)
-        _url.alejandro + 'QAPOS100_110/*', //      (3)
+        // _url.alejandro + 'QAPOS11_20/QAPOS16.js',
+        // _url.alejandro + 'TOTEST/*',
+        // _url.alejandro + 'QAPOS161_170/*.js',
+        // _url.alejandro + 'QAPOS100_110/*', //      (3)
         // _url.alejandro + 'QAPOS121_130/*', //      (1)
+        // _url.alejandro + 'QAPOS131_140U/*',
         // _url.alejandro + 'QAPOS171_180/*', //      (6)
         // _url.alejandro + 'QAPOS181_188/*', //      (4) Revisar estas hoy, hay una que da problema
         // _url.alejandro + 'QAPOS195_200/*', //      (5)
         // _url.alejandro + 'QAPOS200_210/*', //      (3)
-        // _url.ana,
-
-        // // Para ejecutar hoy
-        // './src/Alejandro/specs/working/QAPOS189_194/*.js'
-        // './src/Alejandro/specs/working/QAPOS01_10/*.js'
-        // './src/Alejandro/specs/working/QAPOS121_130/*.js'
-        // './src/Alejandro/specs/working/QAPOS171_180/*.js'
-        // './src/Alejandro/specs/working/QAPOS181_188/*.js'
-        // './src/Alejandro/specs/working/QAPOS195_200/*.js'
-        // './src/Alejandro/specs/working/QAPOS200_210/*.js'
+        _url.ana,
         // './src/Alejandro/specs/working/INITPOS.js'
         //
         // './src/StressTest/specs/working/StressTest.js',
