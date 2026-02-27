@@ -21,17 +21,18 @@ exports.config = {
        
         
         // _url.alejandro + 'QAPOS01_10/*',   //      (3)
-        // _url.alejandro + 'QAPOS11_20/QAPOS16.js',
-        // _url.alejandro + 'TOTEST/*',
-        // _url.alejandro + 'QAPOS161_170/*.js',
-        // _url.alejandro + 'QAPOS100_110/*', //      (3)
-        // _url.alejandro + 'QAPOS121_130/*', //      (1)
-        // _url.alejandro + 'QAPOS131_140U/*',
-        // _url.alejandro + 'QAPOS171_180/*', //      (6)
-        // _url.alejandro + 'QAPOS181_188/*', //      (4) Revisar estas hoy, hay una que da problema
-        // _url.alejandro + 'QAPOS195_200/*', //      (5)
-        // _url.alejandro + 'QAPOS200_210/*', //      (3)
-        _url.ana,
+        // _url.alejandro + 'QAPOS11_20/*',
+        // _url.alejandro + 'QAPOS31_40/*',
+        _url.alejandro + 'QAPOS100_110/*', //      (3)
+        _url.alejandro + '/QAPOS121_130/*',
+        _url.alejandro + 'QAPOS131_140/*',
+        _url.alejandro + 'QAPOS161_170/*',
+        _url.alejandro + 'QAPOS171_180/*', //      (6)
+        _url.alejandro + 'QAPOS181_188/*', //      (4) Revisar estas hoy, hay una que da problema
+        _url.alejandro + 'QAPOS195_200/*', //      (5)
+        _url.alejandro + 'QAPOS200_210/*', //      (3)
+
+        // _url.ana,
         // './src/Alejandro/specs/working/INITPOS.js'
         //
         // './src/StressTest/specs/working/StressTest.js',
