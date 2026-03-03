@@ -8,7 +8,7 @@ const OpenCheck = require('../pages/OpenCheck');
 const ValidarProductosCheck = require('../pages/ValidarProductosCheck');
 const BreakTest = require('../utils/BreakTest');
 
-describe('Split add new item', () => {
+describe('Crear nuevo check split de orden enviada', () => {
 
     // Agregar 3 items al check 
           it('TC0001: Se crea una cuenta', async () => {

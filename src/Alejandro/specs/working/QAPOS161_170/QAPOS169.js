@@ -25,29 +25,33 @@ describe('Mostrar mesa en el recall.', () => {
         // Insertar cliente
        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/one_btn_pin"]').click()
        await $('//android.widget.ImageView[@resource-id="com.juvomos.pos:id/checkBigImage"]').click()
-       //
+       
        // Ir a la cuenta 
        await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/category_product_name" and @text="Apache"]').click()
        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnShowOrder"]').click()
        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnSendPointOfSale"]').click()
 
 
+    it('TC0002: Chequear que la mesa esta en el check', async () => {
         // Chequear que la mesa esta en el check
        const text = await $(`(//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/layout_check_detail_item"])[1]//android.widget.TextView[@resource-id="com.juvomos.pos:id/txtValueTableCheck"]`)
+
        expect(!text.error).toBe(true)
        await $('//android.widget.ImageView[@resource-id="com.juvomos.pos:id/imgCloseButtonSecondary"]').click()
+    })
 
 
-
-
+    it('TC0003: Clean table.', async () => {
         // limpiar la mesa
-       await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Dine In"]').click()
-       await $(`(//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/tableItemGeneralLayout"])[${tablenumber}]`).click()
-       await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnRecall"]').click()
-       await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/txtTicketNumber"]').click()
-       await $('//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/btnVoid"]').click()
-       await $('//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/voidGeneralLayout"]').click()
-       await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/voidCloseButton"]').click()
+        await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Dine In"]').click()
+        await $(`(//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/tableItemGeneralLayout"])[${tablenumber}]`).click()
+        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/btnRecall"]').click()
+        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/txtTicketNumber"]').click()
+        await $('//android.widget.LinearLayout[@resource-id="com.juvomos.pos:id/btnVoid"]').click()
+        await $('//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/voidGeneralLayout"]').click()
+        await $('//android.widget.Button[@resource-id="com.juvomos.pos:id/voidCloseButton"]').click()
+
+    })
 
     })
 })

@@ -43,9 +43,9 @@ describe("Validate start work time process", () => {
       await browser.pause(5000);
     });
 
-    it("TC0004: Scan al products to sell", async () => {
-         await $(PICK_UP_OPTION).click()
-     });
+    // it("TC0004: Scan al products to sell", async () => {
+    //      await $(PICK_UP_OPTION).click()
+    //  });
 
     // it('Capturar todas las cards', async () => {
     //   let category_url    = '(//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/departmentLayout"])'

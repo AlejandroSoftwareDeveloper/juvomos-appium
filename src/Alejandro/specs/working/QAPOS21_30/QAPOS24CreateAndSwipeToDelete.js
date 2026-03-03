@@ -37,7 +37,7 @@ describe('QAPOS24 Create and swipe to delete', () => {
         actions: [
           { type: 'pointerMove', duration: 0, x: 85, y: 639 },
           { type: 'pointerDown', button: 0 },
-          { type: 'pointerMove', duration: 1000, x: 649, y: 649 },
+          { type: 'pointerMove', duration: 500, x: 649, y: 649 }, // 1000
           { type: 'pointerUp', button: 0 }
         ]
       }

@@ -6,7 +6,7 @@ import CheckMenuPageSecondView      from '../../../features/Pages/CheckMenuPageS
 import DeleteMultipleOrders         from '../../../features/RepeatedFlows/DeleteMultipleOrders.js'
 import DiscountPage                 from '../../../features/Pages/DiscountPage/DiscountPage.js'
 
-// > Agregar nuevo item Agregar nuevo item con modificador 
+// Agregar nuevo item Agregar nuevo item con modificador 
 // Aplicar descuento
 // al modificador Clic en kitchen 
 // Comment Clic en Repeat Eliminar el comentario
@@ -26,11 +26,11 @@ describe("Add item with discount, add and remove discount",()=>{
 
         await FoodMenuPage.click_account_btn()
         await CheckMenuPage.click_first_item()
-        
+
     })
- 
+
     it("TC0002: Add discount",async() => {
-       await this.apply_discount_from_check()
+       await apply_discount_from_check()
     })
 
     it("TC0003: Add comment to item",async()=>{
@@ -52,7 +52,7 @@ describe("Add item with discount, add and remove discount",()=>{
     it("TC0004: Remove comment to second item",async()=>{
         await FoodMenuPage.click_account_btn()
         await CheckMenuPage.click_second_item()
-        
+
         //Click eliminar comentarios
         await $("id:com.juvomos.pos:id/btnKitchenComment").click()
         await $("id:com.juvomos.pos:id/deleteCommentBtn").click()

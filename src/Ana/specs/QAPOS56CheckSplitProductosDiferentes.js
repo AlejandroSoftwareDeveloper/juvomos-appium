@@ -5,7 +5,7 @@ const ProductSelectionPages = require('../pages/ProductSelectionPages');
 const DividirCheck = require('../pages/DividirCheck');
 const PaymentPages = require('../pages/PaymentPages');
 
-describe('Chequea division de productos diferentes ', () => {
+describe('Crear nuevo check split de orden enviada', () => {
 
     // Agregar 4 items al check 
           it('TC0001: Se crea una cuenta', async () => {

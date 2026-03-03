@@ -1,16 +1,19 @@
 import { BTN_SHOW_ORDER, PICK_UP_OPTION, } from '../../../features/selectors/constants.js'
 
+const card_number = 4
+
+
 describe("Send food to coock", () => {
 
-    const CUSTOM_CARD = '(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[7]/android.view.ViewGroup' 
+    const CUSTOM_CARD = '(//androidx.cardview.widget.CardView[@resource-id="com.juvomos.pos:id/itemGeneralLayout"])[' + card_number + ']/android.view.ViewGroup' 
 
     it("TC0001: Pick up option to send to kitchen.", async () => {
-         await $(PICK_UP_OPTION).click()
-
+       await $(PICK_UP_OPTION).click()
     });
 
     it("TC0002: Select custom card for test.", async () => {
-          await $(CUSTOM_CARD).click()
+       await $(CUSTOM_CARD).click()
+
     });
 
     it("TC0003: Pick up again custom option.", async () => {

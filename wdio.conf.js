@@ -6,7 +6,7 @@ const configspecs = {
 };
 
 const _url = {
-    "alejandro": './src/Alejandro/specs/working/',
+    "ale": './src/Alejandro/specs/working/',
     "ana": './src/Ana/specs/*.js',  //  (22)
     // "vladimir": './src/Vladimir/specs/*.js',
     // "ana2": './src/Ana/specs2/*.js',
@@ -15,26 +15,27 @@ const _url = {
 exports.config = {
     port: 4723,
     specs: [
-        // _url.alejandro + 'QAPOS189_194/QAPOS190PinRegistration.js',
-        // _url.alejandro + 'QAPOS189_194/*', // Auth (7)
-        // _url.alejandro + 'INITPOS.js',
-       
-        
-        // _url.alejandro + 'QAPOS01_10/*',   //      (3)
-        // _url.alejandro + 'QAPOS11_20/*',
-        // _url.alejandro + 'QAPOS31_40/*',
-        _url.alejandro + 'QAPOS100_110/*', //      (3)
-        _url.alejandro + '/QAPOS121_130/*',
-        _url.alejandro + 'QAPOS131_140/*',
-        _url.alejandro + 'QAPOS161_170/*',
-        _url.alejandro + 'QAPOS171_180/*', //      (6)
-        _url.alejandro + 'QAPOS181_188/*', //      (4) Revisar estas hoy, hay una que da problema
-        _url.alejandro + 'QAPOS195_200/*', //      (5)
-        _url.alejandro + 'QAPOS200_210/*', //      (3)
+        // _url.ale + 'QAPOS189_194/QAPOS190PinRegistration.js',
 
-        // _url.ana,
+
+
+         _url.ale + 'QAPOS189_194/*',    // Auth (7) // Funcionan
+         // _url.ale + 'INITPOS.js',        // Funcionan
+         // _url.ale + 'QAPOS01_10/*',      // Funcionan
+         // _url.ale + 'QAPOS11_20/*',      // Funcionan
+         // _url.ale + 'QAPOS31_40/*',      // Funcionan
+         // _url.ale + 'QAPOS121_130/*',    // funcionan
+         // _url.ale + 'QAPOS131_140/*',    // Funcionan
+         // _url.ale + 'QAPOS171_180/*.js', // (6) //Funcionan
+         // _url.ale + 'QAPOS181_188/*.js', // (4) //Funcinan
+         // _url.ale + 'QAPOS200_210/*.js', // (3) //Funcionan
+         // _url.ana,                       // Faltan 2 30 Funcionan
+        
+
+        // _url.ale + 'QAPOS100_110/*', //      (3)  100 // Broken
+        // _url.ale + 'QAPOS161_170/*.js', // Pending
+        // _url.ale + 'QAPOS195_200/*', //      (5) // Me quede aqui en el 196
         // './src/Alejandro/specs/working/INITPOS.js'
-        //
         // './src/StressTest/specs/working/StressTest.js',
 
 

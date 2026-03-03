@@ -1,8 +1,12 @@
 describe('Check With Evenly Split', () => {
     let item = 4
-
     let noerr1 = null
     let noerr2 = null
+
+    const Button       = (id) => `//android.widget.Button[@resource-id="com.juvomos.pos:id/${id}"]`
+    const ViewGroup    = (io) => `//android.view.ViewGroup[@resource-id="com.juvomos.pos:id/${id}"]`
+    const LinearLayOut = (io) => `//android.view.LinearLayout[@resource-id="com.juvomos.pos:id/${id}"]`
+
 
     it('Create check with modifiers evenly split and verify that items with modifiers', async () => {
         await $('//android.widget.TextView[@resource-id="com.juvomos.pos:id/orderTypeName" and @text="Pick Up"]').click()
@@ -65,7 +69,7 @@ describe('Check With Evenly Split', () => {
             await $('//android.widget.ImageView[@resource-id="com.juvomos.pos:id/imgCloseButtonSecondary"]').click()
             return false
         }
-        //
+      
         // // //Divide el objeto
         await $('//android.widget.ImageButton[@content-desc="Navegar hacia arriba"]').click()
 

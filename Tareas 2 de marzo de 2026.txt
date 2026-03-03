@@ -1,0 +1,27 @@
+QAPOS173	Pay and adjust checks via recall
+            Go to Recall Clic en Pay 
+            Pay the check Adjust the payment 
+            Delete pay Pay the check		
+        
+QAPOS179	Repeat and delete item	
+            Agregar nuevo item Agregar nuevo item con modificador 
+            Aplicar descuento al modificador Clic en 
+            Repeat Eliminar el articulo repetido	
+            Se elimina el articulo repetido	
+
+QAPOS185	Split costumer	
+            Agregar 3 items al check 
+            Crear 2 checks split 
+            Agregar 2 items a un check y el otro en un solo check 
+            Asociar un customer a cada cheque dividido Click send Recall	
+            Luego del recall verificar que los checks tenga asociado un cliente	
+
+QAPOS186	Split tab	
+            Agregar 3 items al check
+            Crear 2 checks split Agregar 2 items a un check y el otro en un solo check 
+            Asociar un tab name a cada cheque dividido Click send Recall
+
+QAPOS187	Transferir item anulado	Recall a check 
+            Click item Clic void Clic item anulado 
+            Click transfer	
+            El botón de transfer no deberia estar habilitado
